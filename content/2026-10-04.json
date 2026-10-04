@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "date": "2026-10-04",
-  "generatedAt": "2026-10-04T08:59:55+00:00",
+  "generatedAt": "2026-10-04T09:05:53+00:00",
   "words": [
     {
       "word": "Pivot",
@@ -161,197 +161,202 @@
   "news": {
     "india": [
       {
-        "text": "Reliance aims to address local concerns regarding a proposed data centre project in Bhogapuram, emphasizing job creation and cooperation from landowners.",
-        "source": "The Hindu",
-        "url": "https://www.thehindu.com/news/national/andhra-pradesh/reliance-data-centre-at-bhogapuram-will-create-jobs-says-collector-after-farmers-protest/article71542907.ece"
-      },
-      {
-        "text": "Political leaders Uddhav and Raj Thackeray led a joint protest in Mumbai demanding the resignation of the Chief Election Commissioner over electoral roll revisions.",
-        "source": "NDTV",
-        "url": "https://www.ndtv.com/india-news/uddhav-thackeray-raj-thackeray-lead-mumbai-protest-against-poll-body-chief-gyanesh-kumar-virat-garjana-morcha-scrap-sir-evms-12136517#publisher=newsstand"
-      },
-      {
-        "text": "The government raised the deepwater natural gas price ceiling to $9.89 per MMBtu for the upcoming period while keeping legacy field caps unchanged.",
+        "text": "The Union government raised the price ceiling for deepwater natural gas to $9.89 per MMBtu while maintaining the APM gas cap at $7.",
         "source": "The Hindu Business",
         "url": "https://www.thehindu.com/business/government-raises-deepwater-gas-price-ceiling-to-989mmbtu-apm-gas-cap-at-7/article71543103.ece"
       },
       {
-        "text": "Air Force Chief AP Singh expressed concern over the collaboration between Pakistan and China on fifth-generation fighter jet development.",
-        "source": "NDTV",
-        "url": "https://www.ndtv.com/india-news/cause-for-worry-chief-of-air-staff-air-chief-marshal-ap-singh-flags-pakistan-china-fighter-jet-collaboration-12136402#publisher=newsstand"
-      },
-      {
-        "text": "The Indian Air Force expects to finalize the multi-role fighter aircraft deal by the end of fiscal year 2027.",
+        "text": "The Indian Air Force expects to conclude the 114 Multi-Role Fighter Aircraft acquisition deal by the end of fiscal year 2027.",
         "source": "The Hindu Business",
         "url": "https://www.thehindu.com/news/national/india-may-finalise-mrfa-deal-by-current-financial-year-iaf-chief/article71540116.ece"
       },
       {
-        "text": "The Central Bureau of Investigation filed a charge sheet against Reliance Communications and others in an alleged ₹3,750 crore fraud case.",
+        "text": "Air Chief Marshal AP Singh flagged Pakistan's collaboration with China on fifth-generation fighter jets as a serious security concern for India.",
+        "source": "NDTV",
+        "url": "https://www.ndtv.com/india-news/cause-for-worry-chief-of-air-staff-air-chief-marshal-ap-singh-flags-pakistan-china-fighter-jet-collaboration-12136402#publisher=newsstand"
+      },
+      {
+        "text": "The Central Bureau of Investigation filed a charge sheet against Reliance Communications and others over an alleged 3,750 crore rupee LIC fraud.",
         "source": "The Hindu Business",
         "url": "https://www.thehindu.com/business/Industry/cbi-files-charge-sheet-against-rcom-others-in-3750-crore-lic-fraud-case/article71540573.ece"
       },
       {
-        "text": "Reserve Bank of India Governor outlined five key priorities to maintain financial stability amid growing global economic risks.",
+        "text": "Uddhav Thackeray and Raj Thackeray led a joint protest in Mumbai demanding the cancellation of the Election Commission's Special Intensive Revision of electoral rolls.",
+        "source": "NDTV",
+        "url": "https://www.ndtv.com/india-news/uddhav-thackeray-raj-thackeray-lead-mumbai-protest-against-poll-body-chief-gyanesh-kumar-virat-garjana-morcha-scrap-sir-evms-12136517#publisher=newsstand"
+      },
+      {
+        "text": "An independent panel of retired Supreme Court and high court judges has convened to examine the legality of the Election Commission's Special Intensive Revision.",
+        "source": "Mint",
+        "url": "https://www.livemint.com/news/india/election-commission-sir-2026-meet-five-retired-supreme-court-high-judges-panel-examining-legality-impact-on-voters-11791097357711.html"
+      },
+      {
+        "text": "The Reserve Bank of India outlined five key priorities to preserve financial stability amid emerging risks across domestic and global markets.",
         "source": "The Hindu Business",
         "url": "https://www.thehindu.com/business/rbi-chief-lays-down-5-key-priorities-to-maintain-financial-stability-amidst-emerging-risks/article71540523.ece"
       },
       {
-        "text": "Security forces deployed heavy barricades and personnel in Delhi as political protests entered a third consecutive day over law enforcement and electoral issues.",
-        "source": "Hindustan Times",
-        "url": "https://www.hindustantimes.com/india-news/delhi-police-jantar-mantar-protest-citizens-march-indian-youth-congress-india-gate-101791100819647.html"
+        "text": "The Securities and Exchange Board of India is examining position limits for non-agricultural commodity contracts to enhance market liquidity.",
+        "source": "The Hindu Business",
+        "url": "https://www.thehindu.com/business/sebi-examining-position-limits-for-non-agri-contracts-to-boost-liquidity/article71540271.ece"
+      },
+      {
+        "text": "The Supreme Court scheduled a hearing on the proposed relocation and preservation of the historic 135-year-old Central Secretariat Library.",
+        "source": "Mint",
+        "url": "https://www.livemint.com/news/india/85-lakh-books-135-years-of-history-supreme-court-to-hear-case-on-relocation-of-central-secretariat-library-on-monday-11791087091055.html"
       }
     ],
     "world": [
       {
-        "text": "German Chancellor Friedrich Merz made an unannounced visit to Kyiv for talks with President Volodymyr Zelenskyy in a show of support for Ukraine.",
+        "text": "German Chancellor Friedrich Merz made an unannounced visit to Kyiv to meet President Zelenskyy in a show of support for Ukraine.",
         "source": "The Hindu",
         "url": "https://www.thehindu.com/news/international/germanys-merz-in-kyiv-for-talks-with-zelenskyy/article71543190.ece"
       },
       {
-        "text": "Brazilians head to the polls for a highly polarized presidential election pitting left-wing incumbent Luiz Inacio Lula da Silva against Flávio Bolsonaro.",
+        "text": "Brazilians head to the polls in a high-stakes presidential election pitting left-wing incumbent Lula against Flávio Bolsonaro.",
         "source": "The Guardian",
         "url": "https://www.theguardian.com/world/2026/oct/04/brazil-presidential-election-lula-flavio-bolsonaro"
       },
       {
-        "text": "North Korea conducted an intermediate-range strategic missile drill following heightened tensions and disputes with South Korea over military incidents.",
-        "source": "The Hindu",
-        "url": "https://www.thehindu.com/news/international/north-korea-says-it-conducted-intermediate-range-strategic-missile-drill/article71541953.ece"
+        "text": "North Korea launched an intermediate-range ballistic missile toward the sea following escalating tensions with South Korea.",
+        "source": "The Guardian",
+        "url": "https://www.theguardian.com/world/2026/oct/03/north-korea-launches-ballistic-missile-after-seoul-demands-apology-over-wounded-soldiers"
       },
       {
-        "text": "Tens of thousands of protesters demonstrated across Spain over a severe housing crisis after the government failed to pass emergency legislation.",
+        "text": "The US Coast Guard discovered debris from a missing medical transport aircraft off the coast of Massachusetts.",
+        "source": "The Guardian",
+        "url": "https://www.theguardian.com/us-news/2026/oct/03/us-coast-guard-missing-air-ambulance-massachusetts"
+      },
+      {
+        "text": "Tens of thousands of people protested across Spain over an escalating housing crisis after emergency legislation stalled in parliament.",
         "source": "BBC",
         "url": "https://www.bbc.co.uk/news/articles/cm2kej47095no?at_medium=RSS&at_campaign=rss"
-      },
-      {
-        "text": "Australian police and security agencies launched an investigation into the background of a Flydubai co-pilot linked to an alleged cockpit incident.",
-        "source": "BBC",
-        "url": "https://www.bbc.co.uk/news/articles/cxly4nym57q9o?at_medium=RSS&at_campaign=rss"
       }
     ]
   },
   "videos": {
     "hero": {
-      "id": "eL-bfL_K8z8",
-      "title": "Why The Greatest Authors Still Understand You | Rich Cohen",
+      "id": "5opCN8cNkoM",
+      "title": "7 Stoic Strategies To Deal With Jerks",
       "channel": "Daily Stoic",
       "category": "philosophy",
-      "url": "https://www.youtube.com/watch?v=eL-bfL_K8z8",
-      "thumbnail": "https://i.ytimg.com/vi/eL-bfL_K8z8/hqdefault.jpg",
-      "published": "2026-10-03"
+      "url": "https://www.youtube.com/watch?v=5opCN8cNkoM",
+      "thumbnail": "https://i.ytimg.com/vi/5opCN8cNkoM/hqdefault.jpg",
+      "published": "2026-10-01"
     },
     "more": [
       {
-        "id": "DV9pVzqQPR0",
-        "title": "Dear bollywood, STOP THIS!!!",
-        "channel": "Mohak Mangal",
+        "id": "tv4VaJW_DDI",
+        "title": "IH-002: How Did the Indus Civilization Begin? | The Rise of the Harappans",
+        "channel": "History of India Explained",
         "category": "india",
-        "url": "https://www.youtube.com/watch?v=DV9pVzqQPR0",
-        "thumbnail": "https://i.ytimg.com/vi/DV9pVzqQPR0/hqdefault.jpg",
-        "published": "2026-09-28"
-      },
-      {
-        "id": "E7pl0tqzIUQ",
-        "title": "The Truth About Leveraged ETFs",
-        "channel": "Ben Felix",
-        "category": "money",
-        "url": "https://www.youtube.com/watch?v=E7pl0tqzIUQ",
-        "thumbnail": "https://i.ytimg.com/vi/E7pl0tqzIUQ/hqdefault.jpg",
+        "url": "https://www.youtube.com/watch?v=tv4VaJW_DDI",
+        "thumbnail": "https://i.ytimg.com/vi/tv4VaJW_DDI/hqdefault.jpg",
         "published": "2026-09-27"
       },
       {
-        "id": "PXuQ5ZEBfTA",
-        "title": "Why Botswana Got So Wealthy",
-        "channel": "Wendover Productions",
+        "id": "T-oXyXwD6sE",
+        "title": "Anthropic Just Filed to Go Public. Does the Math Add Up?",
+        "channel": "Patrick Boyle",
+        "category": "money",
+        "url": "https://www.youtube.com/watch?v=T-oXyXwD6sE",
+        "thumbnail": "https://i.ytimg.com/vi/T-oXyXwD6sE/hqdefault.jpg",
+        "published": "2026-09-26"
+      },
+      {
+        "id": "KiB3YHyDcbs",
+        "title": "How Airbnb Hopes to Build Brand Loyalty | Quantum Marketing",
+        "channel": "Bloomberg Originals",
         "category": "business",
-        "url": "https://www.youtube.com/watch?v=PXuQ5ZEBfTA",
-        "thumbnail": "https://i.ytimg.com/vi/PXuQ5ZEBfTA/hqdefault.jpg",
+        "url": "https://www.youtube.com/watch?v=KiB3YHyDcbs",
+        "thumbnail": "https://i.ytimg.com/vi/KiB3YHyDcbs/hqdefault.jpg",
         "published": "2026-09-30"
       },
       {
-        "id": "OuNKBjuV7A4",
-        "title": "DHH has gone completely off the rails...",
+        "id": "c1rPlzxSZ8E",
+        "title": "Meta is pivoting again... everything you missed from Connect 2026",
         "channel": "Fireship",
         "category": "ai",
-        "url": "https://www.youtube.com/watch?v=OuNKBjuV7A4",
-        "thumbnail": "https://i.ytimg.com/vi/OuNKBjuV7A4/hqdefault.jpg",
-        "published": "2026-09-28"
+        "url": "https://www.youtube.com/watch?v=c1rPlzxSZ8E",
+        "thumbnail": "https://i.ytimg.com/vi/c1rPlzxSZ8E/hqdefault.jpg",
+        "published": "2026-09-25"
       },
       {
-        "id": "2-BjkO6Br_E",
-        "title": "6 Mindsets That Make People Respect You During Conflict",
-        "channel": "Charisma on Command",
+        "id": "rOnSVOXISOQ",
+        "title": "Why Adults Today Are Okay With Just Being Okay",
+        "channel": "Psych2Go",
         "category": "mind",
-        "url": "https://www.youtube.com/watch?v=2-BjkO6Br_E",
-        "thumbnail": "https://i.ytimg.com/vi/2-BjkO6Br_E/hqdefault.jpg",
-        "published": "2026-09-28"
+        "url": "https://www.youtube.com/watch?v=rOnSVOXISOQ",
+        "thumbnail": "https://i.ytimg.com/vi/rOnSVOXISOQ/hqdefault.jpg",
+        "published": "2026-09-27"
       },
       {
-        "id": "748WJ7ydG_s",
-        "title": "Why America keeps losing wars",
-        "channel": "CaspianReport",
+        "id": "kN2yEEMeIFA",
+        "title": "World War I: Fate of Armenians, Georgians, Azerbaijanis, Kurds and Assyrians",
+        "channel": "Kings and Generals",
         "category": "history",
-        "url": "https://www.youtube.com/watch?v=748WJ7ydG_s",
-        "thumbnail": "https://i.ytimg.com/vi/748WJ7ydG_s/hqdefault.jpg",
-        "published": "2026-09-21"
+        "url": "https://www.youtube.com/watch?v=kN2yEEMeIFA",
+        "thumbnail": "https://i.ytimg.com/vi/kN2yEEMeIFA/hqdefault.jpg",
+        "published": "2026-09-20"
       },
       {
-        "id": "0NY2gAftzJE",
-        "title": "This Woman Cured Her Cancer with an Insane Method",
+        "id": "Cyl3X88KEgg",
+        "title": "Why Humanity Will Never Leave The Solar System",
         "channel": "Kurzgesagt",
         "category": "science",
-        "url": "https://www.youtube.com/watch?v=0NY2gAftzJE",
-        "thumbnail": "https://i.ytimg.com/vi/0NY2gAftzJE/hqdefault.jpg",
-        "published": "2026-09-15"
+        "url": "https://www.youtube.com/watch?v=Cyl3X88KEgg",
+        "thumbnail": "https://i.ytimg.com/vi/Cyl3X88KEgg/hqdefault.jpg",
+        "published": "2026-08-04"
       }
     ]
   },
   "podcasts": [
     {
-      "id": "philosophize-this-episode-185-should-we-prepare-for-an-ai-revolution",
-      "title": "Episode #185 ... Should we prepare for an AI revolution?",
+      "id": "philosophize-this-episode-184-is-artificial-intelligence-really-an-existential-r",
+      "title": "Episode #184 ... Is Artificial Intelligence really an existential risk?",
       "show": "Philosophize This!",
       "category": "philosophy",
-      "audioUrl": "https://traffic.libsyn.com/secure/philosophizethis/generative_AI_01.mp3?dest-id=144660",
-      "link": "https://philosophizethis.libsyn.com/episode-185-should-we-prepare-for-an-ai-revolution",
-      "durationSec": 2312
+      "audioUrl": "https://traffic.libsyn.com/secure/philosophizethis/AGI_RISK.mp3?dest-id=144660",
+      "link": "https://philosophizethis.libsyn.com/episode-184-is-ai-really-an-existential-risk",
+      "durationSec": 2121
     },
     {
-      "id": "lex-fridman-podcast-498-anthony-kaldellis-roman-empire-byzantine-empire-rise-fal",
-      "title": "#498 – Anthony Kaldellis: Roman Empire, Byzantine Empire, Rise & Fall of Empires",
+      "id": "lex-fridman-podcast-497-biggest-mysteries-in-physics-antimatter-dark-energy-toe-",
+      "title": "#497 – Biggest Mysteries in Physics: Antimatter, Dark Energy & ToE – Don Lincoln",
       "show": "Lex Fridman Podcast",
       "category": "ai",
-      "audioUrl": "https://media.blubrry.com/takeituneasy/ins.blubrry.com/takeituneasy/lex_ai_anthony_kaldellis.mp3",
-      "link": "https://lexfridman.com/anthony-kaldellis/?utm_source=rss&utm_medium=rss&utm_campaign=anthony-kaldellis",
-      "durationSec": null
+      "audioUrl": "https://media.blubrry.com/takeituneasy/ins.blubrry.com/takeituneasy/lex_ai_don_lincoln.mp3",
+      "link": "https://lexfridman.com/don-lincoln/?utm_source=rss&utm_medium=rss&utm_campaign=don-lincoln",
+      "durationSec": 10912
     }
   ],
   "onThisDay": [
     {
       "year": 1997,
       "kind": "born",
-      "text": "Rishabh Pant, celebrated for his aggressive batting and historic Test match victories, was born, becoming a modern icon of Indian cricket.",
+      "text": "Rishabh Pant, celebrated Indian cricketer known for his aggressive batting and historic Test match victories abroad, was born.",
       "url": "https://en.wikipedia.org/wiki/Rishabh_Pant",
       "india": true
     },
     {
       "year": 1884,
       "kind": "born",
-      "text": "Acharya Ramchandra Shukla, who laid the foundation for modern Hindi literary criticism and history, was born.",
+      "text": "Ramchandra Shukla, a pioneering Hindi critic and historian whose work shaped modern Indian literary studies, was born.",
       "url": "https://en.wikipedia.org/wiki/Ramchandra_Shukla",
       "india": true
     },
     {
       "year": 1927,
       "kind": "event",
-      "text": "Gutzon Borglum and about 400 workers began sculpting Mount Rushmore, creating one of America's most famous monumental landmarks.",
+      "text": "Gutzon Borglum and 400 workers began sculpting Mount Rushmore, creating one of America's most iconic and controversial monuments.",
       "url": "https://en.wikipedia.org/wiki/Gutzon_Borglum",
       "india": false
     },
     {
-      "year": 1862,
+      "year": 1917,
       "kind": "event",
-      "text": "Confederate commanders surrendered Galveston Harbor to Union forces after a naval battle during the American Civil War.",
-      "url": "https://en.wikipedia.org/wiki/American_Civil_War",
+      "text": "Allies devastated German defenses at the Battle of Broodseinde during World War I, causing a severe crisis in German command.",
+      "url": "https://en.wikipedia.org/wiki/World_War_I",
       "india": false
     }
   ]
