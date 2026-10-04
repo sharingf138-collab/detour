@@ -6,6 +6,7 @@ import android.content.ContextWrapper
 import android.view.WindowManager
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -210,7 +211,7 @@ fun PlayerScreen(onClose: () -> Unit) {
                 style = MaterialTheme.typography.bodySmall, color = if (audio.sleepAtMs != null) Ink.Sign else Ink.Fog,
             )
             Spacer(Modifier.height(10.dp))
-            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+            Row(Modifier.horizontalScroll(rememberScrollState()), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                 FilterPill("Off", audio.sleepAtMs == null, Ink.Sign) { app.audio.sleepIn(null) }
                 listOf(15, 30, 45, 60).forEach { m ->
                     FilterPill("$m min", false, Ink.Sign) { app.audio.sleepIn(m) }
