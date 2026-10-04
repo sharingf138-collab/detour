@@ -9,6 +9,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -49,6 +50,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
+import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -76,7 +78,6 @@ fun YouScreen() {
     val context = LocalContext.current
     val app = context.container
     val settings by app.prefs.settings.collectAsStateWithLifecycle()
-    val day by remember { app.days.todayFlow() }.collectAsStateWithLifecycle(null)
     val days by remember { app.days.recent() }.collectAsStateWithLifecycle(emptyList())
     val content by app.content.content.collectAsStateWithLifecycle()
     val refreshing by app.content.refreshing.collectAsStateWithLifecycle()
@@ -94,27 +95,46 @@ fun YouScreen() {
 
     val notifyLauncher = rememberLauncherForActivityResult(ActivityResultContracts.RequestPermission()) { resumes++ }
     var pickBedtime by remember { mutableStateOf(false) }
+    var selectedDay by remember { mutableIntStateOf(-1) }
 
     LazyColumn(Modifier.statusBarsPadding(), contentPadding = PaddingValues(bottom = 140.dp)) {
         item { ScreenTitle("You") }
 
         // ---- Stats
         item {
+            // Tap a bar to see that day; defaults to today.
+            val shown = week?.let { it.getOrNull(selectedDay) ?: it.lastOrNull() }
+            val shownDate = shown?.first ?: LocalDate.now()
+            val isToday = shownDate == LocalDate.now()
+            val log = days.firstOrNull { it.date == shownDate.toString() }
             Column(Modifier.padding(horizontal = 20.dp)) {
-                Text("Instagram today", style = MaterialTheme.typography.labelLarge, color = Ink.Fog)
                 Text(
-                    week?.lastOrNull()?.second?.let { formatMinutes(it) } ?: "Not tracked",
+                    when {
+                        isToday -> "Instagram today"
+                        shownDate == LocalDate.now().minusDays(1) -> "Instagram yesterday"
+                        else -> "Instagram on ${shownDate.format(DateTimeFormatter.ofPattern("EEEE, d MMM"))}"
+                    },
+                    style = MaterialTheme.typography.labelLarge, color = Ink.Fog,
+                )
+                Text(
+                    shown?.second?.let { formatMinutes(it) } ?: "Not tracked",
                     fontFamily = Display, style = MaterialTheme.typography.displayLarge,
                 )
                 Spacer(Modifier.height(4.dp))
-                val opens = day?.instaOpens ?: 0
-                val detours = day?.detours ?: 0
+                val opens = log?.instaOpens ?: 0
+                val detours = log?.detours ?: 0
                 Text(
-                    "Opened $opens ${if (opens == 1) "time" else "times"}, took the detour $detours. Streak ${streak(days)} ${if (streak(days) == 1) "day" else "days"}.",
+                    buildString {
+                        append("Opened $opens ${if (opens == 1) "time" else "times"}, took the detour $detours.")
+                        if (isToday) append(" Streak ${streak(days)} ${if (streak(days) == 1) "day" else "days"}.")
+                        else if (log?.completed == true) append(" Finished the route that day.")
+                    },
                     style = MaterialTheme.typography.bodyMedium, color = Ink.Fog,
                 )
                 Spacer(Modifier.height(20.dp))
-                week?.let { WeekBars(it) }
+                week?.let { w ->
+                    WeekBars(w, selected = if (selectedDay in w.indices) selectedDay else w.lastIndex) { selectedDay = it }
+                }
                 Spacer(Modifier.height(32.dp))
             }
         }
@@ -305,12 +325,25 @@ private fun StepRow(done: Boolean, title: String, body: String, action: String, 
 
 /** Seven bars of Instagram minutes; today in amber. */
 @Composable
-private fun WeekBars(week: List<Pair<LocalDate, Long>>) {
+private fun WeekBars(week: List<Pair<LocalDate, Long>>, selected: Int, onSelect: (Int) -> Unit) {
     val max = (week.maxOfOrNull { it.second } ?: 0L).coerceAtLeast(30L)
+    val gapDp = 10.dp
     Column {
-        Canvas(Modifier.fillMaxWidth().height(110.dp)) {
+        Canvas(
+            Modifier
+                .fillMaxWidth()
+                .height(110.dp)
+                .pointerInput(week.size) {
+                    detectTapGestures { pos ->
+                        val gap = gapDp.toPx()
+                        val w = (size.width - gap * (week.size - 1)) / week.size
+                        val i = (pos.x / (w + gap)).toInt().coerceIn(0, week.lastIndex)
+                        onSelect(i)
+                    }
+                },
+        ) {
             val n = week.size
-            val gap = 10.dp.toPx()
+            val gap = gapDp.toPx()
             val w = (size.width - gap * (n - 1)) / n
             week.forEachIndexed { i, (_, mins) ->
                 val h = (mins.toFloat() / max) * size.height
@@ -322,7 +355,7 @@ private fun WeekBars(week: List<Pair<LocalDate, Long>>) {
                     cornerRadius = CornerRadius(8.dp.toPx()),
                 )
                 drawRoundRect(
-                    color = if (i == n - 1) Ink.Sign else Ink.Psych.copy(alpha = 0.7f),
+                    color = if (i == selected) Ink.Sign else Ink.Psych.copy(alpha = 0.55f),
                     topLeft = Offset(x, size.height - h),
                     size = Size(w, h.coerceAtLeast(2.dp.toPx())),
                     cornerRadius = CornerRadius(8.dp.toPx()),
@@ -331,9 +364,15 @@ private fun WeekBars(week: List<Pair<LocalDate, Long>>) {
         }
         Spacer(Modifier.height(6.dp))
         Row(Modifier.fillMaxWidth()) {
-            week.forEach { (d, mins) ->
-                Column(Modifier.weight(1f), horizontalAlignment = Alignment.CenterHorizontally) {
-                    Text(d.format(DateTimeFormatter.ofPattern("EEE")), style = MaterialTheme.typography.labelSmall, color = Ink.Dim, textAlign = TextAlign.Center)
+            week.forEachIndexed { i, (d, mins) ->
+                Column(
+                    Modifier.weight(1f).clip(RoundedCornerShape(8.dp)).clickable { onSelect(i) },
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                ) {
+                    Text(
+                        d.format(DateTimeFormatter.ofPattern("EEE")), style = MaterialTheme.typography.labelSmall,
+                        color = if (i == selected) Ink.Sign else Ink.Dim, textAlign = TextAlign.Center,
+                    )
                     Text(if (mins >= 60) "${mins / 60}h" else "${mins}m", style = MaterialTheme.typography.labelSmall, color = Ink.Fog, textAlign = TextAlign.Center)
                 }
             }

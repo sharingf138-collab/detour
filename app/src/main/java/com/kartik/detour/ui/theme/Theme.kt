@@ -53,6 +53,7 @@ object Ink {
     }
 
     fun category(key: String): Color = when (key) {
+        "india" -> Saffron
         "history" -> Paradox
         "money" -> Meme
         "mind" -> Psych

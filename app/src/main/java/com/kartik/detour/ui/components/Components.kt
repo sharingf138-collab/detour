@@ -8,6 +8,8 @@ import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -206,12 +208,18 @@ fun StickerCard(
                     }
                 }
                 Spacer(Modifier.weight(1f))
-                Text(term, fontFamily = Display, style = MaterialTheme.typography.displayLarge, color = Ink.StickerInk)
+                Text(term, fontFamily = Display, style = termStyle(term), color = Ink.StickerInk)
                 Spacer(Modifier.height(12.dp))
                 Text("Tap to see what it means", style = MaterialTheme.typography.bodyMedium, color = Ink.StickerInk.copy(alpha = 0.6f))
             }
         } else {
-            Column(Modifier.fillMaxSize().graphicsLayer { rotationY = 180f }) {
+            // Scrolls when a long meaning + example + context doesn't fit the card.
+            Column(
+                Modifier
+                    .fillMaxSize()
+                    .graphicsLayer { rotationY = 180f }
+                    .verticalScroll(rememberScrollState()),
+            ) {
                 Text(term, style = MaterialTheme.typography.titleLarge, color = Ink.StickerInk)
                 Spacer(Modifier.height(10.dp))
                 Text(meaning, style = MaterialTheme.typography.titleMedium, color = Ink.StickerInk)
@@ -219,7 +227,7 @@ fun StickerCard(
                     Spacer(Modifier.height(16.dp))
                     Text("“$example”", style = MaterialTheme.typography.bodyLarge, fontStyle = FontStyle.Italic, color = Ink.StickerInk.copy(alpha = 0.85f))
                 }
-                Spacer(Modifier.weight(1f))
+                Spacer(Modifier.height(20.dp))
                 if (context.isNotBlank()) {
                     Text(context, style = MaterialTheme.typography.bodyMedium, color = Ink.StickerInk.copy(alpha = 0.75f))
                     Spacer(Modifier.height(12.dp))
@@ -228,6 +236,14 @@ fun StickerCard(
             }
         }
     }
+}
+
+/** Big display type for short terms, stepping down so long ones ("Gaslight, gatekeep, girlboss") still fit. */
+@Composable
+fun termStyle(term: String) = when {
+    term.length <= 12 -> MaterialTheme.typography.displayLarge
+    term.length <= 22 -> MaterialTheme.typography.displayMedium
+    else -> MaterialTheme.typography.displaySmall
 }
 
 fun toneLabel(tone: String) = when (tone) {

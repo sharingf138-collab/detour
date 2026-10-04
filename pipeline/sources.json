@@ -50,6 +50,7 @@
     ]
   },
   "categories": [
+    "india",
     "history",
     "money",
     "mind",
@@ -59,6 +60,41 @@
     "business"
   ],
   "channels": [
+    {
+      "name": "Project SHIVOHAM",
+      "id": "UCfH_Hz868iwzA7g36NyBX1A",
+      "category": "india"
+    },
+    {
+      "name": "HISTORY TV18",
+      "id": "UCh0Ob3N4miyi773toqSYj-A",
+      "category": "india"
+    },
+    {
+      "name": "History of India Explained",
+      "id": "UC9W7-howNr_EMGOtg7qUDkg",
+      "category": "india"
+    },
+    {
+      "name": "Abhijit Chavda",
+      "id": "UC2bBsPXFWZWiBmkRiNlz8vg",
+      "category": "india"
+    },
+    {
+      "name": "Dhruv Rathee",
+      "id": "UC-CSyyi47VX1lD9zyeABW3w",
+      "category": "india"
+    },
+    {
+      "name": "Mohak Mangal",
+      "id": "UCz4a7agVFr1TxU-mpAP8hkw",
+      "category": "india"
+    },
+    {
+      "name": "Drishti IAS",
+      "id": "UCzLqOSZPtUKrmSEnlH4LAvw",
+      "category": "india"
+    },
     {
       "name": "OverSimplified",
       "id": "UCNIuvl7V8zACPpTmmNIqP2A",
@@ -261,5 +297,8 @@
       "url": "https://feeds.feedburner.com/dancarlin/history?format=xml",
       "category": "history"
     }
+  ],
+  "alwaysInclude": [
+    "india"
   ]
 }

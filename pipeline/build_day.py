@@ -292,6 +292,8 @@ def build_videos(sources: dict, hist: dict, day: dt.date, now: dt.datetime) -> d
             vid = it["videoId"]
             if not vid or vid in seen or it["date"] is None or now - it["date"] > dt.timedelta(days=150):
                 continue
+            if NOISE.search(it["title"]):
+                continue
             by_cat.setdefault(c["category"], []).append({
                 "id": vid,
                 "title": it["title"],
@@ -314,6 +316,11 @@ def build_videos(sources: dict, hist: dict, day: dt.date, now: dt.datetime) -> d
     cats = sources["categories"]
     start = day.toordinal() % len(cats)
     order = cats[start:] + cats[:start]
+    # Categories that must show up every day (e.g. Indian history) go right after the hero.
+    for must in reversed(sources.get("alwaysInclude", [])):
+        if must in order[1:]:
+            order.remove(must)
+            order.insert(1, must)
     picks = []
     for cat in order:
         if by_cat.get(cat):
@@ -323,6 +330,68 @@ def build_videos(sources: dict, hist: dict, day: dt.date, now: dt.datetime) -> d
         if len(picks) == 5:
             break
     return {"hero": picks[0] if picks else None, "more": picks[1:]}
+
+
+INDIA = re.compile(
+    r"\b(India|Indian|Delhi|Mumbai|Bombay|Calcutta|Kolkata|Madras|Chennai|Bangalore|Bengaluru|Hyderabad|Mughal|"
+    r"British Raj|Bengal|Bengali|Punjab|Punjabi|Gandhi|Nehru|Maratha|Sikh|Kashmir|Goa|Kerala|Gujarat|Bihar|Assam|"
+    r"Karnataka|Mysore|Akbar|Ashoka|Chola|Vijayanagara|ISRO|Tamil|Hindi|Marathi|Telugu|Rajput|Nizam)\b")
+
+
+def build_on_this_day(key: str | None, day: dt.date) -> list[dict]:
+    """Up to 3 moments from Indian history plus 2 from the world, from Wikipedia's On This Day."""
+    url = f"https://en.wikipedia.org/api/rest_v1/feed/onthisday/all/{day.month:02d}/{day.day:02d}"
+    try:
+        data = json.loads(fetch(url))
+    except Exception as e:  # noqa: BLE001
+        print(f"  ! on this day failed: {e}", file=sys.stderr)
+        return []
+
+    def item(e: dict, kind: str) -> dict:
+        page = (e.get("pages") or [{}])[0]
+        return {
+            "year": e.get("year"),
+            "kind": kind,
+            "text": e["text"],
+            "url": page.get("content_urls", {}).get("mobile", {}).get("page", ""),
+            "about": " ".join((p.get("description") or "") for p in (e.get("pages") or [])[:2]),
+        }
+
+    india, world = [], []
+    for kind, key_ in (("event", "selected"), ("event", "events"), ("born", "births"), ("died", "deaths")):
+        for e in data.get(key_, []):
+            if not isinstance(e.get("year"), int) or not e.get("text"):
+                continue
+            it = item(e, kind)
+            if INDIA.search(it["text"] + " " + it["about"]):
+                if not any(x["text"] == it["text"] for x in india):
+                    india.append(it)
+            elif kind == "event" and key_ == "selected":
+                world.append(it)
+
+    picked: list[dict] | None = None
+    if key and (india or world):
+        listing = "\n".join(f"[{i}] ({x['kind']}, {x['year']}) {x['text']}" for i, x in enumerate(india + world))
+        got = gemini(prompt("onthisday", items=listing, india=str(len(india))), key)
+        pool = india + world
+        if isinstance(got, list):
+            picked = []
+            for g in got:
+                if isinstance(g, dict) and isinstance(g.get("ref"), int) and 0 <= g["ref"] < len(pool) \
+                        and isinstance(g.get("text"), str):
+                    src = pool[g["ref"]]
+                    picked.append({**src, "text": g["text"].strip(), "india": g["ref"] < len(india)})
+    if not picked:
+        # Events beat birthdays; older beats newer, so it reads like history rather than trivia.
+        india.sort(key=lambda x: (x["kind"] != "event", x["year"]))
+        picked = [{**x, "india": True} for x in india[:3]] + [{**x, "india": False} for x in world[:2]]
+    for x in picked:
+        x.pop("about", None)
+    return picked[:5]
+
+
+# Titles that are promos, live streams or daily news roundups rather than something worth watching.
+NOISE = re.compile(r"\b(live|livestream|current affairs|trailer|promo|teaser|premieres?|every monday)\b|#shorts", re.I)
 
 
 def _seconds(d: str) -> int | None:
@@ -376,15 +445,22 @@ def main() -> int:
     hist = load_history()
     print(f"Building {day} (gemini: {'on' if key else 'off'})")
 
+    # A second run on the same day keeps the words and cards already shown; news, videos and history refresh.
+    prev = None
+    if (CONTENT / "latest.json").exists():
+        prev = json.loads((CONTENT / "latest.json").read_text(encoding="utf-8"))
+        if prev.get("date") != day.isoformat():
+            prev = None
     content = {
         "schema": 1,
         "date": day.isoformat(),
         "generatedAt": now.isoformat(timespec="seconds"),
-        "words": build_words(key, hist, rng),
-        "loop": build_loop(key, hist, rng),
+        "words": prev["words"] if prev else build_words(key, hist, rng),
+        "loop": prev["loop"] if prev else build_loop(key, hist, rng),
         "news": build_news(key, sources, now),
         "videos": build_videos(sources, hist, day, now),
         "podcasts": build_podcasts(sources, hist, day),
+        "onThisDay": build_on_this_day(key, day),
     }
 
     problems = validate(content)
@@ -394,7 +470,8 @@ def main() -> int:
     summary = {k: len(v) if isinstance(v, list) else None for k, v in content.items()}
     print(f"  words={summary['words']} loop={summary['loop']} "
           f"india={len(content['news']['india'])} world={len(content['news']['world'])} "
-          f"videos={1 + len(content['videos']['more'])} podcasts={summary['podcasts']}")
+          f"videos={1 + len(content['videos']['more'])} podcasts={summary['podcasts']} "
+          f"onThisDay={len(content['onThisDay'])}")
 
     if args.dry_run:
         print(json.dumps(content, indent=2, ensure_ascii=False)[:3000])
@@ -405,8 +482,9 @@ def main() -> int:
     (CONTENT / "latest.json").write_text(text, encoding="utf-8")
     (CONTENT / f"{day.isoformat()}.json").write_text(text, encoding="utf-8")
 
-    hist["words"] += [slug(w["word"]) for w in content["words"]]
-    hist["loop"] += [c["id"] for c in content["loop"]]
+    if not prev:
+        hist["words"] += [slug(w["word"]) for w in content["words"]]
+        hist["loop"] += [c["id"] for c in content["loop"]]
     hist["videos"] += [v["id"] for v in [content["videos"]["hero"], *content["videos"]["more"]] if v]
     hist["podcasts"] += [p["audioUrl"] for p in content["podcasts"]]
     HISTORY.write_text(json.dumps(hist, indent=1, ensure_ascii=False), encoding="utf-8")

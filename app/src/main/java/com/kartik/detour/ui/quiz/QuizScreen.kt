@@ -5,6 +5,8 @@ import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -50,6 +52,7 @@ import com.kartik.detour.data.db.CardEntity
 import com.kartik.detour.ui.components.Confetti
 import com.kartik.detour.ui.components.ProgressBar
 import com.kartik.detour.ui.components.StickerCard
+import com.kartik.detour.ui.components.termStyle
 import com.kartik.detour.ui.theme.Display
 import com.kartik.detour.ui.theme.Ink
 import kotlinx.coroutines.flow.first
@@ -175,12 +178,17 @@ private fun WordFlashcard(card: CardEntity, flipped: Boolean) {
             Column(Modifier.fillMaxSize()) {
                 Text("What does this mean?", style = MaterialTheme.typography.labelLarge, color = Ink.Sign)
                 Spacer(Modifier.weight(1f))
-                Text(card.term, fontFamily = Display, style = MaterialTheme.typography.displayLarge)
+                Text(card.term, fontFamily = Display, style = termStyle(card.term))
                 if (card.tone.isNotBlank()) Text(card.tone, style = MaterialTheme.typography.bodyMedium, color = Ink.Dim)
                 Spacer(Modifier.weight(1f))
             }
         } else {
-            Column(Modifier.fillMaxSize().graphicsLayer { rotationY = 180f }) {
+            Column(
+                Modifier
+                    .fillMaxSize()
+                    .graphicsLayer { rotationY = 180f }
+                    .verticalScroll(rememberScrollState()),
+            ) {
                 Text(card.term, style = MaterialTheme.typography.titleLarge, color = Ink.Sign)
                 Spacer(Modifier.height(10.dp))
                 Text(card.meaning, style = MaterialTheme.typography.headlineMedium)
@@ -188,7 +196,7 @@ private fun WordFlashcard(card: CardEntity, flipped: Boolean) {
                     Spacer(Modifier.height(10.dp))
                     Text("Use instead of “${card.extra}”", style = MaterialTheme.typography.bodyMedium, color = Ink.Fog)
                 }
-                Spacer(Modifier.weight(1f))
+                Spacer(Modifier.height(20.dp))
                 if (card.example.isNotBlank()) {
                     Text("“${card.example}”", style = MaterialTheme.typography.bodyLarge, fontStyle = FontStyle.Italic, color = Ink.Fog)
                 }

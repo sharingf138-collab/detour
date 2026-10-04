@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
@@ -56,6 +57,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.kartik.detour.container
 import com.kartik.detour.data.DayContent
+import com.kartik.detour.data.HistoryItem
 import com.kartik.detour.data.LoopType
 import com.kartik.detour.data.NewsItem
 import com.kartik.detour.data.Word
@@ -162,10 +164,17 @@ fun TodayScreen(onOpenLoop: () -> Unit, onOpenQuiz: () -> Unit, onOpenWatch: () 
                         NewsList(c.news.world, Ink.Acronym)
                     }
                 }
+                if (c.onThisDay.isNotEmpty()) {
+                    item(key = "history") {
+                        RouteStop("On this day", Ink.Paradox, reached = furthest >= 5) {
+                            OnThisDay(c.onThisDay)
+                        }
+                    }
+                }
                 c.videos.hero?.let { hero ->
                     item(key = "watch") {
                         RouteStop(
-                            "Watch instead", Ink.Psych, reached = furthest >= 5,
+                            "Watch instead", Ink.Psych, reached = furthest >= 6,
                             trailing = { TextButton(onClick = onOpenWatch) { Text("More", style = MaterialTheme.typography.labelLarge, color = Ink.Psych) } },
                         ) {
                             VideoCard(hero, large = true, onClick = { openVideo(context, hero) })
@@ -245,12 +254,14 @@ private fun WordPager(words: List<Word>) {
         state = pager,
         contentPadding = PaddingValues(end = 36.dp),
         pageSpacing = 12.dp,
+        verticalAlignment = Alignment.Top,
     ) { i ->
         val w = words[i]
+        // Height follows the content, so long meanings and examples are never cut off.
         Column(
             Modifier
                 .fillMaxWidth()
-                .height(250.dp)
+                .heightIn(min = 250.dp)
                 .clip(RoundedCornerShape(24.dp))
                 .background(Ink.Dusk)
                 .border(1.dp, Ink.Line, RoundedCornerShape(24.dp))
@@ -260,7 +271,7 @@ private fun WordPager(words: List<Word>) {
                 Text(w.pos, style = MaterialTheme.typography.labelMedium, color = Ink.Sign, modifier = Modifier.weight(1f))
                 Text("${i + 1} of ${words.size}", style = MaterialTheme.typography.labelMedium, color = Ink.Dim)
             }
-            Spacer(Modifier.weight(1f))
+            Spacer(Modifier.height(28.dp))
             Text(w.word, fontFamily = Display, style = MaterialTheme.typography.displayMedium)
             if (w.pronunciation.isNotBlank()) {
                 Text(w.pronunciation, style = MaterialTheme.typography.bodySmall, color = Ink.Dim)
@@ -273,7 +284,7 @@ private fun WordPager(words: List<Word>) {
             }
             if (w.example.isNotBlank()) {
                 Spacer(Modifier.height(8.dp))
-                Text(w.example, style = MaterialTheme.typography.bodyMedium, fontStyle = FontStyle.Italic, color = Ink.Fog, maxLines = 2, overflow = TextOverflow.Ellipsis)
+                Text(w.example, style = MaterialTheme.typography.bodyMedium, fontStyle = FontStyle.Italic, color = Ink.Fog)
             }
         }
     }
@@ -304,6 +315,34 @@ private fun NewsList(items: List<NewsItem>, marker: androidx.compose.ui.graphics
                         Text(n.source, style = MaterialTheme.typography.labelSmall, color = Ink.Dim)
                     }
                 }
+            }
+        }
+    }
+}
+
+@Composable
+private fun OnThisDay(items: List<HistoryItem>) {
+    val context = LocalContext.current
+    Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
+        items.forEach { h ->
+            Row(
+                Modifier
+                    .fillMaxWidth()
+                    .clip(RoundedCornerShape(12.dp))
+                    .clickable { openUrl(context, h.url) }
+                    .padding(vertical = 8.dp),
+            ) {
+                Column(Modifier.width(64.dp)) {
+                    Text(
+                        "${h.year}", fontFamily = Display, style = MaterialTheme.typography.titleLarge,
+                        color = if (h.india) Ink.Saffron else Ink.Acronym,
+                    )
+                    Text(
+                        when (h.kind) { "born" -> "Born"; "died" -> "Died"; else -> if (h.india) "India" else "World" },
+                        style = MaterialTheme.typography.labelSmall, color = Ink.Dim,
+                    )
+                }
+                Text(h.text, style = MaterialTheme.typography.bodyLarge, modifier = Modifier.weight(1f))
             }
         }
     }

@@ -13,6 +13,17 @@ data class DayContent(
     val news: News = News(),
     val videos: Videos = Videos(),
     val podcasts: List<Podcast> = emptyList(),
+    val onThisDay: List<HistoryItem> = emptyList(),
+)
+
+/** A moment from Wikipedia's "On this day", rewritten in one line. */
+@Serializable
+data class HistoryItem(
+    val year: Int,
+    val text: String,
+    val kind: String = "event",   // "event" | "born" | "died"
+    val url: String = "",
+    val india: Boolean = false,
 )
 
 @Serializable
@@ -93,6 +104,7 @@ enum class LoopType(val key: String, val label: String) {
 
 /** Video categories from sources.json, with the names shown in the app. */
 fun categoryLabel(key: String): String = when (key) {
+    "india" -> "Indian history"
     "history" -> "History"
     "money" -> "Money"
     "mind" -> "Mind & behaviour"
