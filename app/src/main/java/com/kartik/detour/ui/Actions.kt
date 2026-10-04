@@ -42,3 +42,7 @@ fun formatMinutes(min: Long): String = when {
     min % 60 == 0L -> "${min / 60} h"
     else -> "${min / 60} h ${min % 60} min"
 }
+
+fun toastOffline(context: Context) {
+    Toast.makeText(context, "Couldn't reach the server. Showing the last saved stops.", Toast.LENGTH_SHORT).show()
+}

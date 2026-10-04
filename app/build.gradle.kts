@@ -22,6 +22,12 @@ android {
             "CONTENT_URL",
             "\"https://raw.githubusercontent.com/sharingf138-collab/detour/main/content/latest.json\""
         )
+        // Same file through the GitHub API: not CDN-cached, so it's current the moment the bot commits.
+        buildConfigField(
+            "String",
+            "CONTENT_API_URL",
+            "\"https://api.github.com/repos/sharingf138-collab/detour/contents/content/latest.json\""
+        )
     }
 
     buildTypes {

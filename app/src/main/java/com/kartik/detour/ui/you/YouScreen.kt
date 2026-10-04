@@ -65,6 +65,7 @@ import com.kartik.detour.guard.InstaUsage
 import com.kartik.detour.ui.components.FilterPill
 import com.kartik.detour.ui.components.ScreenTitle
 import com.kartik.detour.ui.formatMinutes
+import com.kartik.detour.ui.toastOffline
 import com.kartik.detour.ui.theme.Display
 import com.kartik.detour.ui.theme.Ink
 import kotlinx.coroutines.Dispatchers
@@ -226,7 +227,7 @@ fun YouScreen() {
                         content?.date?.let { "Stops from ${LocalDate.parse(it).format(DateTimeFormatter.ofPattern("EEE d MMM"))}" } ?: "No stops loaded",
                         style = MaterialTheme.typography.bodyMedium, color = Ink.Fog, modifier = Modifier.weight(1f),
                     )
-                    TextButton(onClick = { scope.launch { app.content.refresh() } }, enabled = !refreshing) {
+                    TextButton(onClick = { scope.launch { app.content.refresh().onFailure { toastOffline(context) } } }, enabled = !refreshing) {
                         Text(if (refreshing) "Checking…" else "Check for update", color = Ink.Sign)
                     }
                 }

@@ -11,6 +11,7 @@ import android.os.Build
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat
+import androidx.work.BackoffPolicy
 import androidx.work.Constraints
 import androidx.work.CoroutineWorker
 import androidx.work.ExistingPeriodicWorkPolicy
@@ -33,9 +34,11 @@ import java.util.concurrent.TimeUnit
 class RefreshWorker(context: Context, params: WorkerParameters) : CoroutineWorker(context, params) {
     override suspend fun doWork(): Result {
         val c = applicationContext.container
-        val got = c.content.refresh().getOrElse { return if (runAttemptCount < 4) Result.retry() else Result.failure() }
-
         val todayIso = today().toString()
+        val got = c.content.refresh().getOrElse { return if (runAttemptCount < 12) Result.retry() else Result.failure() }
+        // GitHub's 6:00 cron often starts late; keep checking (every 15 min, ~3 h) until today's stops land.
+        if (got.date != todayIso && runAttemptCount < 12) return Result.retry()
+
         val morning = LocalTime.now().isBefore(LocalTime.of(11, 0))
         if (got.date == todayIso && morning && c.prefs.settings.value.morningNudge && c.prefs.lastNudgeDay != todayIso) {
             c.prefs.lastNudgeDay = todayIso
@@ -67,6 +70,7 @@ object Refresh {
 
         val req = PeriodicWorkRequestBuilder<RefreshWorker>(24, TimeUnit.HOURS)
             .setInitialDelay(delay, TimeUnit.MINUTES)
+            .setBackoffCriteria(BackoffPolicy.LINEAR, 15, TimeUnit.MINUTES)
             .setConstraints(Constraints.Builder().setRequiredNetworkType(NetworkType.CONNECTED).build())
             .build()
         WorkManager.getInstance(context).enqueueUniquePeriodicWork(DAILY, ExistingPeriodicWorkPolicy.KEEP, req)

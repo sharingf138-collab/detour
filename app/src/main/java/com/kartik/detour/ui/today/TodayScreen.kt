@@ -73,6 +73,7 @@ import com.kartik.detour.ui.components.DetourSign
 import com.kartik.detour.ui.components.RouteStop
 import com.kartik.detour.ui.components.VideoCard
 import com.kartik.detour.ui.greeting
+import com.kartik.detour.ui.toastOffline
 import com.kartik.detour.ui.openUrl
 import com.kartik.detour.ui.openVideo
 import com.kartik.detour.ui.theme.Display
@@ -118,7 +119,7 @@ fun TodayScreen(onOpenLoop: () -> Unit, onOpenQuiz: () -> Unit, onOpenWatch: () 
     Box(Modifier.fillMaxSize()) {
         PullToRefreshBox(
             isRefreshing = refreshing,
-            onRefresh = { scope.launch { app.content.refresh() } },
+            onRefresh = { scope.launch { app.content.refresh().onFailure { toastOffline(context) } } },
             modifier = Modifier.fillMaxSize(),
         ) {
             LazyColumn(state = list, contentPadding = PaddingValues(bottom = 120.dp), modifier = Modifier.fillMaxSize()) {

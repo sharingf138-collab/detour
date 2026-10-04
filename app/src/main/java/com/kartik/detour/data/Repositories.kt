@@ -1,6 +1,7 @@
 package com.kartik.detour.data
 
 import android.content.Context
+import android.util.Log
 import com.kartik.detour.BuildConfig
 import com.kartik.detour.data.db.CardDao
 import com.kartik.detour.data.db.CardEntity
@@ -63,24 +64,40 @@ class ContentRepository(
     suspend fun refresh(): Result<DayContent> = withContext(Dispatchers.IO) {
         _refreshing.value = true
         try {
-            // A minute-granular query string gets past the raw.githubusercontent CDN cache.
-            val url = "${BuildConfig.CONTENT_URL}?t=${System.currentTimeMillis() / 60_000}"
-            client.newCall(Request.Builder().url(url).build()).execute().use { resp ->
-                if (!resp.isSuccessful) error("Server answered ${resp.code}")
-                val body = resp.body?.string() ?: error("Empty response")
-                val fresh = parse(body)
-                val current = _content.value
-                if (current == null || fresh.date >= current.date) {
-                    cacheFile.writeText(body)
-                    _content.value = fresh
-                    remember(fresh)
-                }
-                Result.success(fresh)
+            val body = download()
+            val fresh = parse(body)
+            val current = _content.value
+            Log.i("Detour", "fetched ${fresh.date} generated ${fresh.generatedAt}; had ${current?.generatedAt}")
+            // Newer day, or a same-day regeneration; never step back to an older copy.
+            if (current == null || fresh.date > current.date ||
+                (fresh.date == current.date && fresh.generatedAt >= current.generatedAt)
+            ) {
+                cacheFile.writeText(body)
+                _content.value = fresh
+                remember(fresh)
             }
+            Result.success(fresh)
         } catch (e: Exception) {
+            Log.w("Detour", "refresh failed", e)
             Result.failure(e)
         } finally {
             _refreshing.value = false
+        }
+    }
+
+    /** GitHub API first (always current); the raw CDN link as a fallback (can lag ~5 min). */
+    private fun download(): String {
+        val api = Request.Builder()
+            .url(BuildConfig.CONTENT_API_URL)
+            .header("Accept", "application/vnd.github.raw+json")
+            .build()
+        runCatching {
+            client.newCall(api).execute().use { r -> if (r.isSuccessful) return r.body!!.string() }
+        }
+        val raw = Request.Builder().url("${BuildConfig.CONTENT_URL}?t=${System.currentTimeMillis() / 60_000}").build()
+        client.newCall(raw).execute().use { r ->
+            if (!r.isSuccessful) error("Server answered ${r.code}")
+            return r.body?.string() ?: error("Empty response")
         }
     }
 
