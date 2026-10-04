@@ -183,18 +183,18 @@ private fun PauseScreen(
     val hero = content?.videos?.hero
     val podcast = content?.podcasts?.firstOrNull()
 
-    Box(Modifier.fillMaxSize().background(Ink.Night)) {
+    Column(Modifier.fillMaxSize().background(Ink.Night).systemBarsPadding()) {
+        // Scrolling middle: sign, stats, the alternative. Buttons below stay pinned.
         Column(
             Modifier
-                .fillMaxSize()
-                .systemBarsPadding()
+                .weight(1f)
                 .verticalScroll(rememberScrollState())
                 .padding(horizontal = 24.dp),
         ) {
-            Spacer(Modifier.height(40.dp))
+            Spacer(Modifier.height(24.dp))
             DetourSign(
                 Modifier
-                    .size(92.dp)
+                    .size(72.dp)
                     .graphicsLayer {
                         rotationZ = swing.value
                         scaleX = pop.value
@@ -202,7 +202,7 @@ private fun PauseScreen(
                         transformOrigin = androidx.compose.ui.graphics.TransformOrigin(0.5f, 1f)
                     },
             )
-            Spacer(Modifier.height(24.dp))
+            Spacer(Modifier.height(16.dp))
             Text("Detour ahead.", style = MaterialTheme.typography.displayLarge)
             Spacer(Modifier.height(10.dp))
             Text(line, style = MaterialTheme.typography.bodyLarge, color = Ink.Fog)
@@ -215,7 +215,7 @@ private fun PauseScreen(
                 },
                 style = MaterialTheme.typography.bodyMedium, color = Ink.Sign,
             )
-            Spacer(Modifier.height(28.dp))
+            Spacer(Modifier.height(24.dp))
 
             if (night && podcast != null) {
                 Text("It's late. Listen instead, screen off", style = MaterialTheme.typography.titleMedium)
@@ -260,7 +260,10 @@ private fun PauseScreen(
                 }
             }
 
-            Spacer(Modifier.height(28.dp))
+            Spacer(Modifier.height(16.dp))
+        }
+
+        Column(Modifier.padding(horizontal = 24.dp).padding(top = 12.dp)) {
             if (night && podcast != null) {
                 PrimaryButton("Listen instead") { onListen(podcast) }
             } else if (hero != null) {
@@ -277,13 +280,12 @@ private fun PauseScreen(
             ) {
                 Text(if (left > 0) "Open Instagram in $left" else "Open Instagram", color = if (left > 0) Ink.Dim else Ink.Paper)
             }
-            Spacer(Modifier.height(8.dp))
+            Spacer(Modifier.height(6.dp))
             ProgressBar(bar.value, Modifier.fillMaxWidth().padding(horizontal = 24.dp), height = 3.dp, color = Ink.Dim)
-            Spacer(Modifier.height(8.dp))
             TextButton(onClick = onHome, modifier = Modifier.align(Alignment.CenterHorizontally)) {
                 Text("Not now, go to home screen", color = Ink.Fog)
             }
-            Spacer(Modifier.height(24.dp))
+            Spacer(Modifier.height(8.dp))
         }
     }
 }

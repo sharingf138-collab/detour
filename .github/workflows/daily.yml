@@ -40,4 +40,5 @@ jobs:
           git add content pipeline/history.json
           git diff --cached --quiet && exit 0
           git commit -m "content: $(TZ=Asia/Kolkata date +%F)"
+          git pull --rebase origin main
           git push
