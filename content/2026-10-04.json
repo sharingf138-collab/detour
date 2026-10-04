@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "date": "2026-10-04",
-  "generatedAt": "2026-10-04T08:38:37+00:00",
+  "generatedAt": "2026-10-04T08:59:55+00:00",
   "words": [
     {
       "word": "Pivot",
@@ -161,180 +161,197 @@
   "news": {
     "india": [
       {
-        "text": "The central government raised the price ceiling for deepwater natural gas to $9.89 per MMBtu, while maintaining the APM gas cap at $7.",
-        "source": "The Hindu Business",
-        "url": "https://www.thehindu.com/business/government-raises-deepwater-gas-price-ceiling-to-989mmbtu-apm-gas-cap-at-7/article71543103.ece"
+        "text": "Reliance aims to address local concerns regarding a proposed data centre project in Bhogapuram, emphasizing job creation and cooperation from landowners.",
+        "source": "The Hindu",
+        "url": "https://www.thehindu.com/news/national/andhra-pradesh/reliance-data-centre-at-bhogapuram-will-create-jobs-says-collector-after-farmers-protest/article71542907.ece"
       },
       {
-        "text": "Indian Air Force Chief stated that negotiations for the 114 Multi-Role Fighter Aircraft acquisition are expected to conclude by the end of fiscal year 2027.",
-        "source": "The Hindu Business",
-        "url": "https://www.thehindu.com/news/national/india-may-finalise-mrfa-deal-by-current-financial-year-iaf-chief/article71540116.ece"
-      },
-      {
-        "text": "Air Chief Marshal AP Singh flagged growing collaboration between Pakistan and China on a fifth-generation fighter jet as a serious national security concern.",
-        "source": "NDTV",
-        "url": "https://www.ndtv.com/india-news/cause-for-worry-chief-of-air-staff-air-chief-marshal-ap-singh-flags-pakistan-china-fighter-jet-collaboration-12136402#publisher=newsstand"
-      },
-      {
-        "text": "The Central Bureau of Investigation charge-sheeted Reliance Communications and others in connection with an alleged ₹3,750 crore fraud case involving LIC.",
-        "source": "The Hindu Business",
-        "url": "https://www.thehindu.com/business/Industry/cbi-files-charge-sheet-against-rcom-others-in-3750-crore-lic-fraud-case/article71540573.ece"
-      },
-      {
-        "text": "Uddhav Thackeray and Raj Thackeray led a joint march in Mumbai demanding the resignation of Chief Election Commissioner Gyanesh Kumar over voter roll revisions.",
+        "text": "Political leaders Uddhav and Raj Thackeray led a joint protest in Mumbai demanding the resignation of the Chief Election Commissioner over electoral roll revisions.",
         "source": "NDTV",
         "url": "https://www.ndtv.com/india-news/uddhav-thackeray-raj-thackeray-lead-mumbai-protest-against-poll-body-chief-gyanesh-kumar-virat-garjana-morcha-scrap-sir-evms-12136517#publisher=newsstand"
       },
       {
-        "text": "The Kerala government ordered an anti-corruption inquiry against Chief Election Commissioner Gyanesh Kumar concerning allegations dating back to 2006.",
-        "source": "The Hindu",
-        "url": "https://www.thehindu.com/news/national/kerala/keralam-govt-orders-preliminary-anti-corruption-enquiry-against-cec-gyanesh-kumar-over-corruption-allegations/article71542954.ece"
-      },
-      {
-        "text": "Protesters gathered outside Parliament demanding an FIR after an independent journalist accused a senior Delhi Police officer of sexual assault during a demonstration.",
-        "source": "Mint",
-        "url": "https://www.livemint.com/news/india/jantar-mantar-row-explained-journalist-alleges-sexual-assault-by-delhi-cop-protesters-demand-fir-11791089227754.html"
-      },
-      {
-        "text": "The Securities and Exchange Board of India is reviewing position limits on non-agricultural commodity contracts to improve market liquidity.",
+        "text": "The government raised the deepwater natural gas price ceiling to $9.89 per MMBtu for the upcoming period while keeping legacy field caps unchanged.",
         "source": "The Hindu Business",
-        "url": "https://www.thehindu.com/business/sebi-examining-position-limits-for-non-agri-contracts-to-boost-liquidity/article71540271.ece"
+        "url": "https://www.thehindu.com/business/government-raises-deepwater-gas-price-ceiling-to-989mmbtu-apm-gas-cap-at-7/article71543103.ece"
       },
       {
-        "text": "The Supreme Court agreed to hear a petition challenging the proposed relocation of the historic 135-year-old Central Secretariat Library.",
-        "source": "Mint",
-        "url": "https://www.livemint.com/news/india/85-lakh-books-135-years-of-history-supreme-court-to-hear-case-on-relocation-of-central-secretariat-library-on-monday-11791087091055.html"
+        "text": "Air Force Chief AP Singh expressed concern over the collaboration between Pakistan and China on fifth-generation fighter jet development.",
+        "source": "NDTV",
+        "url": "https://www.ndtv.com/india-news/cause-for-worry-chief-of-air-staff-air-chief-marshal-ap-singh-flags-pakistan-china-fighter-jet-collaboration-12136402#publisher=newsstand"
+      },
+      {
+        "text": "The Indian Air Force expects to finalize the multi-role fighter aircraft deal by the end of fiscal year 2027.",
+        "source": "The Hindu Business",
+        "url": "https://www.thehindu.com/news/national/india-may-finalise-mrfa-deal-by-current-financial-year-iaf-chief/article71540116.ece"
+      },
+      {
+        "text": "The Central Bureau of Investigation filed a charge sheet against Reliance Communications and others in an alleged ₹3,750 crore fraud case.",
+        "source": "The Hindu Business",
+        "url": "https://www.thehindu.com/business/Industry/cbi-files-charge-sheet-against-rcom-others-in-3750-crore-lic-fraud-case/article71540573.ece"
+      },
+      {
+        "text": "Reserve Bank of India Governor outlined five key priorities to maintain financial stability amid growing global economic risks.",
+        "source": "The Hindu Business",
+        "url": "https://www.thehindu.com/business/rbi-chief-lays-down-5-key-priorities-to-maintain-financial-stability-amidst-emerging-risks/article71540523.ece"
+      },
+      {
+        "text": "Security forces deployed heavy barricades and personnel in Delhi as political protests entered a third consecutive day over law enforcement and electoral issues.",
+        "source": "Hindustan Times",
+        "url": "https://www.hindustantimes.com/india-news/delhi-police-jantar-mantar-protest-citizens-march-indian-youth-congress-india-gate-101791100819647.html"
       }
     ],
     "world": [
       {
-        "text": "Brazilian voters headed to the polls in a tightly contested presidential election pitting leftist incumbent Luiz Inácio Lula da Silva against right-wing candidate Flávio Bolsonaro.",
-        "source": "BBC",
-        "url": "https://www.bbc.co.uk/news/articles/c6wyz0r2n0djo?at_medium=RSS&at_campaign=rss"
-      },
-      {
-        "text": "German Chancellor Friedrich Merz made an unannounced visit to Kyiv to express solidarity with Ukraine amid Russian warnings for foreign diplomats to evacuate the capital.",
+        "text": "German Chancellor Friedrich Merz made an unannounced visit to Kyiv for talks with President Volodymyr Zelenskyy in a show of support for Ukraine.",
         "source": "The Hindu",
         "url": "https://www.thehindu.com/news/international/germanys-merz-in-kyiv-for-talks-with-zelenskyy/article71543190.ece"
       },
       {
-        "text": "G7 nations agreed to coordinate the release of millions of barrels of oil and diesel to curb rising fuel prices and prevent export bans.",
-        "source": "BBC",
-        "url": "https://www.bbc.co.uk/news/articles/ck87zg8jnwngo?at_medium=RSS&at_campaign=rss"
-      },
-      {
-        "text": "North Korea test-fired a ballistic missile into the sea, escalating military tensions following disputes with South Korea over landmine injuries in the Demilitarized Zone.",
+        "text": "Brazilians head to the polls for a highly polarized presidential election pitting left-wing incumbent Luiz Inacio Lula da Silva against Flávio Bolsonaro.",
         "source": "The Guardian",
-        "url": "https://www.theguardian.com/world/2026/oct/03/north-korea-launches-ballistic-missile-after-seoul-demands-apology-over-wounded-soldiers"
+        "url": "https://www.theguardian.com/world/2026/oct/04/brazil-presidential-election-lula-flavio-bolsonaro"
       },
       {
-        "text": "Bangkok authorities declared a disaster across all fifty districts as catastrophic flooding claimed forty lives and paralyzed the Thai capital's infrastructure.",
-        "source": "The Guardian",
-        "url": "https://www.theguardian.com/world/2026/oct/03/bangkok-thailand-floods-breaking-point-stagnant-lakes"
-      },
-      {
-        "text": "Iran's parliament speaker announced that the Strait of Hormuz will remain closed until unspecified conditions are met, threatening international shipping lanes.",
+        "text": "North Korea conducted an intermediate-range strategic missile drill following heightened tensions and disputes with South Korea over military incidents.",
         "source": "The Hindu",
-        "url": "https://www.thehindu.com/news/international/iran-says-strait-of-hormuz-will-not-reopen-until-conditions-are-met-says-reports/article71543176.ece"
+        "url": "https://www.thehindu.com/news/international/north-korea-says-it-conducted-intermediate-range-strategic-missile-drill/article71541953.ece"
+      },
+      {
+        "text": "Tens of thousands of protesters demonstrated across Spain over a severe housing crisis after the government failed to pass emergency legislation.",
+        "source": "BBC",
+        "url": "https://www.bbc.co.uk/news/articles/cm2kej47095no?at_medium=RSS&at_campaign=rss"
+      },
+      {
+        "text": "Australian police and security agencies launched an investigation into the background of a Flydubai co-pilot linked to an alleged cockpit incident.",
+        "source": "BBC",
+        "url": "https://www.bbc.co.uk/news/articles/cxly4nym57q9o?at_medium=RSS&at_campaign=rss"
       }
     ]
   },
   "videos": {
     "hero": {
-      "id": "upnRovy7w4M",
-      "title": "Nothing Ever Changes | The Mind-Numbing Philosophy of Parmenides",
-      "channel": "Einzelgänger",
+      "id": "eL-bfL_K8z8",
+      "title": "Why The Greatest Authors Still Understand You | Rich Cohen",
+      "channel": "Daily Stoic",
       "category": "philosophy",
-      "url": "https://www.youtube.com/watch?v=upnRovy7w4M",
-      "thumbnail": "https://i.ytimg.com/vi/upnRovy7w4M/hqdefault.jpg",
-      "published": "2026-09-18"
+      "url": "https://www.youtube.com/watch?v=eL-bfL_K8z8",
+      "thumbnail": "https://i.ytimg.com/vi/eL-bfL_K8z8/hqdefault.jpg",
+      "published": "2026-10-03"
     },
     "more": [
       {
-        "id": "AjAbudezXEo",
-        "title": "IHB-004 | Why Did Humans Worship Their Ancestors? | The Origins of Ancestor Worship",
-        "channel": "History of India Explained",
+        "id": "DV9pVzqQPR0",
+        "title": "Dear bollywood, STOP THIS!!!",
+        "channel": "Mohak Mangal",
         "category": "india",
-        "url": "https://www.youtube.com/watch?v=AjAbudezXEo",
-        "thumbnail": "https://i.ytimg.com/vi/AjAbudezXEo/hqdefault.jpg",
-        "published": "2026-10-03"
+        "url": "https://www.youtube.com/watch?v=DV9pVzqQPR0",
+        "thumbnail": "https://i.ytimg.com/vi/DV9pVzqQPR0/hqdefault.jpg",
+        "published": "2026-09-28"
       },
       {
-        "id": "0GGPe_Oum6c",
-        "title": "How Often do Asteroids Hit the Earth?: Crash Course Geology #20",
-        "channel": "CrashCourse",
-        "category": "science",
-        "url": "https://www.youtube.com/watch?v=0GGPe_Oum6c",
-        "thumbnail": "https://i.ytimg.com/vi/0GGPe_Oum6c/hqdefault.jpg",
-        "published": "2026-10-01"
+        "id": "E7pl0tqzIUQ",
+        "title": "The Truth About Leveraged ETFs",
+        "channel": "Ben Felix",
+        "category": "money",
+        "url": "https://www.youtube.com/watch?v=E7pl0tqzIUQ",
+        "thumbnail": "https://i.ytimg.com/vi/E7pl0tqzIUQ/hqdefault.jpg",
+        "published": "2026-09-27"
       },
       {
-        "id": "M2OYgUoQwyk",
-        "title": "HOW TO SELL ANY SERVICE TO ANYONE | The System Saad Used to Build a ₹50 Crore Service Business",
-        "channel": "Think School",
+        "id": "PXuQ5ZEBfTA",
+        "title": "Why Botswana Got So Wealthy",
+        "channel": "Wendover Productions",
         "category": "business",
-        "url": "https://www.youtube.com/watch?v=M2OYgUoQwyk",
-        "thumbnail": "https://i.ytimg.com/vi/M2OYgUoQwyk/hqdefault.jpg",
-        "published": "2026-10-03"
+        "url": "https://www.youtube.com/watch?v=PXuQ5ZEBfTA",
+        "thumbnail": "https://i.ytimg.com/vi/PXuQ5ZEBfTA/hqdefault.jpg",
+        "published": "2026-09-30"
       },
       {
-        "id": "ZaGZYXgMtgA",
-        "title": "What Did the Ancient Greeks and Romans Know About Britain?",
-        "channel": "Kings and Generals",
+        "id": "OuNKBjuV7A4",
+        "title": "DHH has gone completely off the rails...",
+        "channel": "Fireship",
+        "category": "ai",
+        "url": "https://www.youtube.com/watch?v=OuNKBjuV7A4",
+        "thumbnail": "https://i.ytimg.com/vi/OuNKBjuV7A4/hqdefault.jpg",
+        "published": "2026-09-28"
+      },
+      {
+        "id": "2-BjkO6Br_E",
+        "title": "6 Mindsets That Make People Respect You During Conflict",
+        "channel": "Charisma on Command",
+        "category": "mind",
+        "url": "https://www.youtube.com/watch?v=2-BjkO6Br_E",
+        "thumbnail": "https://i.ytimg.com/vi/2-BjkO6Br_E/hqdefault.jpg",
+        "published": "2026-09-28"
+      },
+      {
+        "id": "748WJ7ydG_s",
+        "title": "Why America keeps losing wars",
+        "channel": "CaspianReport",
         "category": "history",
-        "url": "https://www.youtube.com/watch?v=ZaGZYXgMtgA",
-        "thumbnail": "https://i.ytimg.com/vi/ZaGZYXgMtgA/hqdefault.jpg",
-        "published": "2026-09-24"
+        "url": "https://www.youtube.com/watch?v=748WJ7ydG_s",
+        "thumbnail": "https://i.ytimg.com/vi/748WJ7ydG_s/hqdefault.jpg",
+        "published": "2026-09-21"
+      },
+      {
+        "id": "0NY2gAftzJE",
+        "title": "This Woman Cured Her Cancer with an Insane Method",
+        "channel": "Kurzgesagt",
+        "category": "science",
+        "url": "https://www.youtube.com/watch?v=0NY2gAftzJE",
+        "thumbnail": "https://i.ytimg.com/vi/0NY2gAftzJE/hqdefault.jpg",
+        "published": "2026-09-15"
       }
     ]
   },
   "podcasts": [
     {
-      "id": "philosophize-this-episode-186-are-we-heading-for-a-digital-prison-panopticon-fou",
-      "title": "Episode #186 ... Are we heading for a digital prison? - Panopticon (Foucault, Bentham, Cave)",
+      "id": "philosophize-this-episode-185-should-we-prepare-for-an-ai-revolution",
+      "title": "Episode #185 ... Should we prepare for an AI revolution?",
       "show": "Philosophize This!",
       "category": "philosophy",
-      "audioUrl": "https://traffic.libsyn.com/secure/philosophizethis/Panopticon_master.mp3?dest-id=144660",
-      "link": "https://philosophizethis.libsyn.com/episode-186-are-we-heading-for-a-digital-prison-panopticon-foucault-bentham-cave",
-      "durationSec": 2415
+      "audioUrl": "https://traffic.libsyn.com/secure/philosophizethis/generative_AI_01.mp3?dest-id=144660",
+      "link": "https://philosophizethis.libsyn.com/episode-185-should-we-prepare-for-an-ai-revolution",
+      "durationSec": 2312
     },
     {
-      "id": "lex-fridman-podcast-499-gary-gallagher-american-civil-war-slavery-lincoln-grant-",
-      "title": "#499 – Gary Gallagher: American Civil War, Slavery, Lincoln, Grant & Lee",
+      "id": "lex-fridman-podcast-498-anthony-kaldellis-roman-empire-byzantine-empire-rise-fal",
+      "title": "#498 – Anthony Kaldellis: Roman Empire, Byzantine Empire, Rise & Fall of Empires",
       "show": "Lex Fridman Podcast",
       "category": "ai",
-      "audioUrl": "https://media.blubrry.com/takeituneasy/ins.blubrry.com/takeituneasy/lex_ai_gary_gallagher.mp3",
-      "link": "https://lexfridman.com/gary-gallagher/?utm_source=rss&utm_medium=rss&utm_campaign=gary-gallagher",
-      "durationSec": 13987
+      "audioUrl": "https://media.blubrry.com/takeituneasy/ins.blubrry.com/takeituneasy/lex_ai_anthony_kaldellis.mp3",
+      "link": "https://lexfridman.com/anthony-kaldellis/?utm_source=rss&utm_medium=rss&utm_campaign=anthony-kaldellis",
+      "durationSec": null
     }
   ],
   "onThisDay": [
     {
       "year": 1997,
       "kind": "born",
-      "text": "Rishabh Pant, known for his aggressive batting and historic Test match-winning performances for the Indian cricket team, was born.",
+      "text": "Rishabh Pant, celebrated for his aggressive batting and historic Test match victories, was born, becoming a modern icon of Indian cricket.",
       "url": "https://en.wikipedia.org/wiki/Rishabh_Pant",
       "india": true
     },
     {
       "year": 1884,
       "kind": "born",
-      "text": "Ramchandra Shukla, a pioneering historian and author who shaped the foundation of modern Hindi literature and literary criticism, was born.",
+      "text": "Acharya Ramchandra Shukla, who laid the foundation for modern Hindi literary criticism and history, was born.",
       "url": "https://en.wikipedia.org/wiki/Ramchandra_Shukla",
       "india": true
     },
     {
       "year": 1927,
       "kind": "event",
-      "text": "Sculptor Gutzon Borglum and 400 workers began carving the monumental Mount Rushmore memorial in South Dakota.",
+      "text": "Gutzon Borglum and about 400 workers began sculpting Mount Rushmore, creating one of America's most famous monumental landmarks.",
       "url": "https://en.wikipedia.org/wiki/Gutzon_Borglum",
       "india": false
     },
     {
-      "year": 1363,
+      "year": 1862,
       "kind": "event",
-      "text": "Zhu Yuanzhang won the decisive naval Battle of Lake Poyang during the Red Turban Rebellions using fire ships.",
-      "url": "https://en.wikipedia.org/wiki/Red_Turban_Rebellions",
+      "text": "Confederate commanders surrendered Galveston Harbor to Union forces after a naval battle during the American Civil War.",
+      "url": "https://en.wikipedia.org/wiki/American_Civil_War",
       "india": false
     }
   ]
