@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Detour sign: amber road-sign diamond with a curved arrow bending away. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path
+        android:fillColor="#FFB020"
+        android:pathData="M54,27 Q56,27 57.5,28.5 L79.5,50.5 Q81,52 81,54 Q81,56 79.5,57.5 L57.5,79.5 Q56,81 54,81 Q52,81 50.5,79.5 L28.5,57.5 Q27,56 27,54 Q27,52 28.5,50.5 L50.5,28.5 Q52,27 54,27 Z" />
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#1A1206"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:strokeWidth="4.5"
+        android:pathData="M48,68 L48,58 Q48,49 57,49 L61,49" />
+    <path
+        android:fillColor="#1A1206"
+        android:pathData="M60,42.5 L68.5,49 L60,55.5 Z" />
+</vector>

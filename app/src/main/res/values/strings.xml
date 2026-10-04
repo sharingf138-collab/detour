@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Detour</string>
+    <string name="guard_label">Detour: Instagram pause</string>
+    <string name="guard_description">Shows a short pause screen whenever Instagram opens, with something better to watch instead. Detour only watches for Instagram opening. It never reads what is on your screen.</string>
+</resources>
