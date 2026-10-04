@@ -51,13 +51,13 @@
   },
   "categories": [
     "india",
-    "history",
     "money",
-    "mind",
+    "business",
     "ai",
+    "mind",
     "philosophy",
-    "science",
-    "business"
+    "history",
+    "science"
   ],
   "channels": [
     {
@@ -126,23 +126,8 @@
       "category": "history"
     },
     {
-      "name": "warikoo",
-      "id": "UCRzYN32xtBf3Yxsx5BvJWJw",
-      "category": "money"
-    },
-    {
-      "name": "CA Rachana Ranade",
-      "id": "UCe3qdG0A_gr-sEdat5y2twQ",
-      "category": "money"
-    },
-    {
       "name": "Economics Explained",
       "id": "UCZ4AMrDcNrfy3X6nsU8-rPg",
-      "category": "money"
-    },
-    {
-      "name": "Labour Law Advisor",
-      "id": "UCVOTBwF0vnSxMRIbfSE_K_g",
       "category": "money"
     },
     {
@@ -236,21 +221,6 @@
       "category": "science"
     },
     {
-      "name": "Think School",
-      "id": "UCKZozRVHRYsYHGEyNKuhhdA",
-      "category": "business"
-    },
-    {
-      "name": "Raj Shamani",
-      "id": "UCzwCEE_PchiBULMnAJqhGVg",
-      "category": "business"
-    },
-    {
-      "name": "Abhi and Niyu",
-      "id": "UCsDTy8jvHcwMvSZf_JGi-FA",
-      "category": "business"
-    },
-    {
       "name": "Wendover Productions",
       "id": "UC9RM-iSvTu1uPJb8X5yp3EQ",
       "category": "business"
@@ -264,6 +234,51 @@
       "name": "PolyMatter",
       "id": "UCgNg3vwj3xt7QOrcIDaHdFg",
       "category": "business"
+    },
+    {
+      "name": "Ben Felix",
+      "id": "UCDXTQ8nWmx_EhZ2v-kp7QxA",
+      "category": "money"
+    },
+    {
+      "name": "The Plain Bagel",
+      "id": "UCFCEuCsyWP0YkP3CZ3Mr01Q",
+      "category": "money"
+    },
+    {
+      "name": "Two Cents",
+      "id": "UCL8w_A8p8P1HWI3k6PR5Z6w",
+      "category": "money"
+    },
+    {
+      "name": "Patrick Boyle",
+      "id": "UCASM0cgfkJxQ1ICmRilfHLw",
+      "category": "money"
+    },
+    {
+      "name": "How Money Works",
+      "id": "UCkCGANrihzExmu9QiqZpPlQ",
+      "category": "money"
+    },
+    {
+      "name": "Money & Macro",
+      "id": "UCCKpicnIwBP3VPxBAZWDeNA",
+      "category": "money"
+    },
+    {
+      "name": "Bloomberg Originals",
+      "id": "UCUMZ7gohGI9HcU9VNsr2FJQ",
+      "category": "business"
+    },
+    {
+      "name": "Wall Street Millennial",
+      "id": "UCUyH4QfXX-5NOT0bULqG6lQ",
+      "category": "business"
+    },
+    {
+      "name": "Daily Stoic",
+      "id": "UCkUaT0T03TJvafYkfATM2Ag",
+      "category": "philosophy"
     }
   ],
   "podcasts": [
@@ -297,8 +312,5 @@
       "url": "https://feeds.feedburner.com/dancarlin/history?format=xml",
       "category": "history"
     }
-  ],
-  "alwaysInclude": [
-    "india"
   ]
 }

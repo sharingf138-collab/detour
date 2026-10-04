@@ -64,6 +64,7 @@ import com.kartik.detour.guard.GuardStatus
 import com.kartik.detour.guard.InstaUsage
 import com.kartik.detour.ui.components.FilterPill
 import com.kartik.detour.ui.components.ScreenTitle
+import com.kartik.detour.ui.components.WeekBars
 import com.kartik.detour.ui.formatMinutes
 import com.kartik.detour.ui.toastOffline
 import com.kartik.detour.ui.theme.Display
@@ -75,7 +76,7 @@ import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
 @Composable
-fun YouScreen() {
+fun YouScreen(onOpenRecap: () -> Unit) {
     val context = LocalContext.current
     val app = context.container
     val settings by app.prefs.settings.collectAsStateWithLifecycle()
@@ -136,7 +137,10 @@ fun YouScreen() {
                     },
                     style = MaterialTheme.typography.bodyMedium, color = Ink.Fog,
                 )
-                Spacer(Modifier.height(20.dp))
+                TextButton(onClick = onOpenRecap, contentPadding = PaddingValues(0.dp)) {
+                    Text("See this week's recap", color = Ink.Sign)
+                }
+                Spacer(Modifier.height(12.dp))
                 week?.let { w ->
                     WeekBars(w, selected = if (selectedDay in w.indices) selectedDay else w.lastIndex) { selectedDay = it }
                 }
@@ -197,13 +201,19 @@ fun YouScreen() {
                         FilterPill("$s sec", settings.waitSeconds == s, Ink.Sign) { app.prefs.update { it.copy(waitSeconds = s) } }
                     }
                 }
+                Label("After bedtime, wait this long instead")
+                Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    listOf(15, 30, 60).forEach { s ->
+                        FilterPill("$s sec", settings.nightWaitSeconds == s, Ink.Psych) { app.prefs.update { it.copy(nightWaitSeconds = s) } }
+                    }
+                }
                 Label("After you open it anyway, leave Instagram alone for")
                 Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                     listOf(5, 10, 15, 30).forEach { m ->
                         FilterPill("$m min", settings.graceMinutes == m, Ink.Sign) { app.prefs.update { it.copy(graceMinutes = m) } }
                     }
                 }
-                Label("Bedtime: after this, the pause offers audio instead of video")
+                Label("Bedtime: after this the wait gets longer, and the pause offers a podcast instead of a video")
                 Text(
                     clock(settings.bedtimeMinutes),
                     style = MaterialTheme.typography.titleLarge,
@@ -323,63 +333,6 @@ private fun StepRow(done: Boolean, title: String, body: String, action: String, 
             if (!done) {
                 Text(body, style = MaterialTheme.typography.bodySmall, color = Ink.Fog)
                 TextButton(onClick = onClick, contentPadding = PaddingValues(0.dp)) { Text(action, color = Ink.Sign) }
-            }
-        }
-    }
-}
-
-/** Seven bars of Instagram minutes; today in amber. */
-@Composable
-private fun WeekBars(week: List<Pair<LocalDate, Long>>, selected: Int, onSelect: (Int) -> Unit) {
-    val max = (week.maxOfOrNull { it.second } ?: 0L).coerceAtLeast(30L)
-    val gapDp = 10.dp
-    Column {
-        Canvas(
-            Modifier
-                .fillMaxWidth()
-                .height(110.dp)
-                .pointerInput(week.size) {
-                    detectTapGestures { pos ->
-                        val gap = gapDp.toPx()
-                        val w = (size.width - gap * (week.size - 1)) / week.size
-                        val i = (pos.x / (w + gap)).toInt().coerceIn(0, week.lastIndex)
-                        onSelect(i)
-                    }
-                },
-        ) {
-            val n = week.size
-            val gap = gapDp.toPx()
-            val w = (size.width - gap * (n - 1)) / n
-            week.forEachIndexed { i, (_, mins) ->
-                val h = (mins.toFloat() / max) * size.height
-                val x = i * (w + gap)
-                drawRoundRect(
-                    color = Ink.Haze,
-                    topLeft = Offset(x, 0f),
-                    size = Size(w, size.height),
-                    cornerRadius = CornerRadius(8.dp.toPx()),
-                )
-                drawRoundRect(
-                    color = if (i == selected) Ink.Sign else Ink.Psych.copy(alpha = 0.55f),
-                    topLeft = Offset(x, size.height - h),
-                    size = Size(w, h.coerceAtLeast(2.dp.toPx())),
-                    cornerRadius = CornerRadius(8.dp.toPx()),
-                )
-            }
-        }
-        Spacer(Modifier.height(6.dp))
-        Row(Modifier.fillMaxWidth()) {
-            week.forEachIndexed { i, (d, mins) ->
-                Column(
-                    Modifier.weight(1f).clip(RoundedCornerShape(8.dp)).clickable { onSelect(i) },
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                ) {
-                    Text(
-                        d.format(DateTimeFormatter.ofPattern("EEE")), style = MaterialTheme.typography.labelSmall,
-                        color = if (i == selected) Ink.Sign else Ink.Dim, textAlign = TextAlign.Center,
-                    )
-                    Text(if (mins >= 60) "${mins / 60}h" else "${mins}m", style = MaterialTheme.typography.labelSmall, color = Ink.Fog, textAlign = TextAlign.Center)
-                }
             }
         }
     }

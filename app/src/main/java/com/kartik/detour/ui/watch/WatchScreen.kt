@@ -40,7 +40,7 @@ import com.kartik.detour.ui.openVideo
 import com.kartik.detour.ui.theme.Ink
 
 @Composable
-fun WatchScreen() {
+fun WatchScreen(onOpenPlayer: () -> Unit) {
     val context = LocalContext.current
     val app = context.container
     val content by app.content.content.collectAsStateWithLifecycle()
@@ -55,7 +55,7 @@ fun WatchScreen() {
             }
         }
         if (!videos?.more.isNullOrEmpty()) {
-            item { Section("More to explore") }
+            item { Section("One from every topic") }
             items(videos.more, key = { it.id }) { v ->
                 VideoCard(v, large = false, onClick = { openVideo(context, v) }, modifier = Modifier.padding(horizontal = 20.dp))
             }
@@ -64,9 +64,14 @@ fun WatchScreen() {
         if (pods.isNotEmpty()) {
             item {
                 Spacer(Modifier.height(20.dp))
-                Section("For tonight", "Audio only, so the screen can go dark.")
+                Section("For tonight", "Plays right here, with a sleep timer. Put the phone face down.")
             }
-            items(pods, key = { it.id }) { p -> PodcastRow(p) { openUrl(context, p.link.ifBlank { p.audioUrl }) } }
+            items(pods, key = { it.id }) { p ->
+                PodcastRow(p) {
+                    app.audio.play(p)
+                    onOpenPlayer()
+                }
+            }
         }
         if (videos?.hero == null) {
             item {

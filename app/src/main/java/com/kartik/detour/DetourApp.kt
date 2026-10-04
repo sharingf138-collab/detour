@@ -7,6 +7,7 @@ import com.kartik.detour.data.DayRepository
 import com.kartik.detour.data.Prefs
 import com.kartik.detour.data.StudyRepository
 import com.kartik.detour.data.db.DetourDb
+import com.kartik.detour.player.Audio
 import com.kartik.detour.work.Refresh
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
@@ -20,6 +21,7 @@ class AppContainer(context: Context) {
     val study = StudyRepository(db.cards())
     val days = DayRepository(db.days())
     val notes = db.notes()
+    val audio = Audio(context, scope)
 }
 
 class DetourApp : Application() {

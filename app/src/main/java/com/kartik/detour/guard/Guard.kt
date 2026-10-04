@@ -133,6 +133,19 @@ object InstaUsage {
         }
     }
 
+    /** Save the last week of Instagram minutes into Detour's own records, so recaps outlive Android's history. */
+    suspend fun recordRecent(context: Context) {
+        val days = context.container.days
+        val today = LocalDate.now()
+        for (back in 0L..6L) {
+            val d = today.minusDays(back)
+            val m = minutesOn(context, d) ?: return
+            // Android drops old usage events; a 0 for an older day usually means "forgotten", not "unused".
+            if (m == 0L && back > 2) continue
+            days.updateDate(d.toString()) { it.copy(instaMinutes = m.toInt()) }
+        }
+    }
+
     @Suppress("DEPRECATION")
     private fun foregroundMillis(context: Context, start: Long, end: Long): Long {
         val usm = context.getSystemService(UsageStatsManager::class.java)

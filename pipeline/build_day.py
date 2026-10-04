@@ -313,23 +313,19 @@ def build_videos(sources: dict, hist: dict, day: dt.date, now: dt.datetime) -> d
             if count[v["channel"]] <= 2:
                 capped.append(v)
         vids[:] = capped
+    # One video per category, every day, so each topic gets a slot. The hero rotates through them.
     cats = sources["categories"]
-    start = day.toordinal() % len(cats)
-    order = cats[start:] + cats[:start]
-    # Categories that must show up every day (e.g. Indian history) go right after the hero.
-    for must in reversed(sources.get("alwaysInclude", [])):
-        if must in order[1:]:
-            order.remove(must)
-            order.insert(1, must)
-    picks = []
-    for cat in order:
+    picks = {}
+    for cat in cats:
         if by_cat.get(cat):
             # a little randomness inside the category so it isn't always the newest upload
-            options = by_cat[cat][:4]
-            picks.append(random.Random(day.toordinal()).choice(options))
-        if len(picks) == 5:
-            break
-    return {"hero": picks[0] if picks else None, "more": picks[1:]}
+            options = by_cat[cat][:6]
+            picks[cat] = random.Random(f"{day.toordinal()}-{cat}").choice(options)
+    if not picks:
+        return {"hero": None, "more": []}
+    available = [c for c in cats if c in picks]
+    hero_cat = available[day.toordinal() % len(available)]
+    return {"hero": picks[hero_cat], "more": [picks[c] for c in available if c != hero_cat]}
 
 
 INDIA = re.compile(

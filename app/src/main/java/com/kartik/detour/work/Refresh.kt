@@ -25,7 +25,9 @@ import com.kartik.detour.MainActivity
 import com.kartik.detour.R
 import com.kartik.detour.container
 import com.kartik.detour.data.today
+import java.time.DayOfWeek
 import java.time.Duration
+import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.LocalTime
 import java.util.concurrent.TimeUnit
@@ -34,6 +36,7 @@ import java.util.concurrent.TimeUnit
 class RefreshWorker(context: Context, params: WorkerParameters) : CoroutineWorker(context, params) {
     override suspend fun doWork(): Result {
         val c = applicationContext.container
+        com.kartik.detour.guard.InstaUsage.recordRecent(applicationContext)
         val todayIso = today().toString()
         val got = c.content.refresh().getOrElse { return if (runAttemptCount < 12) Result.retry() else Result.failure() }
         // GitHub's 6:00 cron often starts late; keep checking (every 15 min, ~3 h) until today's stops land.
@@ -96,7 +99,9 @@ object Refresh {
         )
         val n = NotificationCompat.Builder(context, CHANNEL)
             .setSmallIcon(R.drawable.ic_stat_detour)
-            .setContentTitle("Today's Detour is ready")
+            .setContentTitle(
+                if (LocalDate.now().dayOfWeek == DayOfWeek.SUNDAY) "Your week in Detour is ready" else "Today's Detour is ready"
+            )
             .setContentText(
                 if (firstWord != null) "First word: $firstWord. Open this before Instagram."
                 else "New words, terms and the news. Open this before Instagram."

@@ -104,7 +104,7 @@ enum class LoopType(val key: String, val label: String) {
 
 /** Video categories from sources.json, with the names shown in the app. */
 fun categoryLabel(key: String): String = when (key) {
-    "india" -> "Indian history"
+    "india" -> "India"
     "history" -> "History"
     "money" -> "Money"
     "mind" -> "Mind & behaviour"

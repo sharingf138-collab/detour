@@ -94,7 +94,11 @@ class PauseActivity : ComponentActivity() {
                     onListen = { pod ->
                         app.scope.launch { app.days.countDetour() }
                         leaveInstagram()
-                        openUrl(this, pod.link.ifBlank { pod.audioUrl })
+                        startActivity(
+                            Intent(this, MainActivity::class.java)
+                                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                                .putExtra(MainActivity.EXTRA_PLAY_ID, pod.id)
+                        )
                         finish()
                     },
                     onOpenDetour = {
@@ -139,6 +143,13 @@ private val lines = listOf(
     "Future you is going to ask where the evening went.",
 )
 
+private val nightLines = listOf(
+    "It's late. The feed will look exactly the same tomorrow.",
+    "This is the scroll that turns into 2 AM.",
+    "Your sleep is worth more than the next reel.",
+    "Tomorrow-you is asking you to put the phone down.",
+)
+
 @Composable
 private fun PauseScreen(
     onWatch: (Video) -> Unit,
@@ -158,7 +169,7 @@ private fun PauseScreen(
     LaunchedEffect(Unit) { minutes = withContext(Dispatchers.IO) { InstaUsage.minutesOn(context, LocalDate.now()) } }
 
     // Countdown before "Open Instagram" unlocks.
-    val wait = settings.waitSeconds
+    val wait = if (night) settings.nightWaitSeconds else settings.waitSeconds
     var left by remember { mutableIntStateOf(wait) }
     val bar = remember { Animatable(0f) }
     LaunchedEffect(Unit) {
@@ -178,7 +189,7 @@ private fun PauseScreen(
     }
 
     val opens = (day?.instaOpens ?: 1).coerceAtLeast(1)
-    val line = lines[opens % lines.size]
+    val line = if (night) nightLines[opens % nightLines.size] else lines[opens % lines.size]
     val loopCard = content?.loop?.filter { settings.showNsfw || !it.nsfw }?.let { if (it.isEmpty()) null else it[opens % it.size] }
     val hero = content?.videos?.hero
     val podcast = content?.podcasts?.firstOrNull()

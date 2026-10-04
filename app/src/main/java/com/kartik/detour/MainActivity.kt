@@ -1,5 +1,6 @@
 package com.kartik.detour
 
+import android.content.Intent
 import android.os.Bundle
 import android.graphics.Color
 import androidx.activity.ComponentActivity
@@ -37,6 +38,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -56,7 +58,10 @@ import com.kartik.detour.data.db.NoteEntity
 import com.kartik.detour.ui.loop.LoopScreen
 import com.kartik.detour.ui.notes.NoteSheet
 import com.kartik.detour.ui.notes.NotesScreen
+import com.kartik.detour.ui.player.MiniPlayer
+import com.kartik.detour.ui.player.PlayerScreen
 import com.kartik.detour.ui.quiz.QuizScreen
+import com.kartik.detour.ui.recap.RecapScreen
 import com.kartik.detour.ui.theme.DetourTheme
 import com.kartik.detour.ui.theme.Ink
 import com.kartik.detour.ui.today.TodayScreen
@@ -64,10 +69,24 @@ import com.kartik.detour.ui.watch.WatchScreen
 import com.kartik.detour.ui.you.YouScreen
 
 class MainActivity : ComponentActivity() {
+    /** Latest launch intent, so "Listen instead" from the pause screen can open the player. */
+    private val launch = mutableStateOf<Intent?>(null)
+
+    override fun onNewIntent(intent: Intent) {
+        super.onNewIntent(intent)
+        launch.value = intent
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        launch.value = intent
         enableEdgeToEdge(SystemBarStyle.dark(Color.TRANSPARENT), SystemBarStyle.dark(Color.TRANSPARENT))
-        setContent { DetourTheme { DetourRoot() } }
+        setContent { DetourTheme { DetourRoot(launch.value) { launch.value = null } } }
+    }
+
+    companion object {
+        const val EXTRA_OPEN_PLAYER = "open_player"
+        const val EXTRA_PLAY_ID = "play_podcast"
     }
 }
 
@@ -82,7 +101,7 @@ private val tabs = listOf(
 )
 
 @Composable
-private fun DetourRoot() {
+private fun DetourRoot(launch: Intent?, onLaunchHandled: () -> Unit) {
     val context = LocalContext.current
     val app = context.container
     val nav = rememberNavController()
@@ -107,6 +126,21 @@ private fun DetourRoot() {
         }
     }
 
+    // Opened from the pause screen ("Listen instead") or the playback notification.
+    val content by app.content.content.collectAsStateWithLifecycle()
+    LaunchedEffect(launch, content) {
+        val i = launch ?: return@LaunchedEffect
+        val playId = i.getStringExtra(MainActivity.EXTRA_PLAY_ID)
+        if (playId != null) {
+            val pod = content?.podcasts?.firstOrNull { it.id == playId } ?: return@LaunchedEffect
+            app.audio.play(pod)
+            nav.navigate("player") { launchSingleTop = true }
+        } else if (i.getBooleanExtra(MainActivity.EXTRA_OPEN_PLAYER, false)) {
+            nav.navigate("player") { launchSingleTop = true }
+        }
+        onLaunchHandled()
+    }
+
     fun go(r: String) = nav.navigate(r) {
         popUpTo(nav.graph.findStartDestination().id) { saveState = true }
         launchSingleTop = true
@@ -116,18 +150,28 @@ private fun DetourRoot() {
     Box(Modifier.fillMaxSize().background(Ink.Night)) {
         NavHost(nav, startDestination = "today", modifier = Modifier.fillMaxSize()) {
             composable("today") {
-                TodayScreen(onOpenLoop = { go("loop") }, onOpenQuiz = { nav.navigate("quiz") }, onOpenWatch = { go("watch") })
+                TodayScreen(
+                    onOpenLoop = { go("loop") },
+                    onOpenQuiz = { nav.navigate("quiz") },
+                    onOpenWatch = { go("watch") },
+                    onOpenRecap = { nav.navigate("recap") },
+                )
             }
             composable("loop") { LoopScreen(onOpenQuiz = { nav.navigate("quiz") }) }
-            composable("watch") { WatchScreen() }
+            composable("watch") { WatchScreen(onOpenPlayer = { nav.navigate("player") { launchSingleTop = true } }) }
+            composable("player") { PlayerScreen(onClose = { nav.popBackStack() }) }
             composable("notes") { NotesScreen() }
-            composable("you") { YouScreen() }
+            composable("you") { YouScreen(onOpenRecap = { nav.navigate("recap") }) }
+            composable("recap") { RecapScreen(onClose = { nav.popBackStack() }) }
             composable("quiz") { QuizScreen(onClose = { nav.popBackStack() }) }
         }
         // Opaque strip behind the status bar so scrolled content doesn't run under the clock.
         Box(Modifier.fillMaxWidth().windowInsetsTopHeight(WindowInsets.statusBars).background(Ink.Night))
-        if (route != "quiz") {
-            BottomBar(current = route, onSelect = ::go, modifier = Modifier.align(Alignment.BottomCenter))
+        if (route != "quiz" && route != "player" && route != "recap") {
+            Column(Modifier.align(Alignment.BottomCenter)) {
+                MiniPlayer(onOpen = { nav.navigate("player") { launchSingleTop = true } })
+                BottomBar(current = route, onSelect = ::go)
+            }
         }
     }
 

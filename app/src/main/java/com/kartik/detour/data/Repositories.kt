@@ -157,10 +157,13 @@ class DayRepository(private val days: DayDao) {
     fun todayFlow(): Flow<DayEntity?> = days.watch(today().toString())
     fun recent(): Flow<List<DayEntity>> = days.recent()
 
-    suspend fun update(change: (DayEntity) -> DayEntity) = lock.withLock {
-        val d = today().toString()
-        days.save(change(days.get(d) ?: DayEntity(d)))
+    suspend fun update(change: (DayEntity) -> DayEntity) = updateDate(today().toString(), change)
+
+    suspend fun updateDate(date: String, change: (DayEntity) -> DayEntity) = lock.withLock {
+        days.save(change(days.get(date) ?: DayEntity(date)))
     }
+
+    suspend fun between(from: LocalDate, to: LocalDate) = days.between(from.toString(), to.toString())
 
     suspend fun countInstaOpen() = update { it.copy(instaOpens = it.instaOpens + 1) }
     suspend fun countDetour() = update { it.copy(detours = it.detours + 1) }

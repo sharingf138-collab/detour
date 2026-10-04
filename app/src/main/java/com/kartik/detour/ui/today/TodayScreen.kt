@@ -84,7 +84,7 @@ import java.time.LocalTime
 import java.time.format.DateTimeFormatter
 
 @Composable
-fun TodayScreen(onOpenLoop: () -> Unit, onOpenQuiz: () -> Unit, onOpenWatch: () -> Unit) {
+fun TodayScreen(onOpenLoop: () -> Unit, onOpenQuiz: () -> Unit, onOpenWatch: () -> Unit, onOpenRecap: () -> Unit) {
     val context = LocalContext.current
     val app = context.container
     val content by app.content.content.collectAsStateWithLifecycle()
@@ -132,6 +132,7 @@ fun TodayScreen(onOpenLoop: () -> Unit, onOpenQuiz: () -> Unit, onOpenWatch: () 
                         loopCount = loop.size,
                         pauseOff = pauseOff,
                         onOpenQuiz = onOpenQuiz,
+                        onOpenRecap = onOpenRecap,
                     )
                 }
                 item(key = "words") {
@@ -220,6 +221,7 @@ private fun Header(
     loopCount: Int,
     pauseOff: Boolean,
     onOpenQuiz: () -> Unit,
+    onOpenRecap: () -> Unit,
 ) {
     val context = LocalContext.current
     val now = LocalDate.now()
@@ -246,6 +248,24 @@ private fun Header(
                 "Showing ${LocalDate.parse(content.date).format(DateTimeFormatter.ofPattern("d MMM"))}. Pull down to check for today's stops.",
                 style = MaterialTheme.typography.bodySmall, color = Ink.Paradox,
             )
+        }
+        if (now.dayOfWeek == java.time.DayOfWeek.SUNDAY) {
+            Spacer(Modifier.height(18.dp))
+            Row(
+                Modifier
+                    .fillMaxWidth()
+                    .clip(RoundedCornerShape(16.dp))
+                    .background(Ink.Psych)
+                    .clickable(onClick = onOpenRecap)
+                    .padding(horizontal = 16.dp, vertical = 14.dp),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Column(Modifier.weight(1f)) {
+                    Text("Your week in Detour", style = MaterialTheme.typography.titleMedium, color = Ink.StickerInk)
+                    Text("Instagram time, detours taken, words learned", style = MaterialTheme.typography.bodySmall, color = Ink.StickerInk.copy(alpha = 0.7f))
+                }
+                Text("See it", style = MaterialTheme.typography.labelLarge, color = Ink.StickerInk)
+            }
         }
         if (pauseOff) {
             Spacer(Modifier.height(18.dp))

@@ -12,6 +12,7 @@ data class Settings(
     val guardOn: Boolean = true,
     val graceMinutes: Int = 10,
     val waitSeconds: Int = 10,
+    val nightWaitSeconds: Int = 30,         // stricter after bedtime
     val bedtimeMinutes: Int = 23 * 60,     // minutes after midnight
     val wakeMinutes: Int = 6 * 60,
     val morningNudge: Boolean = true,
@@ -39,6 +40,7 @@ class Prefs(context: Context) {
         guardOn = sp.getBoolean("guardOn", true),
         graceMinutes = sp.getInt("graceMinutes", 10),
         waitSeconds = sp.getInt("waitSeconds", 10),
+        nightWaitSeconds = sp.getInt("nightWaitSeconds", 30),
         bedtimeMinutes = sp.getInt("bedtimeMinutes", 23 * 60),
         wakeMinutes = sp.getInt("wakeMinutes", 6 * 60),
         morningNudge = sp.getBoolean("morningNudge", true),
@@ -52,6 +54,7 @@ class Prefs(context: Context) {
             putBoolean("guardOn", s.guardOn)
             putInt("graceMinutes", s.graceMinutes)
             putInt("waitSeconds", s.waitSeconds)
+            putInt("nightWaitSeconds", s.nightWaitSeconds)
             putInt("bedtimeMinutes", s.bedtimeMinutes)
             putInt("wakeMinutes", s.wakeMinutes)
             putBoolean("morningNudge", s.morningNudge)
