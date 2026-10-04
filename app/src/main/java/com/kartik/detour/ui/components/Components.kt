@@ -130,7 +130,7 @@ fun RouteStop(
     ) {
         Column(Modifier.weight(1f)) {
             Row(Modifier.fillMaxWidth().height(36.dp), verticalAlignment = Alignment.CenterVertically) {
-                Text(title, style = MaterialTheme.typography.titleLarge, modifier = Modifier.weight(1f))
+                Text(title, style = MaterialTheme.typography.titleLarge, maxLines = 1, overflow = TextOverflow.Ellipsis, modifier = Modifier.weight(1f))
                 trailing?.invoke()
             }
             Spacer(Modifier.height(10.dp))

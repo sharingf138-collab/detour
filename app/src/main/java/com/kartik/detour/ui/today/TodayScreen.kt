@@ -127,7 +127,7 @@ fun TodayScreen(onOpenLoop: () -> Unit, onOpenQuiz: () -> Unit, onOpenWatch: () 
                 item(key = "loop") {
                     RouteStop(
                         "Stay in the loop", Ink.Slang, reached = furthest >= 2,
-                        trailing = { TextButton(onClick = onOpenLoop) { Text("Open the deck", color = Ink.Slang) } },
+                        trailing = { TextButton(onClick = onOpenLoop) { Text("Open deck", style = MaterialTheme.typography.labelLarge, color = Ink.Slang) } },
                     ) {
                         LazyRow(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
                             items(loop, key = { it.term }) { card ->
@@ -166,7 +166,7 @@ fun TodayScreen(onOpenLoop: () -> Unit, onOpenQuiz: () -> Unit, onOpenWatch: () 
                     item(key = "watch") {
                         RouteStop(
                             "Watch instead", Ink.Psych, reached = furthest >= 5,
-                            trailing = { TextButton(onClick = onOpenWatch) { Text("More videos", color = Ink.Psych) } },
+                            trailing = { TextButton(onClick = onOpenWatch) { Text("More", style = MaterialTheme.typography.labelLarge, color = Ink.Psych) } },
                         ) {
                             VideoCard(hero, large = true, onClick = { openVideo(context, hero) })
                         }

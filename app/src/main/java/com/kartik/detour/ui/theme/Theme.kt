@@ -3,11 +3,13 @@
 package com.kartik.detour.ui.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Shapes
 import androidx.compose.material3.Typography
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.ExperimentalTextApi
 import androidx.compose.ui.text.TextStyle
@@ -129,6 +131,8 @@ fun DetourTheme(content: @Composable () -> Unit) {
             medium = RoundedCornerShape(18.dp),
             large = RoundedCornerShape(28.dp),
         ),
-        content = content,
-    )
+    ) {
+        // No Surface at the root, so set the default text/icon colour explicitly.
+        CompositionLocalProvider(LocalContentColor provides Ink.Paper, content = content)
+    }
 }
