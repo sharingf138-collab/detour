@@ -10,6 +10,9 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.statusBars
+import androidx.compose.foundation.layout.windowInsetsTopHeight
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -121,6 +124,8 @@ private fun DetourRoot() {
             composable("you") { YouScreen() }
             composable("quiz") { QuizScreen(onClose = { nav.popBackStack() }) }
         }
+        // Opaque strip behind the status bar so scrolled content doesn't run under the clock.
+        Box(Modifier.fillMaxWidth().windowInsetsTopHeight(WindowInsets.statusBars).background(Ink.Night))
         if (route != "quiz") {
             BottomBar(current = route, onSelect = ::go, modifier = Modifier.align(Alignment.BottomCenter))
         }
