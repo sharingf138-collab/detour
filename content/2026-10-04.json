@@ -1,316 +1,311 @@
 {
   "schema": 1,
   "date": "2026-10-04",
-  "generatedAt": "2026-10-04T07:18:05+00:00",
+  "generatedAt": "2026-10-04T08:15:48+00:00",
   "words": [
     {
-      "word": "Elucidate",
-      "pos": "verb",
-      "pronunciation": "ih-LOO-sih-dayt",
-      "meaning": "To make something clear; to explain.",
-      "insteadOf": "explain",
-      "example": "Could you elucidate how the model was validated?"
-    },
-    {
-      "word": "Resilient",
+      "word": "Diligent",
       "pos": "adjective",
-      "pronunciation": "rih-ZIL-yunt",
-      "meaning": "Able to recover quickly from difficulties.",
-      "insteadOf": "strong / tough",
-      "example": "Resilient teams treat failures as data."
+      "pronunciation": "DIL-ih-junt",
+      "meaning": "Showing steady, careful effort in one's work.",
+      "insteadOf": "hardworking",
+      "example": "A diligent hour beats a distracted afternoon."
     },
     {
-      "word": "Mitigate",
+      "word": "Advocate",
       "pos": "verb",
-      "pronunciation": "MIT-ih-gayt",
-      "meaning": "To make something less severe or painful.",
-      "insteadOf": "reduce",
-      "example": "A bedtime alarm helps mitigate late-night scrolling."
+      "pronunciation": "AD-vuh-kayt",
+      "meaning": "To publicly recommend or support.",
+      "insteadOf": "support / push for",
+      "example": "She advocates for open-access research."
     },
     {
-      "word": "Juxtaposition",
+      "word": "Scrutinize",
+      "pos": "verb",
+      "pronunciation": "SKROO-tuh-nyz",
+      "meaning": "To examine closely and thoroughly.",
+      "insteadOf": "check carefully",
+      "example": "Reviewers will scrutinize your methods section."
+    },
+    {
+      "word": "Catalyst",
       "pos": "noun",
-      "pronunciation": "juk-stuh-puh-ZISH-un",
-      "meaning": "Placing two things close together for contrasting effect.",
-      "insteadOf": "contrast",
-      "example": "The juxtaposition of luxury cars and slums was striking."
+      "pronunciation": "KAT-uh-list",
+      "meaning": "Something that causes or speeds up change.",
+      "insteadOf": "trigger / cause",
+      "example": "The internship was a catalyst for my interest in AI."
     },
     {
-      "word": "Undermine",
+      "word": "Complacent",
+      "pos": "adjective",
+      "pronunciation": "kum-PLAY-sunt",
+      "meaning": "Smugly satisfied, unaware of possible danger.",
+      "insteadOf": "too relaxed",
+      "example": "Don't get complacent after one good test score."
+    },
+    {
+      "word": "Conundrum",
+      "pos": "noun",
+      "pronunciation": "kuh-NUN-drum",
+      "meaning": "A confusing and difficult problem or question.",
+      "insteadOf": "problem / puzzle",
+      "example": "Choosing between two good offers is a nice conundrum."
+    },
+    {
+      "word": "Lethargic",
+      "pos": "adjective",
+      "pronunciation": "luh-THAR-jik",
+      "meaning": "Sluggish and lacking energy.",
+      "insteadOf": "tired / lazy",
+      "example": "Scrolling till 2 AM leaves me lethargic all morning."
+    },
+    {
+      "word": "Facilitate",
       "pos": "verb",
-      "pronunciation": "un-der-MYN",
-      "meaning": "To weaken gradually or secretly.",
-      "insteadOf": "weaken",
-      "example": "Constant comparison undermines your confidence."
+      "pronunciation": "fuh-SIL-ih-tayt",
+      "meaning": "To make an action or process easier.",
+      "insteadOf": "help / make easier",
+      "example": "A shared doc facilitates group work."
     },
     {
-      "word": "Meticulous",
+      "word": "Plausible",
       "pos": "adjective",
-      "pronunciation": "muh-TIK-yuh-lus",
-      "meaning": "Showing great attention to detail; very careful.",
-      "insteadOf": "very careful",
-      "example": "She was meticulous about labelling every sample."
-    },
-    {
-      "word": "Pragmatic",
-      "pos": "adjective",
-      "pronunciation": "prag-MAT-ik",
-      "meaning": "Dealing with things sensibly and practically, not idealistically.",
-      "insteadOf": "practical",
-      "example": "Let's be pragmatic and finish the core feature first."
-    },
-    {
-      "word": "Cognizant",
-      "pos": "adjective",
-      "pronunciation": "KOG-nih-zunt",
-      "meaning": "Having knowledge or awareness.",
-      "insteadOf": "aware",
-      "example": "Be cognizant of how much time the app actually takes."
-    },
-    {
-      "word": "Eloquent",
-      "pos": "adjective",
-      "pronunciation": "EL-uh-kwunt",
-      "meaning": "Fluent and persuasive in speaking or writing.",
-      "insteadOf": "well-spoken",
-      "example": "His eloquent answer won the panel over."
+      "pronunciation": "PLAW-zuh-bul",
+      "meaning": "Seeming reasonable or probable.",
+      "insteadOf": "believable / possible",
+      "example": "That's a plausible explanation, but test it."
     }
   ],
   "loop": [
     {
       "type": "slang",
-      "term": "Glazing",
-      "meaning": "Over-praising someone excessively, like a fanboy.",
-      "example": "Bro, stop glazing Elon in every conversation.",
+      "term": "NPC",
+      "meaning": "Someone who acts robotically, follows the crowd and has no original thoughts, like a background video-game character.",
+      "example": "He just repeats whatever's trending. Total NPC behaviour.",
       "tone": "mocking",
-      "context": "Calling out someone who hypes a person way too much.",
-      "id": "glazing",
+      "context": "Insulting someone as unoriginal or mindless.",
+      "id": "npc",
       "nsfw": false
     },
     {
       "type": "psych",
-      "term": "Breadcrumbing",
-      "meaning": "Giving someone just enough attention (likes, occasional texts) to keep them hooked without commitment.",
-      "example": "He never makes plans, just reacts to her stories every few days.",
+      "term": "Trauma bond",
+      "meaning": "A strong emotional attachment to someone who causes you harm, created by cycles of abuse and affection.",
+      "example": "She keeps going back to him even after the fights. It's a trauma bond.",
       "tone": "serious",
-      "context": "Dating behaviour that keeps someone waiting.",
-      "id": "breadcrumbing",
+      "context": "Explains why people stay in toxic relationships.",
+      "id": "trauma-bond",
       "nsfw": false
     },
     {
       "type": "acronym",
-      "term": "LGBTQIA+",
-      "meaning": "Lesbian, Gay, Bisexual, Transgender, Queer/Questioning, Intersex, Asexual, and others.",
-      "example": "The college started an LGBTQIA+ support group.",
+      "term": "SIP / ETF",
+      "meaning": "Systematic Investment Plan (investing a fixed amount monthly) / Exchange-Traded Fund (a fund traded like a stock).",
+      "example": "Start a ₹1000 SIP in a Nifty 50 ETF or index fund.",
       "tone": "serious",
-      "context": "Umbrella term for gender and sexual minorities.",
-      "id": "lgbtqia",
+      "context": "Every finance influencer says these. Know them.",
+      "id": "sip-etf",
       "nsfw": false
     },
     {
       "type": "paradox",
-      "term": "Butterfly effect",
-      "meaning": "Tiny changes can lead to huge, unpredictable consequences.",
-      "example": "Missing one bus led me to meet my co-founder. Butterfly effect.",
-      "tone": "playful",
-      "context": "Life-story reflections.",
-      "id": "butterfly-effect",
+      "term": "Dunning-Kruger effect",
+      "meaning": "People with little knowledge often overestimate their competence; experts often underestimate theirs.",
+      "example": "Watched one reel on stocks, now he's giving tips. Dunning-Kruger.",
+      "tone": "mocking",
+      "context": "Roasting overconfident beginners.",
+      "id": "dunning-kruger-effect",
       "nsfw": false
     },
     {
       "type": "meme",
-      "term": "This is fine",
-      "meaning": "A dog sipping coffee in a burning room, pretending everything is OK.",
-      "example": "Three deadlines tomorrow and I'm watching anime. This is fine.",
-      "tone": "playful",
-      "context": "Calm denial during chaos.",
-      "id": "this-is-fine",
+      "term": "Gaslight, gatekeep, girlboss",
+      "meaning": "Ironic 'life motto' mocking toxic-but-confident behaviour.",
+      "example": "Didn't share the notes and blamed you for asking. Gaslight, gatekeep, girlboss.",
+      "tone": "mocking",
+      "context": "Satirising girlboss culture.",
+      "id": "gaslight-gatekeep-girlboss",
       "nsfw": false
     },
     {
       "type": "slang",
-      "term": "Gyatt",
-      "meaning": "Exclamation (from 'goddamn') when reacting to someone's attractive body, usually their backside.",
-      "example": "Used as a crude reaction comment under gym or dance videos.",
-      "tone": "crude",
-      "context": "Sexual reaction slang. Know it so you get the meme, but it's disrespectful to say about real people.",
-      "nsfw": true,
-      "id": "gyatt"
-    },
-    {
-      "type": "psych",
-      "term": "Projection",
-      "meaning": "Attributing your own unwanted feelings or behaviours to someone else.",
-      "example": "He accuses her of cheating constantly. Turns out he was the one cheating.",
-      "tone": "serious",
-      "context": "'That's projection' = you're describing yourself.",
-      "id": "projection",
+      "term": "Situationship",
+      "meaning": "A romantic/sexual relationship without labels or commitment.",
+      "example": "We've been talking for 6 months but it's just a situationship.",
+      "tone": "casual",
+      "context": "Describing a confusing 'more than friends, less than partners' thing.",
+      "id": "situationship",
       "nsfw": false
     },
     {
+      "type": "psych",
+      "term": "Open relationship",
+      "meaning": "A committed couple who agree that one or both can have sexual partners outside the relationship.",
+      "example": "They opened the relationship after five years together.",
+      "tone": "serious",
+      "context": "Usually sexual non-exclusivity; polyamory usually also allows romantic bonds.",
+      "nsfw": true,
+      "id": "open-relationship"
+    },
+    {
       "type": "acronym",
-      "term": "DINK",
-      "meaning": "Dual Income, No Kids: a couple who both earn and choose not to have children.",
-      "example": "DINK couples are trending on finance reels.",
-      "tone": "casual",
-      "context": "Lifestyle and money debates.",
-      "id": "dink",
+      "term": "PTSD",
+      "meaning": "Post-Traumatic Stress Disorder: a mental health condition after a traumatic event, with flashbacks, anxiety and avoidance.",
+      "example": "He has PTSD after the accident and avoids driving.",
+      "tone": "serious",
+      "context": "Often used jokingly ('that exam gave me PTSD'), but the real condition is serious.",
+      "id": "ptsd",
       "nsfw": false
     }
   ],
   "news": {
     "india": [
       {
-        "text": "Government raises deepwater gas price ceiling to $9.89/MMBtu; APM gas cap at $7",
-        "source": "The Hindu",
+        "text": "The Central government raised the price ceiling for deepwater natural gas to $9.89 per MMBtu, while keeping the APM gas cap at $7.",
+        "source": "The Hindu Business",
         "url": "https://www.thehindu.com/business/government-raises-deepwater-gas-price-ceiling-to-989mmbtu-apm-gas-cap-at-7/article71543103.ece"
       },
       {
-        "text": "‘One last fight left in me’: Smit Machchhar details cockpit attack, struggle to open door",
-        "source": "Indian Express",
-        "url": "https://indianexpress.com/article/india/flydubai-cockpit-attack-indian-pilot-smit-machchhar-benjamin-netanyahu-call-10905941/"
-      },
-      {
-        "text": "Centre's AI and copyright committee falls silent, second paper overdue by months",
-        "source": "Hindustan Times",
-        "url": "https://www.hindustantimes.com/india-news/centre-ai-and-copyright-committee-falls-silent-second-paper-overdue-by-months-101791097317509.html"
-      },
-      {
-        "text": "Keralam govt. orders anti-corruption enquiry against CEC Gyanesh Kumar over 2006 graft allegations",
-        "source": "The Hindu",
-        "url": "https://www.thehindu.com/news/national/kerala/keralam-govt-orders-preliminary-anti-corruption-enquiry-against-cec-gyanesh-kumar-over-corruption-allegations/article71542954.ece"
-      },
-      {
-        "text": "India News Live Updates, 4 October 2026: TVK chief Vijay to hold roadshow in Dharapuram ahead of October 6 bypoll",
-        "source": "Indian Express",
-        "url": "https://indianexpress.com/article/india/today-india-breaking-news-live-updates-04-october-2026-vhp-alok-kumar-ram-mandir-donation-row-sit-probe-gst-arrest-powers-asian-games-10905794/"
-      },
-      {
-        "text": "MRFA deal likely by end of FY27, says IAF chief; annual requirement of 36-40 fighters",
+        "text": "The Indian Air Force expects to finalise the multi-billion dollar acquisition deal for 114 Multi-Role Fighter Aircraft by the end of fiscal year 2027.",
         "source": "The Hindu Business",
         "url": "https://www.thehindu.com/news/national/india-may-finalise-mrfa-deal-by-current-financial-year-iaf-chief/article71540116.ece"
       },
       {
-        "text": "Protest against CEC Gyanesh Kumar: Raj, Uddhav Thackeray lead morcha in Mumbai against CEC; AISA, Yogendra Yadav call for citizens' march again today",
-        "source": "The Hindu",
-        "url": "https://www.thehindu.com/news/national/protest-against-cec-gyanesh-kumar-october-4-2026/article71542893.ece"
-      },
-      {
-        "text": "The sal and the beetle: Why Madhya Pradesh is cutting 1.4 lakh trees to save the forest",
-        "source": "Indian Express",
-        "url": "https://indianexpress.com/article/india/sal-beetle-madhya-pradesh-cutting-trees-save-forest-10905624/"
-      },
-      {
-        "text": "Book Box: A writing retreat in Spain",
-        "source": "Hindustan Times",
-        "url": "https://www.hindustantimes.com/india-news/book-box-a-writing-retreat-in-spain-101791095774479.html"
-      },
-      {
-        "text": "Korea to explore business opportunities in Karnataka sectors",
+        "text": "Reserve Bank of India Governor Sanjay Malhotra outlined five key priorities to safeguard domestic financial stability amid emerging risks in the global financial system.",
         "source": "The Hindu Business",
-        "url": "https://www.thehindu.com/business/korea-to-explore-business-opportunities-in-karnataka-sectors/article71541371.ece"
+        "url": "https://www.thehindu.com/business/rbi-chief-lays-down-5-key-priorities-to-maintain-financial-stability-amidst-emerging-risks/article71540523.ece"
+      },
+      {
+        "text": "The Kerala government ordered an investigation against Chief Election Commissioner Gyanesh Kumar over an alleged corruption case linked to a 2006 road project.",
+        "source": "Hindustan Times",
+        "url": "https://www.hindustantimes.com/india-news/keralam-orders-probe-against-cec-gyanesh-kumar-over-2006-road-project-case-101791097143666.html"
+      },
+      {
+        "text": "The Central Bureau of Investigation filed a charge sheet against Reliance Communications and others in an alleged 3,750 crore rupee fraud case involving LIC.",
+        "source": "The Hindu Business",
+        "url": "https://www.thehindu.com/business/Industry/cbi-files-charge-sheet-against-rcom-others-in-3750-crore-lic-fraud-case/article71540573.ece"
+      },
+      {
+        "text": "The Securities and Exchange Board of India is reviewing position limits for non-agricultural commodity contracts to boost liquidity and reduce friction in exchange-traded markets.",
+        "source": "The Hindu Business",
+        "url": "https://www.thehindu.com/business/sebi-examining-position-limits-for-non-agri-contracts-to-boost-liquidity/article71540271.ece"
+      },
+      {
+        "text": "Opposition leaders Uddhav Thackeray and Raj Thackeray staged a joint protest march in Mumbai demanding the removal of Chief Election Commissioner Gyanesh Kumar.",
+        "source": "Hindustan Times",
+        "url": "https://www.hindustantimes.com/india-news/uddhav-raj-thackeray-brothers-protest-live-updates-mumbai-garjana-morcha-rally-march-eci-delhi-jantar-mantar-aisa-101791094286324.html"
+      },
+      {
+        "text": "The Reserve Bank of India maintained its cautious stance against private cryptocurrencies due to monetary sovereignty concerns, while endorsing underlying distributed ledger technologies.",
+        "source": "The Hindu Business",
+        "url": "https://www.thehindu.com/business/rbi-remains-cautious-on-crypto-backs-underlying-technology-governor-malhotra/article71540258.ece"
+      },
+      {
+        "text": "Delhi recorded an Air Quality Index of 196, the city's worst reading in 82 days, as 22 monitoring stations registered poor air quality.",
+        "source": "Hindustan Times",
+        "url": "https://www.hindustantimes.com/india-news/delhi-aqi-hits-196-highest-in-82-days-no-rain-forecast-for-next-week-101791090182536.html"
       }
     ],
     "world": [
       {
-        "text": "Tennessee prison chief to resign after Christa Pike's failed execution",
+        "text": "Brazil is holding a closely watched presidential election pitting leftist incumbent Luiz Inácio Lula da Silva against conservative rival Flávio Bolsonaro.",
         "source": "BBC",
-        "url": "https://www.bbc.co.uk/news/articles/c8zxl62yzxzxo?at_medium=RSS&at_campaign=rss"
+        "url": "https://www.bbc.co.uk/news/articles/c6wyz0r2n0djo?at_medium=RSS&at_campaign=rss"
       },
       {
-        "text": "Yamal scores stunning goal in Spain’s 3-1 Nations League win over Czechia",
-        "source": "Al Jazeera",
-        "url": "https://www.aljazeera.com/sports/2026/10/4/yamal-scores-stunning-goal-in-spains-3-1-nations-league-win-over-czechia?traffic_source=rss"
+        "text": "Russian forces struck a second major bridge in Kyiv, continuing an aerial assault against critical Ukrainian infrastructure.",
+        "source": "BBC",
+        "url": "https://www.bbc.co.uk/news/articles/c83vqxzdg1yko?at_medium=RSS&at_campaign=rss"
       },
       {
-        "text": "Libyan unity talks upended as warlord’s son linked to drone attacks on fuel facilities",
+        "text": "The G7 group agreed to coordinate the release of millions of barrels of crude oil and diesel to avert sharp global price spikes.",
+        "source": "BBC",
+        "url": "https://www.bbc.co.uk/news/articles/ck87zg8jnwngo?at_medium=RSS&at_campaign=rss"
+      },
+      {
+        "text": "North Korea launched a ballistic missile towards the sea amid heightened tensions after South Korea demanded an apology over wounded border soldiers.",
         "source": "The Guardian",
-        "url": "https://www.theguardian.com/world/2026/oct/03/libyan-unity-talks-warlord-son-linked-drone-attack-khalifa-haftar"
+        "url": "https://www.theguardian.com/world/2026/oct/03/north-korea-launches-ballistic-missile-after-seoul-demands-apology-over-wounded-soldiers"
       },
       {
-        "text": "'Debris field' found from medical flight missing over Atlantic en route to Boston",
+        "text": "Bangkok declared a disaster across all 50 city districts as extreme flooding killed at least 40 people and submerged major streets.",
+        "source": "The Guardian",
+        "url": "https://www.theguardian.com/world/2026/oct/03/bangkok-thailand-floods-breaking-point-stagnant-lakes"
+      },
+      {
+        "text": "Iran warned that the Strait of Hormuz will remain closed until its conditions are met, threatening crucial international shipping routes.",
         "source": "The Hindu",
-        "url": "https://www.thehindu.com/news/international/bermuda-to-boston-air-ambulance-that-vanished-debris-field-found-off-nantucket/article71542952.ece"
-      },
-      {
-        "text": "Australia investigating Flydubai co-pilot's links to country",
-        "source": "BBC",
-        "url": "https://www.bbc.co.uk/news/articles/cxly4nym57q9o?at_medium=RSS&at_campaign=rss"
-      },
-      {
-        "text": "West Indies beat India in record chase as Hope hits 162 in third ODI",
-        "source": "Al Jazeera",
-        "url": "https://www.aljazeera.com/sports/2026/10/4/west-indies-beat-india-in-record-chase-as-hope-hit-162-in-third-odi?traffic_source=rss"
+        "url": "https://www.thehindu.com/news/international/iran-says-strait-of-hormuz-will-not-reopen-until-conditions-are-met-says-reports/article71543176.ece"
       }
     ]
   },
   "videos": {
     "hero": {
-      "id": "meSctH_a7HM",
-      "title": "Carthage vs Greece: The War Before Rome - Sicilian Wars DOCUMENTARY",
+      "id": "iBRNkJfW7Qw",
+      "title": "Why the British Empire Fell Apart - Won Two Wars, Then Lost Its Empire",
       "channel": "Kings and Generals",
       "category": "history",
-      "url": "https://www.youtube.com/watch?v=meSctH_a7HM",
-      "thumbnail": "https://i.ytimg.com/vi/meSctH_a7HM/hqdefault.jpg",
-      "published": "2026-10-01"
+      "url": "https://www.youtube.com/watch?v=iBRNkJfW7Qw",
+      "thumbnail": "https://i.ytimg.com/vi/iBRNkJfW7Qw/hqdefault.jpg",
+      "published": "2026-09-29"
     },
     "more": [
       {
-        "id": "E9-lFXMmAKA",
-        "title": "The Shopping Habit That Is Quietly Making The GenZ Poor",
-        "channel": "warikoo",
+        "id": "QtZfbWOkoIY",
+        "title": "Australia May Have Just Solved The Housing Crisis",
+        "channel": "Economics Explained",
         "category": "money",
-        "url": "https://www.youtube.com/watch?v=E9-lFXMmAKA",
-        "thumbnail": "https://i.ytimg.com/vi/E9-lFXMmAKA/hqdefault.jpg",
-        "published": "2026-10-03"
+        "url": "https://www.youtube.com/watch?v=QtZfbWOkoIY",
+        "thumbnail": "https://i.ytimg.com/vi/QtZfbWOkoIY/hqdefault.jpg",
+        "published": "2026-10-01"
       },
       {
-        "id": "8e3RC1L5V_Y",
-        "title": "Tools to Improve Your Focus & Concentration | Huberman Lab Essentials",
-        "channel": "Andrew Huberman",
+        "id": "UQ3O04Wtqa4",
+        "title": "Shawn Ryan: There's A Battle For Your Soul, It's Happening Right Now",
+        "channel": "The Diary Of A CEO",
         "category": "mind",
-        "url": "https://www.youtube.com/watch?v=8e3RC1L5V_Y",
-        "thumbnail": "https://i.ytimg.com/vi/8e3RC1L5V_Y/hqdefault.jpg",
+        "url": "https://www.youtube.com/watch?v=UQ3O04Wtqa4",
+        "thumbnail": "https://i.ytimg.com/vi/UQ3O04Wtqa4/hqdefault.jpg",
         "published": "2026-10-01"
       },
       {
-        "id": "No-JPdFvYWU",
-        "title": "The one OpenAI announcement that can actually make you money...",
-        "channel": "Fireship",
+        "id": "_rtp1XzaP6Q",
+        "title": "OpenAI Security: Controlling Models is Now ‘Hell’",
+        "channel": "AI Explained",
         "category": "ai",
-        "url": "https://www.youtube.com/watch?v=No-JPdFvYWU",
-        "thumbnail": "https://i.ytimg.com/vi/No-JPdFvYWU/hqdefault.jpg",
+        "url": "https://www.youtube.com/watch?v=_rtp1XzaP6Q",
+        "thumbnail": "https://i.ytimg.com/vi/_rtp1XzaP6Q/hqdefault.jpg",
         "published": "2026-10-01"
       },
       {
-        "id": "fzol1qf9qTo",
-        "title": "The political philosophy that changed the world | Jonathan Rauch: Full Interview",
+        "id": "yzNzjg1c0V4",
+        "title": "How tiny actions grow into sustained happiness | Tal Ben-Shahar: Full Interview",
         "channel": "Big Think",
         "category": "philosophy",
-        "url": "https://www.youtube.com/watch?v=fzol1qf9qTo",
-        "thumbnail": "https://i.ytimg.com/vi/fzol1qf9qTo/hqdefault.jpg",
-        "published": "2026-10-02"
+        "url": "https://www.youtube.com/watch?v=yzNzjg1c0V4",
+        "thumbnail": "https://i.ytimg.com/vi/yzNzjg1c0V4/hqdefault.jpg",
+        "published": "2026-09-25"
       }
     ]
   },
   "podcasts": [
     {
-      "id": "philosophize-this-episode-189-everything-that-connects-us-is-slowly-disappearing",
-      "title": "Episode #189 ... Everything that connects us is slowly disappearing. - Byung Chul Han pt. 2",
+      "id": "philosophize-this-episode-188-achievement-society-and-the-rise-of-narcissism-dep",
+      "title": "Episode #188 ... Achievement Society and the rise of narcissism, depression and anxiety - Byung-Chul Han",
       "show": "Philosophize This!",
       "category": "philosophy",
-      "audioUrl": "https://traffic.libsyn.com/secure/philosophizethis/han_part_2.mp3?dest-id=144660",
-      "link": "https://philosophizethis.libsyn.com/episode-189-everything-that-connects-us-is-slowly-disappearing-byung-chul-han-pt-2",
-      "durationSec": 1963
+      "audioUrl": "https://traffic.libsyn.com/secure/philosophizethis/byung-chul-han_master.mp3?dest-id=144660",
+      "link": "https://philosophizethis.libsyn.com/episode-188-achievement-society-and-the-rise-of-narcissism-depression-and-anxiety-byung-chul-han",
+      "durationSec": 2160
     },
     {
-      "id": "lex-fridman-podcast-502-psychiatry-insane-asylums-mental-illness-ect-lobotomies-",
-      "title": "#502 – Psychiatry, Insane Asylums, Mental Illness, ECT, Lobotomies, Freud & Jung",
+      "id": "lex-fridman-podcast-501-dhh-future-of-programming-ai-agentic-engineering-vibe-co",
+      "title": "#501 – DHH: Future of Programming, AI, Agentic Engineering, Vibe Coding & Linux",
       "show": "Lex Fridman Podcast",
       "category": "ai",
-      "audioUrl": "https://media.blubrry.com/takeituneasy/ins.blubrry.com/takeituneasy/lex_ai_andrew_scull.mp3",
-      "link": "https://lexfridman.com/andrew-scull/?utm_source=rss&utm_medium=rss&utm_campaign=andrew-scull",
-      "durationSec": null
+      "audioUrl": "https://media.blubrry.com/takeituneasy/ins.blubrry.com/takeituneasy/lex_ai_dhh_2.mp3",
+      "link": "https://lexfridman.com/dhh-2/?utm_source=rss&utm_medium=rss&utm_campaign=dhh-2",
+      "durationSec": 19317
     }
   ]
 }
