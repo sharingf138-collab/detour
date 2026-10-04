@@ -1,67 +1,265 @@
 {
   "news": {
     "india": [
-      {"name": "The Hindu", "url": "https://www.thehindu.com/news/national/feeder/default.rss"},
-      {"name": "Indian Express", "url": "https://indianexpress.com/section/india/feed/"},
-      {"name": "Hindustan Times", "url": "https://www.hindustantimes.com/feeds/rss/india-news/rssfeed.xml"},
-      {"name": "The Hindu Business", "url": "https://www.thehindu.com/business/feeder/default.rss"}
+      {
+        "name": "The Hindu",
+        "url": "https://www.thehindu.com/news/national/feeder/default.rss"
+      },
+      {
+        "name": "Indian Express",
+        "url": "https://indianexpress.com/section/india/feed/"
+      },
+      {
+        "name": "Hindustan Times",
+        "url": "https://www.hindustantimes.com/feeds/rss/india-news/rssfeed.xml"
+      },
+      {
+        "name": "Times of India",
+        "url": "https://timesofindia.indiatimes.com/rssfeeds/-2128936835.cms"
+      },
+      {
+        "name": "NDTV",
+        "url": "https://feeds.feedburner.com/ndtvnews-india-news"
+      },
+      {
+        "name": "Mint",
+        "url": "https://www.livemint.com/rss/news"
+      },
+      {
+        "name": "The Hindu Business",
+        "url": "https://www.thehindu.com/business/feeder/default.rss"
+      }
     ],
     "world": [
-      {"name": "BBC", "url": "https://feeds.bbci.co.uk/news/world/rss.xml"},
-      {"name": "Al Jazeera", "url": "https://www.aljazeera.com/xml/rss/all.xml"},
-      {"name": "The Guardian", "url": "https://www.theguardian.com/world/rss"},
-      {"name": "The Hindu", "url": "https://www.thehindu.com/news/international/feeder/default.rss"}
+      {
+        "name": "BBC",
+        "url": "https://feeds.bbci.co.uk/news/world/rss.xml"
+      },
+      {
+        "name": "Al Jazeera",
+        "url": "https://www.aljazeera.com/xml/rss/all.xml"
+      },
+      {
+        "name": "The Guardian",
+        "url": "https://www.theguardian.com/world/rss"
+      },
+      {
+        "name": "The Hindu",
+        "url": "https://www.thehindu.com/news/international/feeder/default.rss"
+      }
     ]
   },
-  "categories": ["history", "money", "mind", "ai", "philosophy", "science", "business"],
+  "categories": [
+    "history",
+    "money",
+    "mind",
+    "ai",
+    "philosophy",
+    "science",
+    "business"
+  ],
   "channels": [
-    {"name": "OverSimplified", "id": "UCNIuvl7V8zACPpTmmNIqP2A", "category": "history"},
-    {"name": "Kings and Generals", "id": "UCMmaBzfCCwZ2KqaBJjkj0fw", "category": "history"},
-    {"name": "The Armchair Historian", "id": "UCeUJFQ0D9qs6aVNyUt9fkeQ", "category": "history"},
-    {"name": "HistoryMarche", "id": "UC8MX9ECowgDMTOnFTE8EUJw", "category": "history"},
-    {"name": "Johnny Harris", "id": "UCmGSJVG3mCRXVOP4yZrU1Dw", "category": "history"},
-    {"name": "CaspianReport", "id": "UCwnKziETDbHJtx78nIkfYug", "category": "history"},
-
-    {"name": "warikoo", "id": "UCRzYN32xtBf3Yxsx5BvJWJw", "category": "money"},
-    {"name": "CA Rachana Ranade", "id": "UCe3qdG0A_gr-sEdat5y2twQ", "category": "money"},
-    {"name": "Economics Explained", "id": "UCZ4AMrDcNrfy3X6nsU8-rPg", "category": "money"},
-    {"name": "Labour Law Advisor", "id": "UCVOTBwF0vnSxMRIbfSE_K_g", "category": "money"},
-
-    {"name": "Psych2Go", "id": "UCkJEpR7JmS36tajD34Gp4VA", "category": "mind"},
-    {"name": "The School of Life", "id": "UC7IcJI8PUf5Z3zKxnZvTBog", "category": "mind"},
-    {"name": "Andrew Huberman", "id": "UC2D2CMWXMOVWx7giW1n3LIg", "category": "mind"},
-    {"name": "The Diary Of A CEO", "id": "UCGq-a57w-aPwyi3pW7XLiHw", "category": "mind"},
-    {"name": "Charisma on Command", "id": "UCU_W0oE_ock8bWKjALiGs8Q", "category": "mind"},
-
-    {"name": "Two Minute Papers", "id": "UCbfYPyITQ-7l4upoX8nvctg", "category": "ai"},
-    {"name": "Fireship", "id": "UCsBjURrPoezykLs9EqgamOA", "category": "ai"},
-    {"name": "AI Explained", "id": "UCNJ1Ymd5yFuUPtn21xtRbbw", "category": "ai"},
-    {"name": "Lex Fridman", "id": "UCSHZKyawb77ixDdsGog4iWA", "category": "ai"},
-    {"name": "ColdFusion", "id": "UC4QZ_LsYcvcq7qOsOhpAX4A", "category": "ai"},
-
-    {"name": "Einzelgänger", "id": "UCybBViio_TH_uiFFDJuz5tg", "category": "philosophy"},
-    {"name": "Pursuit of Wonder", "id": "UC-tLyAaPbRZiYrOJxAGB7dQ", "category": "philosophy"},
-    {"name": "WiPhi", "id": "UC74qnYewxicwys2e4BJfhSA", "category": "philosophy"},
-    {"name": "Big Think", "id": "UCvQECJukTDE2i6aCoMnS-Vg", "category": "philosophy"},
-
-    {"name": "Kurzgesagt", "id": "UCsXVk37bltHxD1rDPwtNM8Q", "category": "science"},
-    {"name": "Veritasium", "id": "UCHnyfMqiRRG1u-2MsSQLbXA", "category": "science"},
-    {"name": "Vsauce", "id": "UC6nSFpj9HTCZ5t-N3Rm3-HA", "category": "science"},
-    {"name": "CrashCourse", "id": "UCX6b17PVsYBQ0ip5gyeme-Q", "category": "science"},
-
-    {"name": "Think School", "id": "UCKZozRVHRYsYHGEyNKuhhdA", "category": "business"},
-    {"name": "Raj Shamani", "id": "UCzwCEE_PchiBULMnAJqhGVg", "category": "business"},
-    {"name": "Abhi and Niyu", "id": "UCsDTy8jvHcwMvSZf_JGi-FA", "category": "business"},
-    {"name": "Wendover Productions", "id": "UC9RM-iSvTu1uPJb8X5yp3EQ", "category": "business"},
-    {"name": "Modern MBA", "id": "UCbzVRTkX3bzNZuBd9In4XyA", "category": "business"},
-    {"name": "PolyMatter", "id": "UCgNg3vwj3xt7QOrcIDaHdFg", "category": "business"}
+    {
+      "name": "OverSimplified",
+      "id": "UCNIuvl7V8zACPpTmmNIqP2A",
+      "category": "history"
+    },
+    {
+      "name": "Kings and Generals",
+      "id": "UCMmaBzfCCwZ2KqaBJjkj0fw",
+      "category": "history"
+    },
+    {
+      "name": "The Armchair Historian",
+      "id": "UCeUJFQ0D9qs6aVNyUt9fkeQ",
+      "category": "history"
+    },
+    {
+      "name": "HistoryMarche",
+      "id": "UC8MX9ECowgDMTOnFTE8EUJw",
+      "category": "history"
+    },
+    {
+      "name": "Johnny Harris",
+      "id": "UCmGSJVG3mCRXVOP4yZrU1Dw",
+      "category": "history"
+    },
+    {
+      "name": "CaspianReport",
+      "id": "UCwnKziETDbHJtx78nIkfYug",
+      "category": "history"
+    },
+    {
+      "name": "warikoo",
+      "id": "UCRzYN32xtBf3Yxsx5BvJWJw",
+      "category": "money"
+    },
+    {
+      "name": "CA Rachana Ranade",
+      "id": "UCe3qdG0A_gr-sEdat5y2twQ",
+      "category": "money"
+    },
+    {
+      "name": "Economics Explained",
+      "id": "UCZ4AMrDcNrfy3X6nsU8-rPg",
+      "category": "money"
+    },
+    {
+      "name": "Labour Law Advisor",
+      "id": "UCVOTBwF0vnSxMRIbfSE_K_g",
+      "category": "money"
+    },
+    {
+      "name": "Psych2Go",
+      "id": "UCkJEpR7JmS36tajD34Gp4VA",
+      "category": "mind"
+    },
+    {
+      "name": "The School of Life",
+      "id": "UC7IcJI8PUf5Z3zKxnZvTBog",
+      "category": "mind"
+    },
+    {
+      "name": "Andrew Huberman",
+      "id": "UC2D2CMWXMOVWx7giW1n3LIg",
+      "category": "mind"
+    },
+    {
+      "name": "The Diary Of A CEO",
+      "id": "UCGq-a57w-aPwyi3pW7XLiHw",
+      "category": "mind"
+    },
+    {
+      "name": "Charisma on Command",
+      "id": "UCU_W0oE_ock8bWKjALiGs8Q",
+      "category": "mind"
+    },
+    {
+      "name": "Two Minute Papers",
+      "id": "UCbfYPyITQ-7l4upoX8nvctg",
+      "category": "ai"
+    },
+    {
+      "name": "Fireship",
+      "id": "UCsBjURrPoezykLs9EqgamOA",
+      "category": "ai"
+    },
+    {
+      "name": "AI Explained",
+      "id": "UCNJ1Ymd5yFuUPtn21xtRbbw",
+      "category": "ai"
+    },
+    {
+      "name": "Lex Fridman",
+      "id": "UCSHZKyawb77ixDdsGog4iWA",
+      "category": "ai"
+    },
+    {
+      "name": "ColdFusion",
+      "id": "UC4QZ_LsYcvcq7qOsOhpAX4A",
+      "category": "ai"
+    },
+    {
+      "name": "Einzelgänger",
+      "id": "UCybBViio_TH_uiFFDJuz5tg",
+      "category": "philosophy"
+    },
+    {
+      "name": "Pursuit of Wonder",
+      "id": "UC-tLyAaPbRZiYrOJxAGB7dQ",
+      "category": "philosophy"
+    },
+    {
+      "name": "WiPhi",
+      "id": "UC74qnYewxicwys2e4BJfhSA",
+      "category": "philosophy"
+    },
+    {
+      "name": "Big Think",
+      "id": "UCvQECJukTDE2i6aCoMnS-Vg",
+      "category": "philosophy"
+    },
+    {
+      "name": "Kurzgesagt",
+      "id": "UCsXVk37bltHxD1rDPwtNM8Q",
+      "category": "science"
+    },
+    {
+      "name": "Veritasium",
+      "id": "UCHnyfMqiRRG1u-2MsSQLbXA",
+      "category": "science"
+    },
+    {
+      "name": "Vsauce",
+      "id": "UC6nSFpj9HTCZ5t-N3Rm3-HA",
+      "category": "science"
+    },
+    {
+      "name": "CrashCourse",
+      "id": "UCX6b17PVsYBQ0ip5gyeme-Q",
+      "category": "science"
+    },
+    {
+      "name": "Think School",
+      "id": "UCKZozRVHRYsYHGEyNKuhhdA",
+      "category": "business"
+    },
+    {
+      "name": "Raj Shamani",
+      "id": "UCzwCEE_PchiBULMnAJqhGVg",
+      "category": "business"
+    },
+    {
+      "name": "Abhi and Niyu",
+      "id": "UCsDTy8jvHcwMvSZf_JGi-FA",
+      "category": "business"
+    },
+    {
+      "name": "Wendover Productions",
+      "id": "UC9RM-iSvTu1uPJb8X5yp3EQ",
+      "category": "business"
+    },
+    {
+      "name": "Modern MBA",
+      "id": "UCbzVRTkX3bzNZuBd9In4XyA",
+      "category": "business"
+    },
+    {
+      "name": "PolyMatter",
+      "id": "UCgNg3vwj3xt7QOrcIDaHdFg",
+      "category": "business"
+    }
   ],
   "podcasts": [
-    {"name": "Hidden Brain", "url": "https://feeds.simplecast.com/kwWc0lhf", "category": "mind"},
-    {"name": "Freakonomics Radio", "url": "https://feeds.simplecast.com/Y8lFbOT4", "category": "money"},
-    {"name": "In Our Time", "url": "https://podcasts.files.bbci.co.uk/b006qykl.rss", "category": "history"},
-    {"name": "Philosophize This!", "url": "https://philosophizethis.libsyn.com/rss", "category": "philosophy"},
-    {"name": "Lex Fridman Podcast", "url": "https://lexfridman.com/feed/podcast/", "category": "ai"},
-    {"name": "Hardcore History", "url": "https://feeds.feedburner.com/dancarlin/history?format=xml", "category": "history"}
+    {
+      "name": "Hidden Brain",
+      "url": "https://feeds.simplecast.com/kwWc0lhf",
+      "category": "mind"
+    },
+    {
+      "name": "Freakonomics Radio",
+      "url": "https://feeds.simplecast.com/Y8lFbOT4",
+      "category": "money"
+    },
+    {
+      "name": "In Our Time",
+      "url": "https://podcasts.files.bbci.co.uk/b006qykl.rss",
+      "category": "history"
+    },
+    {
+      "name": "Philosophize This!",
+      "url": "https://philosophizethis.libsyn.com/rss",
+      "category": "philosophy"
+    },
+    {
+      "name": "Lex Fridman Podcast",
+      "url": "https://lexfridman.com/feed/podcast/",
+      "category": "ai"
+    },
+    {
+      "name": "Hardcore History",
+      "url": "https://feeds.feedburner.com/dancarlin/history?format=xml",
+      "category": "history"
+    }
   ]
 }

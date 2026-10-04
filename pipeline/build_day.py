@@ -22,6 +22,8 @@ import os
 import random
 import re
 import sys
+import time
+import urllib.error
 import urllib.request
 import xml.etree.ElementTree as ET
 from pathlib import Path
@@ -138,7 +140,8 @@ def slug(s: str) -> str:
 # ---------------------------------------------------------------- gemini
 
 def gemini(prompt: str, key: str) -> dict | list | None:
-    models = [os.environ.get("GEMINI_MODEL", "gemini-flash-latest"), "gemini-2.5-flash"]
+    # Aliases track Google's current models, so retired versions don't break the pipeline.
+    models = [os.environ.get("GEMINI_MODEL", "gemini-flash-latest"), "gemini-flash-lite-latest"]
     body = {
         "contents": [{"parts": [{"text": prompt}]}],
         "generationConfig": {"responseMimeType": "application/json", "temperature": 0.9},
@@ -153,12 +156,22 @@ def gemini(prompt: str, key: str) -> dict | list | None:
         req = urllib.request.Request(
             url, data=json.dumps(body).encode(),
             headers={"Content-Type": "application/json", "x-goog-api-key": key})
-        for attempt in range(2):
+        for attempt in range(3):
             try:
                 with urllib.request.urlopen(req, timeout=90) as r:
                     data = json.loads(r.read())
                 text = data["candidates"][0]["content"]["parts"][0]["text"]
-                return json.loads(text)
+                got = json.loads(text)
+                # Sometimes the array comes wrapped, e.g. {"words": [...]}.
+                if isinstance(got, dict) and len(got) == 1 and isinstance(next(iter(got.values())), list):
+                    got = next(iter(got.values()))
+                return got
+            except urllib.error.HTTPError as e:
+                print(f"  ! gemini {model} attempt {attempt + 1}: {e}", file=sys.stderr)
+                if e.code == 404:
+                    break  # model retired; try the next one
+                if e.code in (429, 500, 503):
+                    time.sleep(10 * (attempt + 1))  # free tier is often briefly overloaded
             except Exception as e:  # noqa: BLE001
                 print(f"  ! gemini {model} attempt {attempt + 1}: {e}", file=sys.stderr)
     return None
