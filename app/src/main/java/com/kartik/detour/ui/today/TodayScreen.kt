@@ -42,6 +42,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
@@ -54,6 +55,8 @@ import androidx.compose.ui.platform.LocalHapticFeedback
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.compose.LifecycleEventEffect
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.kartik.detour.container
 import com.kartik.detour.data.DayContent
@@ -63,6 +66,8 @@ import com.kartik.detour.data.NewsItem
 import com.kartik.detour.data.Word
 import com.kartik.detour.data.streak
 import com.kartik.detour.data.today
+import com.kartik.detour.guard.GuardSettings
+import com.kartik.detour.guard.GuardStatus
 import com.kartik.detour.ui.components.Confetti
 import com.kartik.detour.ui.components.DetourSign
 import com.kartik.detour.ui.components.RouteStop
@@ -96,6 +101,12 @@ fun TodayScreen(onOpenLoop: () -> Unit, onOpenQuiz: () -> Unit, onOpenWatch: () 
     var burst by remember { mutableIntStateOf(0) }
     val haptics = LocalHapticFeedback.current
 
+    // Cleaner/booster apps force-stop Detour, and Android then switches its accessibility service off.
+    var pauseOff by remember { mutableStateOf(false) }
+    LifecycleEventEffect(Lifecycle.Event.ON_RESUME) {
+        pauseOff = settings.guardOn && !GuardStatus.read(context).accessibility
+    }
+
     val c = content
     if (c == null) {
         Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) { CircularProgressIndicator(color = Ink.Sign) }
@@ -118,6 +129,7 @@ fun TodayScreen(onOpenLoop: () -> Unit, onOpenQuiz: () -> Unit, onOpenWatch: () 
                         streak = streak(days),
                         due = due,
                         loopCount = loop.size,
+                        pauseOff = pauseOff,
                         onOpenQuiz = onOpenQuiz,
                     )
                 }
@@ -199,7 +211,16 @@ fun TodayScreen(onOpenLoop: () -> Unit, onOpenQuiz: () -> Unit, onOpenWatch: () 
 }
 
 @Composable
-private fun Header(content: DayContent, name: String, streak: Int, due: Int, loopCount: Int, onOpenQuiz: () -> Unit) {
+private fun Header(
+    content: DayContent,
+    name: String,
+    streak: Int,
+    due: Int,
+    loopCount: Int,
+    pauseOff: Boolean,
+    onOpenQuiz: () -> Unit,
+) {
+    val context = LocalContext.current
     val now = LocalDate.now()
     Column(Modifier.statusBarsPadding().padding(horizontal = 20.dp).padding(top = 16.dp, bottom = 28.dp)) {
         Row(verticalAlignment = Alignment.CenterVertically) {
@@ -224,6 +245,23 @@ private fun Header(content: DayContent, name: String, streak: Int, due: Int, loo
                 "Showing ${LocalDate.parse(content.date).format(DateTimeFormatter.ofPattern("d MMM"))}. Pull down to check for today's stops.",
                 style = MaterialTheme.typography.bodySmall, color = Ink.Paradox,
             )
+        }
+        if (pauseOff) {
+            Spacer(Modifier.height(18.dp))
+            Column(
+                Modifier
+                    .fillMaxWidth()
+                    .clip(RoundedCornerShape(16.dp))
+                    .border(1.dp, Ink.Sign, RoundedCornerShape(16.dp))
+                    .clickable { GuardSettings.accessibility(context) }
+                    .padding(horizontal = 16.dp, vertical = 14.dp),
+            ) {
+                Text("The Instagram pause is off", style = MaterialTheme.typography.titleMedium, color = Ink.Sign)
+                Text(
+                    "Something switched it off, usually a cleaner or booster app. Tap to turn Detour back on in Accessibility.",
+                    style = MaterialTheme.typography.bodySmall, color = Ink.Fog,
+                )
+            }
         }
         if (due > 0) {
             Spacer(Modifier.height(18.dp))

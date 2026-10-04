@@ -125,6 +125,10 @@ fun YouScreen() {
                 val detours = log?.detours ?: 0
                 Text(
                     buildString {
+                        if (log == null && !isToday) {
+                            append("Detour wasn't counting Instagram opens yet that day.")
+                            return@buildString
+                        }
                         append("Opened $opens ${if (opens == 1) "time" else "times"}, took the detour $detours.")
                         if (isToday) append(" Streak ${streak(days)} ${if (streak(days) == 1) "day" else "days"}.")
                         else if (log?.completed == true) append(" Finished the route that day.")
