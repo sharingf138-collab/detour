@@ -1,8 +1,13 @@
 name: Daily content
 
 on:
+  # GitHub's scheduler often runs late or skips runs, so try several times each morning.
+  # Later runs exit straight away once today's content exists.
   schedule:
-    - cron: "30 0 * * *"   # 00:30 UTC = 06:00 IST
+    - cron: "30 0 * * *"   # 06:00 IST
+    - cron: "15 1 * * *"   # 06:45 IST
+    - cron: "0 2 * * *"    # 07:30 IST
+    - cron: "0 3 * * *"    # 08:30 IST
   workflow_dispatch: {}
 
 permissions:
@@ -28,7 +33,8 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
           for attempt in 1 2 3; do
-            python pipeline/build_day.py && exit 0
+            if [ "${{ github.event_name }}" = "schedule" ]; then FLAGS="--skip-if-done"; else FLAGS=""; fi
+            python pipeline/build_day.py $FLAGS && exit 0
             echo "Attempt $attempt failed, retrying in 60s"; sleep 60
           done
           exit 1
@@ -37,7 +43,7 @@ jobs:
         run: |
           git config user.name "detour-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add content pipeline/history.json
+          git add content pipeline/history.json pipeline/video_pool.json
           git diff --cached --quiet && exit 0
           git commit -m "content: $(TZ=Asia/Kolkata date +%F)"
           git pull --rebase origin main

@@ -32,6 +32,7 @@ ROOT = Path(__file__).resolve().parent.parent
 PIPE = ROOT / "pipeline"
 CONTENT = ROOT / "content"
 HISTORY = PIPE / "history.json"
+VIDEO_POOL = PIPE / "video_pool.json"   # every candidate seen on good days; used when YouTube refuses us
 IST = dt.timezone(dt.timedelta(hours=5, minutes=30))
 UA = "Mozilla/5.0 (DetourDaily; personal use)"
 
@@ -125,6 +126,27 @@ def fetch_many(jobs: dict[str, str]) -> dict[str, list[dict]]:
         return dict(ex.map(one, jobs))
 
 
+def fetch_channel(cid: str) -> list[dict]:
+    """A channel's recent long-form uploads.
+
+    YouTube intermittently 404s requests from data-centre IPs (GitHub runners), so retry with
+    backoff and fall back to the plain channel feed (which includes Shorts; those are dropped).
+    """
+    urls = [
+        f"https://www.youtube.com/feeds/videos.xml?playlist_id=UULF{cid[2:]}",
+        f"https://www.youtube.com/feeds/videos.xml?channel_id={cid}",
+    ]
+    last: Exception | None = None
+    for attempt in range(3):
+        for url in urls:
+            try:
+                return [i for i in parse_feed(fetch(url)) if "/shorts/" not in i["link"]]
+            except Exception as e:  # noqa: BLE001
+                last = e
+        time.sleep(3 * (attempt + 1))
+    raise last or RuntimeError("no feed")
+
+
 # ---------------------------------------------------------------- history
 
 def load_history() -> dict:
@@ -168,10 +190,10 @@ def gemini(prompt: str, key: str) -> dict | list | None:
                 return got
             except urllib.error.HTTPError as e:
                 print(f"  ! gemini {model} attempt {attempt + 1}: {e}", file=sys.stderr)
-                if e.code == 404:
-                    break  # model retired; try the next one
-                if e.code in (429, 500, 503):
-                    time.sleep(10 * (attempt + 1))  # free tier is often briefly overloaded
+                if e.code in (404, 429):
+                    break  # retired model, or its free daily quota is used up: go to the next model
+                if e.code in (500, 503):
+                    time.sleep(10 * (attempt + 1))  # briefly overloaded; worth a retry
             except Exception as e:  # noqa: BLE001
                 print(f"  ! gemini {model} attempt {attempt + 1}: {e}", file=sys.stderr)
     return None
@@ -280,11 +302,19 @@ def build_news(key: str | None, sources: dict, now: dt.datetime) -> dict:
     return out
 
 
-def build_videos(sources: dict, hist: dict, day: dt.date, now: dt.datetime) -> dict:
+def build_videos(sources: dict, hist: dict, day: dt.date, now: dt.datetime, pool: dict) -> dict:
     chans = sources["channels"]
-    # UULF = a channel's long-form uploads only (no Shorts, no lives)
-    jobs = {c["id"]: f"https://www.youtube.com/feeds/videos.xml?playlist_id=UULF{c['id'][2:]}" for c in chans}
-    feeds = fetch_many(jobs)
+
+    def one(c):
+        try:
+            return c["id"], fetch_channel(c["id"])
+        except Exception as e:  # noqa: BLE001
+            print(f"  ! youtube failed: {c['name']}: {e}", file=sys.stderr)
+            return c["id"], []
+    with cf.ThreadPoolExecutor(4) as ex:  # gentle; bursts get blocked sooner
+        feeds = dict(ex.map(one, chans))
+    ok = sum(1 for v in feeds.values() if v)
+    print(f"  youtube: {ok}/{len(chans)} channels fetched")
     seen = set(hist["videos"])
     by_cat: dict[str, list[dict]] = {}
     for c in chans:
@@ -303,6 +333,19 @@ def build_videos(sources: dict, hist: dict, day: dt.date, now: dt.datetime) -> d
                 "thumbnail": f"https://i.ytimg.com/vi/{vid}/hqdefault.jpg",
                 "published": it["date"].date().isoformat(),
             })
+    # Remember every candidate; on a morning YouTube refuses us, unwatched ones from the pool fill in.
+    for vids in by_cat.values():
+        for v in vids:
+            pool[v["id"]] = v
+    cutoff = (now - dt.timedelta(days=150)).date().isoformat()
+    for vid in [k for k, v in pool.items() if v.get("published", "") < cutoff]:
+        del pool[vid]
+    for cat in sources["categories"]:
+        if not by_cat.get(cat):
+            spare = [v for v in pool.values() if v["category"] == cat and v["id"] not in seen]
+            if spare:
+                print(f"  using {len(spare)} pooled videos for {cat}")
+                by_cat[cat] = spare
     for vids in by_cat.values():
         # freshest first, but at most 2 per channel so one prolific channel can't dominate
         vids.sort(key=lambda v: v["published"], reverse=True)
@@ -431,10 +474,16 @@ def build_podcasts(sources: dict, hist: dict, day: dt.date) -> list[dict]:
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--skip-if-done", action="store_true", help="exit if today's content already exists")
+    ap.add_argument("--videos-only", action="store_true", help="refresh only today's videos, keep everything else")
     args = ap.parse_args()
 
     now = dt.datetime.now(dt.timezone.utc)
     day = now.astimezone(IST).date()
+    if args.skip_if_done and (CONTENT / "latest.json").exists():
+        if json.loads((CONTENT / "latest.json").read_text(encoding="utf-8")).get("date") == day.isoformat():
+            print(f"{day} already built; nothing to do")
+            return 0
     key = os.environ.get("GEMINI_API_KEY") or None
     rng = random.Random(day.toordinal())
     sources = json.loads((PIPE / "sources.json").read_text(encoding="utf-8"))
@@ -447,17 +496,25 @@ def main() -> int:
         prev = json.loads((CONTENT / "latest.json").read_text(encoding="utf-8"))
         if prev.get("date") != day.isoformat():
             prev = None
-    content = {
-        "schema": 1,
-        "date": day.isoformat(),
-        "generatedAt": now.isoformat(timespec="seconds"),
-        "words": prev["words"] if prev else build_words(key, hist, rng),
-        "loop": prev["loop"] if prev else build_loop(key, hist, rng),
-        "news": build_news(key, sources, now),
-        "videos": build_videos(sources, hist, day, now),
-        "podcasts": build_podcasts(sources, hist, day),
-        "onThisDay": build_on_this_day(key, day),
-    }
+    pool = json.loads(VIDEO_POOL.read_text(encoding="utf-8")) if VIDEO_POOL.exists() else {}
+    if args.videos_only:
+        if not prev:
+            print("--videos-only needs today's content to exist already", file=sys.stderr)
+            return 1
+        content = {**prev, "generatedAt": now.isoformat(timespec="seconds"),
+                   "videos": build_videos(sources, hist, day, now, pool)}
+    else:
+        content = {
+            "schema": 1,
+            "date": day.isoformat(),
+            "generatedAt": now.isoformat(timespec="seconds"),
+            "words": prev["words"] if prev else build_words(key, hist, rng),
+            "loop": prev["loop"] if prev else build_loop(key, hist, rng),
+            "news": build_news(key, sources, now),
+            "videos": build_videos(sources, hist, day, now, pool),
+            "podcasts": build_podcasts(sources, hist, day),
+            "onThisDay": build_on_this_day(key, day),
+        }
 
     problems = validate(content)
     if problems:
@@ -482,8 +539,10 @@ def main() -> int:
         hist["words"] += [slug(w["word"]) for w in content["words"]]
         hist["loop"] += [c["id"] for c in content["loop"]]
     hist["videos"] += [v["id"] for v in [content["videos"]["hero"], *content["videos"]["more"]] if v]
-    hist["podcasts"] += [p["audioUrl"] for p in content["podcasts"]]
+    if not args.videos_only:
+        hist["podcasts"] += [p["audioUrl"] for p in content["podcasts"]]
     HISTORY.write_text(json.dumps(hist, indent=1, ensure_ascii=False), encoding="utf-8")
+    VIDEO_POOL.write_text(json.dumps(pool, indent=1, ensure_ascii=False), encoding="utf-8")
     print(f"Wrote content/latest.json and content/{day.isoformat()}.json")
     return 0
 

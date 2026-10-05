@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "date": "2026-10-05",
-  "generatedAt": "2026-10-05T02:39:33+00:00",
+  "generatedAt": "2026-10-05T02:48:57+00:00",
   "words": [
     {
       "word": "Iterate",
@@ -231,15 +231,79 @@
   },
   "videos": {
     "hero": {
-      "id": "QW_jlUn4gA8",
-      "title": "This Is What a Godlike Civilization Would Look Like",
-      "channel": "Kurzgesagt",
-      "category": "science",
-      "url": "https://www.youtube.com/watch?v=QW_jlUn4gA8",
-      "thumbnail": "https://i.ytimg.com/vi/QW_jlUn4gA8/hqdefault.jpg",
-      "published": "2026-09-22"
+      "id": "Oh5OS8mfSuo",
+      "title": "Operation Cartwheel: Breaking Japan's Pacific Defenses",
+      "channel": "Kings and Generals",
+      "category": "history",
+      "url": "https://www.youtube.com/watch?v=Oh5OS8mfSuo",
+      "thumbnail": "https://i.ytimg.com/vi/Oh5OS8mfSuo/hqdefault.jpg",
+      "published": "2026-10-04"
     },
-    "more": []
+    "more": [
+      {
+        "id": "esYnEXD9VtI",
+        "title": "From Giraffes to Pandas How Have Animals Shaped International Relations? | Drishti IAS",
+        "channel": "Drishti IAS",
+        "category": "india",
+        "url": "https://www.youtube.com/watch?v=esYnEXD9VtI",
+        "thumbnail": "https://i.ytimg.com/vi/esYnEXD9VtI/hqdefault.jpg",
+        "published": "2026-10-03"
+      },
+      {
+        "id": "LF8kY5BLe_o",
+        "title": "Turkey's $20 Billion Fund Collapse Explained",
+        "channel": "Patrick Boyle",
+        "category": "money",
+        "url": "https://www.youtube.com/watch?v=LF8kY5BLe_o",
+        "thumbnail": "https://i.ytimg.com/vi/LF8kY5BLe_o/hqdefault.jpg",
+        "published": "2026-10-03"
+      },
+      {
+        "id": "b_4JMWP6Yq8",
+        "title": "The GAP-ification of Lululemon",
+        "channel": "Wall Street Millennial",
+        "category": "business",
+        "url": "https://www.youtube.com/watch?v=b_4JMWP6Yq8",
+        "thumbnail": "https://i.ytimg.com/vi/b_4JMWP6Yq8/hqdefault.jpg",
+        "published": "2026-09-22"
+      },
+      {
+        "id": "ylO0DQeVEBQ",
+        "title": "The most expensive 33 hours in WordPress history...",
+        "channel": "Fireship",
+        "category": "ai",
+        "url": "https://www.youtube.com/watch?v=ylO0DQeVEBQ",
+        "thumbnail": "https://i.ytimg.com/vi/ylO0DQeVEBQ/hqdefault.jpg",
+        "published": "2026-09-23"
+      },
+      {
+        "id": "o6ePv14n0SE",
+        "title": "The Hidden Burnout Crisis Among Students",
+        "channel": "Psych2Go",
+        "category": "mind",
+        "url": "https://www.youtube.com/watch?v=o6ePv14n0SE",
+        "thumbnail": "https://i.ytimg.com/vi/o6ePv14n0SE/hqdefault.jpg",
+        "published": "2026-09-23"
+      },
+      {
+        "id": "wbf5H-AQxso",
+        "title": "How to Get the Most Out of Reading (A Stoic Guide)",
+        "channel": "Daily Stoic",
+        "category": "philosophy",
+        "url": "https://www.youtube.com/watch?v=wbf5H-AQxso",
+        "thumbnail": "https://i.ytimg.com/vi/wbf5H-AQxso/hqdefault.jpg",
+        "published": "2026-09-28"
+      },
+      {
+        "id": "HT8ikFog_pQ",
+        "title": "Why Does the US Only Have Two Major Parties?: Crash Course US Government #2",
+        "channel": "CrashCourse",
+        "category": "science",
+        "url": "https://www.youtube.com/watch?v=HT8ikFog_pQ",
+        "thumbnail": "https://i.ytimg.com/vi/HT8ikFog_pQ/hqdefault.jpg",
+        "published": "2026-09-29"
+      }
+    ]
   },
   "podcasts": [
     {
