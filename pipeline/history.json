@@ -35,7 +35,16 @@
   "discrepancy",
   "viable",
   "superficial",
-  "ambiguous"
+  "ambiguous",
+  "laconic",
+  "placate",
+  "impetus",
+  "rectify",
+  "ubiquitous",
+  "benevolent",
+  "inevitable",
+  "anomaly",
+  "obsolete"
  ],
  "loop": [
   "glazing",
@@ -68,7 +77,15 @@
   "broke-boy",
   "mewing",
   "ghosting",
-  "fire"
+  "fire",
+  "body-count",
+  "polyamory",
+  "fwb",
+  "prisoner-s-dilemma",
+  "rent-free",
+  "delulu",
+  "main-character-syndrome",
+  "std-sti"
  ],
  "videos": [
   "meSctH_a7HM",
@@ -115,7 +132,15 @@
   "ylO0DQeVEBQ",
   "o6ePv14n0SE",
   "wbf5H-AQxso",
-  "HT8ikFog_pQ"
+  "HT8ikFog_pQ",
+  "XRr1kaXKBsU",
+  "iI2NaN_QVTI",
+  "TJDcGv9OH4Q",
+  "OGs2YsqvWDg",
+  "wjZofJX0v4M",
+  "8SUiLkl42FQ",
+  "EFkyxzJtiv4",
+  "vfe-eNq-Qyg"
  ],
  "podcasts": [
   "https://traffic.libsyn.com/secure/philosophizethis/han_part_2.mp3?dest-id=144660",
@@ -131,6 +156,18 @@
   "https://traffic.libsyn.com/secure/philosophizethis/AGI_RISK.mp3?dest-id=144660",
   "https://media.blubrry.com/takeituneasy/ins.blubrry.com/takeituneasy/lex_ai_don_lincoln.mp3",
   "https://media.blubrry.com/takeituneasy/ins.blubrry.com/takeituneasy/lex_ai_ffmpeg.mp3",
-  "https://dts.podtrac.com/redirect.mp3/traffic.libsyn.com/dancarlinhh/dchha74_Mania_for_Subjugation_IV.mp3"
+  "https://dts.podtrac.com/redirect.mp3/traffic.libsyn.com/dancarlinhh/dchha74_Mania_for_Subjugation_IV.mp3",
+  "https://pscrb.fm/rss/p/mgln.ai/e/14/prfx.byspotify.com/e/dts.podtrac.com/pts/redirect.mp3/waaa.wnyc.org/758af4c0-a2c3-47ec-a2d8-05f41bfbde51/episodes/15034057-b747-4c9d-81c0-0552ae0027d4/audio/128/default.mp3?aid=rss_feed&awCollectionId=758af4c0-a2c3-47ec-a2d8-05f41bfbde51&awEpisodeId=15034057-b747-4c9d-81c0-0552ae0027d4&feed=EmVW7VGp",
+  "https://chrt.fm/track/15E3G4/traffic.megaphone.fm/GLT4637234946.mp3"
+ ],
+ "topics": [
+  "How the UPI payment system works seamlessly under the hood",
+  "The power of compounding and why starting mutual fund investments in college matters",
+  "How Zepto and Blinkit cracked 10-minute quick commerce unit economics",
+  "How Large Language Models like ChatGPT actually predict the next word",
+  "The psychology of charisma and how to make people feel heard in conversation",
+  "Stoic dichotomy of control: How to stop stressing about things you can't change",
+  "The Silk Road: How ancient trade routes shaped global culture, empires, and cuisine",
+  "Why time moves slower near massive objects: Einstein's time dilation simply explained"
  ]
 }

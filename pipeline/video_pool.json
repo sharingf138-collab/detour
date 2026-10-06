@@ -4048,5 +4048,93 @@
   "url": "https://www.youtube.com/watch?v=ayf0Q2P3pC0",
   "thumbnail": "https://i.ytimg.com/vi/ayf0Q2P3pC0/hqdefault.jpg",
   "published": "2026-07-28"
+ },
+ "iI2NaN_QVTI": {
+  "id": "iI2NaN_QVTI",
+  "title": "How UPI Works: Real-Time Payments in India | Paypal | Zelle",
+  "channel": "ByteMonk",
+  "category": "india",
+  "url": "https://www.youtube.com/watch?v=iI2NaN_QVTI",
+  "thumbnail": "https://i.ytimg.com/vi/iI2NaN_QVTI/hqdefault.jpg",
+  "published": "",
+  "learn": "How money moves instantly between bank accounts without human intervention.",
+  "minutes": 9
+ },
+ "TJDcGv9OH4Q": {
+  "id": "TJDcGv9OH4Q",
+  "title": "THE PSYCHOLOGY OF MONEY (BY MORGAN HOUSEL)",
+  "channel": "The Swedish Investor",
+  "category": "money",
+  "url": "https://www.youtube.com/watch?v=TJDcGv9OH4Q",
+  "thumbnail": "https://i.ytimg.com/vi/TJDcGv9OH4Q/hqdefault.jpg",
+  "published": "",
+  "learn": "Why managing your emotions matters more than financial intelligence when investing.",
+  "minutes": 15
+ },
+ "OGs2YsqvWDg": {
+  "id": "OGs2YsqvWDg",
+  "title": "Blinkit’s Genius Strategy that stunned Amazon | Business Case Study",
+  "channel": "Think School",
+  "category": "business",
+  "url": "https://www.youtube.com/watch?v=OGs2YsqvWDg",
+  "thumbnail": "https://i.ytimg.com/vi/OGs2YsqvWDg/hqdefault.jpg",
+  "published": "",
+  "learn": "How dark stores and ultra-fast supply chains make ten-minute deliveries profitable.",
+  "minutes": 28
+ },
+ "wjZofJX0v4M": {
+  "id": "wjZofJX0v4M",
+  "title": "Transformers, the tech behind LLMs | Deep Learning Chapter 5",
+  "channel": "3Blue1Brown",
+  "category": "ai",
+  "url": "https://www.youtube.com/watch?v=wjZofJX0v4M",
+  "thumbnail": "https://i.ytimg.com/vi/wjZofJX0v4M/hqdefault.jpg",
+  "published": "",
+  "learn": "How neural networks process context to predict the most likely next word.",
+  "minutes": 27
+ },
+ "8SUiLkl42FQ": {
+  "id": "8SUiLkl42FQ",
+  "title": "How To Win Friends And INFLUENCE People –Dale Carnegie [COMPLETE summary]",
+  "channel": "LITTLE BIT BETTER",
+  "category": "mind",
+  "url": "https://www.youtube.com/watch?v=8SUiLkl42FQ",
+  "thumbnail": "https://i.ytimg.com/vi/8SUiLkl42FQ/hqdefault.jpg",
+  "published": "",
+  "learn": "Simple ways to make people feel genuinely valued and instantly like you.",
+  "minutes": 32
+ },
+ "EFkyxzJtiv4": {
+  "id": "EFkyxzJtiv4",
+  "title": "Stoicism: Become Undefeatable",
+  "channel": "Aperture",
+  "category": "philosophy",
+  "url": "https://www.youtube.com/watch?v=EFkyxzJtiv4",
+  "thumbnail": "https://i.ytimg.com/vi/EFkyxzJtiv4/hqdefault.jpg",
+  "published": "",
+  "learn": "How separating what you can and cannot control stops unnecessary anxiety.",
+  "minutes": 12
+ },
+ "vfe-eNq-Qyg": {
+  "id": "vfe-eNq-Qyg",
+  "title": "The Silk Road and Ancient Trade: Crash Course World History #9",
+  "channel": "CrashCourse",
+  "category": "history",
+  "url": "https://www.youtube.com/watch?v=vfe-eNq-Qyg",
+  "thumbnail": "https://i.ytimg.com/vi/vfe-eNq-Qyg/hqdefault.jpg",
+  "published": "",
+  "learn": "How ancient trade routes exchanged goods, ideas, and cultures across continents.",
+  "minutes": 10
+ },
+ "XRr1kaXKBsU": {
+  "id": "XRr1kaXKBsU",
+  "title": "What Everyone Gets Wrong About Gravity",
+  "channel": "Veritasium",
+  "category": "science",
+  "url": "https://www.youtube.com/watch?v=XRr1kaXKBsU",
+  "thumbnail": "https://i.ytimg.com/vi/XRr1kaXKBsU/hqdefault.jpg",
+  "published": "",
+  "learn": "Why massive objects warp spacetime and cause time to tick more slowly.",
+  "minutes": 17
  }
 }
