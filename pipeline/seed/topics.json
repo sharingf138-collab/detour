@@ -1,0 +1,43 @@
+{
+  "india": [
+    "Indus Valley Civilization urban planning", "Mauryan Empire and Chanakya's Arthashastra", "How the Mughal Empire declined",
+    "Chola navy and maritime empire", "Partition of India 1947", "Vijayanagara Empire Hampi", "How the British East India Company took over India",
+    "1991 economic liberalisation of India", "Maratha Empire rise under Shivaji", "Nalanda University history", "Ashoka the Great",
+    "How India's Constitution was written"
+  ],
+  "money": [
+    "How compound interest works", "Index funds vs stock picking", "What is a mutual fund", "Inflation and why money loses value",
+    "How credit scores work", "Emergency fund basics", "How the stock market works", "What is diversification",
+    "Dollar cost averaging", "How interest rates affect the economy", "Assets vs liabilities", "Why most traders lose money"
+  ],
+  "business": [
+    "How Zara's fast fashion supply chain works", "How credit card companies make money", "What is a unit economics", "Network effects explained",
+    "How Netflix beat Blockbuster", "Product market fit", "How UPI payments work", "Freemium business model",
+    "How airlines make money", "Why most startups fail", "How Costco makes money", "Platform business model"
+  ],
+  "ai": [
+    "How neural networks learn", "What is a large language model", "Transformers and attention explained", "How AI image generators work",
+    "What is machine learning", "Reinforcement learning basics", "How recommendation algorithms work", "Prompt engineering basics",
+    "What is a GPU and why AI needs it", "How self-driving cars see", "AI hallucinations explained", "Embeddings explained"
+  ],
+  "mind": [
+    "How to make a strong first impression", "Body language basics", "The psychology of attraction", "How habits form",
+    "Cognitive biases that fool you", "How to be more charismatic", "Attachment styles in relationships", "How to handle conflict calmly",
+    "Dopamine and motivation", "How to read people", "Persuasion techniques", "Why we procrastinate"
+  ],
+  "philosophy": [
+    "Stoicism basics", "Nietzsche's will to power", "Existentialism explained", "Plato's allegory of the cave",
+    "The trolley problem", "Buddhist philosophy of suffering", "Absurdism and Camus", "Marcus Aurelius Meditations",
+    "Utilitarianism", "Free will vs determinism", "Bhagavad Gita philosophy of karma yoga", "Socratic method"
+  ],
+  "history": [
+    "Fall of the Roman Empire", "Genghis Khan's Mongol Empire", "Causes of World War I", "The Cold War explained",
+    "The French Revolution", "Rise of the Ottoman Empire", "Alexander the Great", "The Black Death",
+    "The Industrial Revolution", "Cuban Missile Crisis", "The Silk Road", "Napoleon's rise and fall"
+  ],
+  "science": [
+    "How black holes work", "How vaccines train the immune system", "What is quantum entanglement", "How sleep affects the brain",
+    "Why the sky is blue", "How DNA works", "How the brain stores memories", "What is dark matter",
+    "How nuclear fusion works", "Evolution by natural selection", "How the heart works", "Why time slows near light speed"
+  ]
+}

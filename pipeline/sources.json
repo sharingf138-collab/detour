@@ -278,9 +278,54 @@
   ],
   "podcasts": [
     {
+      "name": "Darknet Diaries",
+      "url": "https://feeds.megaphone.fm/darknetdiaries",
+      "category": "ai"
+    },
+    {
       "name": "Hidden Brain",
       "url": "https://feeds.simplecast.com/kwWc0lhf",
       "category": "mind"
+    },
+    {
+      "name": "Planet Money",
+      "url": "https://feeds.npr.org/510289/podcast.xml",
+      "category": "money"
+    },
+    {
+      "name": "The Indicator",
+      "url": "https://feeds.npr.org/510325/podcast.xml",
+      "category": "money"
+    },
+    {
+      "name": "Short Wave",
+      "url": "https://feeds.npr.org/510351/podcast.xml",
+      "category": "science"
+    },
+    {
+      "name": "Science Vs",
+      "url": "https://feeds.megaphone.fm/sciencevs",
+      "category": "science"
+    },
+    {
+      "name": "Throughline",
+      "url": "https://feeds.npr.org/510333/podcast.xml",
+      "category": "history"
+    },
+    {
+      "name": "The Rest Is History",
+      "url": "https://feeds.megaphone.fm/GLT4787413333",
+      "category": "history"
+    },
+    {
+      "name": "Radiolab",
+      "url": "https://feeds.simplecast.com/EmVW7VGp",
+      "category": "science"
+    },
+    {
+      "name": "99% Invisible",
+      "url": "https://feeds.simplecast.com/BqbsxVfO",
+      "category": "business"
     },
     {
       "name": "Freakonomics Radio",
@@ -288,24 +333,9 @@
       "category": "money"
     },
     {
-      "name": "In Our Time",
-      "url": "https://podcasts.files.bbci.co.uk/b006qykl.rss",
-      "category": "history"
-    },
-    {
       "name": "Philosophize This!",
       "url": "https://philosophizethis.libsyn.com/rss",
       "category": "philosophy"
-    },
-    {
-      "name": "Lex Fridman Podcast",
-      "url": "https://lexfridman.com/feed/podcast/",
-      "category": "ai"
-    },
-    {
-      "name": "Hardcore History",
-      "url": "https://feeds.feedburner.com/dancarlin/history?format=xml",
-      "category": "history"
     }
   ]
 }

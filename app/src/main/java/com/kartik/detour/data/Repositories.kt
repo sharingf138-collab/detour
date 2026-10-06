@@ -9,6 +9,7 @@ import com.kartik.detour.data.db.DayDao
 import com.kartik.detour.data.db.DayEntity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -19,7 +20,9 @@ import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
 import kotlinx.serialization.json.Json
 import okhttp3.OkHttpClient
+import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.Request
+import okhttp3.RequestBody.Companion.toRequestBody
 import java.io.File
 import java.time.LocalDate
 import java.util.concurrent.TimeUnit
@@ -41,6 +44,11 @@ class ContentRepository(
 
     private val _refreshing = MutableStateFlow(false)
     val refreshing: StateFlow<Boolean> = _refreshing.asStateFlow()
+
+    /** True while GitHub is building today's stops at the app's request. */
+    private val _preparing = MutableStateFlow(false)
+    val preparing: StateFlow<Boolean> = _preparing.asStateFlow()
+    private val prefs = context.getSharedPreferences("detour_build", Context.MODE_PRIVATE)
 
     init {
         scope.launch(Dispatchers.IO) {
@@ -99,6 +107,51 @@ class ContentRepository(
             if (!r.isSuccessful) error("Server answered ${r.code}")
             return r.body?.string() ?: error("Empty response")
         }
+    }
+
+    /**
+     * Make sure today's stops exist. GitHub's scheduler can run hours late, so if the server
+     * still has an older day, ask GitHub to build today's now and poll until it lands.
+     */
+    suspend fun ensureToday(): Result<DayContent> {
+        val todayIso = today().toString()
+        val first = refresh()
+        if (first.getOrNull()?.date == todayIso) return first
+        if (!requestBuild()) return first
+        _preparing.value = true
+        try {
+            repeat(10) {          // ~5 minutes; a build usually takes 1-2
+                delay(30_000)
+                val r = refresh()
+                if (r.getOrNull()?.date == todayIso) return r
+            }
+        } finally {
+            _preparing.value = false
+        }
+        return refresh()
+    }
+
+    /** Starts the GitHub Action (skips itself if today already exists). At most once per 10 minutes. */
+    private suspend fun requestBuild(): Boolean = withContext(Dispatchers.IO) {
+        val token = BuildConfig.GH_DISPATCH_TOKEN
+        if (token.isBlank()) return@withContext false
+        val now = System.currentTimeMillis()
+        if (now - prefs.getLong("lastDispatch", 0) < 10 * 60_000) return@withContext true
+        val body = """{"ref":"main","inputs":{"skip_if_done":"true"}}"""
+            .toRequestBody("application/json".toMediaType())
+        val req = Request.Builder()
+            .url("https://api.github.com/repos/sharingf138-collab/detour/actions/workflows/daily.yml/dispatches")
+            .header("Authorization", "Bearer $token")
+            .header("Accept", "application/vnd.github+json")
+            .post(body)
+            .build()
+        runCatching {
+            client.newCall(req).execute().use { r ->
+                Log.i("Detour", "requested today's build: HTTP ${r.code}")
+                if (r.isSuccessful) prefs.edit().putLong("lastDispatch", now).apply()
+                r.isSuccessful
+            }
+        }.getOrDefault(false)
     }
 
     /** Every word and loop card shown becomes part of the archive and the quiz. */

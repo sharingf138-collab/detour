@@ -76,6 +76,8 @@ data class Video(
     val url: String,
     val thumbnail: String,
     val published: String = "",
+    val learn: String = "",      // one line: what you'll understand after watching
+    val minutes: Int? = null,
 )
 
 @Serializable
@@ -87,6 +89,8 @@ data class Podcast(
     val audioUrl: String,
     val link: String = "",
     val durationSec: Int? = null,
+    val startSec: Int? = null,   // first real chapter, past the intro/sponsor read
+    val why: String = "",        // one line: why this episode is worth it
 )
 
 /** The five kinds of "Stay in the loop" cards. */

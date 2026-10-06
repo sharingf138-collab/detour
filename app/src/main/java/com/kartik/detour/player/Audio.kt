@@ -119,7 +119,8 @@ class Audio(private val context: Context, private val scope: CoroutineScope) {
                     .setUri(p.audioUrl)
                     .setMediaMetadata(MediaMetadata.Builder().setTitle(p.title).setArtist(p.show).build())
                     .build()
-                c.setMediaItem(item, positions.getLong(p.id, 0))
+                // Resume where you left off; otherwise skip the intro/sponsor read when the show notes allow.
+                c.setMediaItem(item, positions.getLong(p.id, (p.startSec ?: 0) * 1000L))
                 c.prepare()
                 _state.value = _state.value.copy(podcast = p)
             }

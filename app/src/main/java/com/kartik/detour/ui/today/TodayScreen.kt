@@ -89,6 +89,7 @@ fun TodayScreen(onOpenLoop: () -> Unit, onOpenQuiz: () -> Unit, onOpenWatch: () 
     val app = context.container
     val content by app.content.content.collectAsStateWithLifecycle()
     val refreshing by app.content.refreshing.collectAsStateWithLifecycle()
+    val preparing by app.content.preparing.collectAsStateWithLifecycle()
     val settings by app.prefs.settings.collectAsStateWithLifecycle()
     val day by remember { app.days.todayFlow() }.collectAsStateWithLifecycle(null)
     val days by remember { app.days.recent() }.collectAsStateWithLifecycle(emptyList())
@@ -119,7 +120,7 @@ fun TodayScreen(onOpenLoop: () -> Unit, onOpenQuiz: () -> Unit, onOpenWatch: () 
     Box(Modifier.fillMaxSize()) {
         PullToRefreshBox(
             isRefreshing = refreshing,
-            onRefresh = { scope.launch { app.content.refresh().onFailure { toastOffline(context) } } },
+            onRefresh = { scope.launch { app.content.ensureToday().onFailure { toastOffline(context) } } },
             modifier = Modifier.fillMaxSize(),
         ) {
             LazyColumn(state = list, contentPadding = PaddingValues(bottom = 120.dp), modifier = Modifier.fillMaxSize()) {
@@ -131,6 +132,7 @@ fun TodayScreen(onOpenLoop: () -> Unit, onOpenQuiz: () -> Unit, onOpenWatch: () 
                         due = due,
                         loopCount = loop.size,
                         pauseOff = pauseOff,
+                        preparing = preparing,
                         onOpenQuiz = onOpenQuiz,
                         onOpenRecap = onOpenRecap,
                     )
@@ -220,6 +222,7 @@ private fun Header(
     due: Int,
     loopCount: Int,
     pauseOff: Boolean,
+    preparing: Boolean,
     onOpenQuiz: () -> Unit,
     onOpenRecap: () -> Unit,
 ) {
@@ -245,7 +248,8 @@ private fun Header(
         if (content.date != today().toString()) {
             Spacer(Modifier.height(14.dp))
             Text(
-                "Showing ${LocalDate.parse(content.date).format(DateTimeFormatter.ofPattern("d MMM"))}. Pull down to check for today's stops.",
+                if (preparing) "Getting today's stops ready. This takes a minute or two."
+                else "Showing ${LocalDate.parse(content.date).format(DateTimeFormatter.ofPattern("d MMM"))}. Pull down to check for today's stops.",
                 style = MaterialTheme.typography.bodySmall, color = Ink.Paradox,
             )
         }

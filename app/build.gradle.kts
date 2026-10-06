@@ -1,8 +1,16 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.ksp)
+}
+
+// Personal GitHub token that may only start the content workflow. Lives in local.properties
+// (git-ignored), never in the public repo.
+val localProps = Properties().apply {
+    rootProject.file("local.properties").takeIf { it.exists() }?.inputStream()?.use { load(it) }
 }
 
 android {
@@ -22,6 +30,7 @@ android {
             "CONTENT_URL",
             "\"https://raw.githubusercontent.com/sharingf138-collab/detour/main/content/latest.json\""
         )
+        buildConfigField("String", "GH_DISPATCH_TOKEN", "\"${localProps.getProperty("gh.dispatch.token", "")}\"")
         // Same file through the GitHub API: not CDN-cached, so it's current the moment the bot commits.
         buildConfigField(
             "String",

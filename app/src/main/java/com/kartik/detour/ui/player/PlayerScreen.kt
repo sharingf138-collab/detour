@@ -146,6 +146,13 @@ fun PlayerScreen(onClose: () -> Unit) {
             Text(p.show, style = MaterialTheme.typography.labelLarge, color = Ink.Psych)
             Spacer(Modifier.height(4.dp))
             Text(p.title, style = MaterialTheme.typography.headlineMedium, maxLines = 3, overflow = TextOverflow.Ellipsis)
+            if (p.why.isNotBlank()) {
+                Spacer(Modifier.height(6.dp))
+                Text(p.why, style = MaterialTheme.typography.bodyLarge, color = Ink.Fog)
+            }
+            if ((p.startSec ?: 0) > 0) {
+                Text("Starts after the intro and sponsor read", style = MaterialTheme.typography.bodySmall, color = Ink.Dim)
+            }
 
             // Scrubber. While dragging, show the drag position instead of the live one.
             Spacer(Modifier.height(20.dp))

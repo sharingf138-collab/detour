@@ -28,6 +28,9 @@ import urllib.request
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import learn  # noqa: E402
+
 ROOT = Path(__file__).resolve().parent.parent
 PIPE = ROOT / "pipeline"
 CONTENT = ROOT / "content"
@@ -152,7 +155,7 @@ def fetch_channel(cid: str) -> list[dict]:
 def load_history() -> dict:
     if HISTORY.exists():
         return json.loads(HISTORY.read_text(encoding="utf-8"))
-    return {"words": [], "loop": [], "videos": [], "podcasts": []}
+    return {"words": [], "loop": [], "videos": [], "podcasts": [], "topics": []}
 
 
 def slug(s: str) -> str:
@@ -502,7 +505,7 @@ def main() -> int:
             print("--videos-only needs today's content to exist already", file=sys.stderr)
             return 1
         content = {**prev, "generatedAt": now.isoformat(timespec="seconds"),
-                   "videos": build_videos(sources, hist, day, now, pool)}
+                   "videos": learn.build_videos(key, gemini, prompt, hist, day.toordinal(), sources["categories"], pool)}
     else:
         content = {
             "schema": 1,
@@ -511,8 +514,8 @@ def main() -> int:
             "words": prev["words"] if prev else build_words(key, hist, rng),
             "loop": prev["loop"] if prev else build_loop(key, hist, rng),
             "news": build_news(key, sources, now),
-            "videos": build_videos(sources, hist, day, now, pool),
-            "podcasts": build_podcasts(sources, hist, day),
+            "videos": learn.build_videos(key, gemini, prompt, hist, day.toordinal(), sources["categories"], pool),
+            "podcasts": learn.build_podcasts(key, gemini, prompt, sources["podcasts"], hist, day.toordinal()),
             "onThisDay": build_on_this_day(key, day),
         }
 

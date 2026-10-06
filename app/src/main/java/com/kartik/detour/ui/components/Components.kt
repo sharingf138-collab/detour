@@ -275,9 +275,16 @@ fun VideoCard(video: Video, large: Boolean, onClick: () -> Unit, modifier: Modif
                 Tag(categoryLabel(video.category), Ink.category(video.category), Modifier.padding(12.dp), filled = true)
             }
             Column(Modifier.padding(16.dp)) {
+                if (video.learn.isNotBlank()) {
+                    Text("You'll learn: ${video.learn}", style = MaterialTheme.typography.bodyMedium, color = Ink.Sign)
+                    Spacer(Modifier.height(6.dp))
+                }
                 Text(video.title, style = MaterialTheme.typography.titleMedium, maxLines = 3, overflow = TextOverflow.Ellipsis)
                 Spacer(Modifier.height(6.dp))
-                Text(video.channel, style = MaterialTheme.typography.bodySmall, color = Ink.Fog)
+                Text(
+                    video.channel + (video.minutes?.let { ", $it min" } ?: ""),
+                    style = MaterialTheme.typography.bodySmall, color = Ink.Fog,
+                )
             }
         }
     } else {
@@ -303,8 +310,11 @@ fun VideoCard(video: Video, large: Boolean, onClick: () -> Unit, modifier: Modif
             Column(Modifier.weight(1f)) {
                 Text(categoryLabel(video.category), style = MaterialTheme.typography.labelMedium, color = Ink.category(video.category))
                 Spacer(Modifier.height(2.dp))
-                Text(video.title, style = MaterialTheme.typography.bodyMedium, maxLines = 2, overflow = TextOverflow.Ellipsis)
-                Text(video.channel, style = MaterialTheme.typography.bodySmall, color = Ink.Dim, maxLines = 1)
+                Text(video.learn.ifBlank { video.title }, style = MaterialTheme.typography.bodyMedium, maxLines = 3, overflow = TextOverflow.Ellipsis)
+                Text(
+                    video.channel + (video.minutes?.let { ", $it min" } ?: ""),
+                    style = MaterialTheme.typography.bodySmall, color = Ink.Dim, maxLines = 1,
+                )
             }
         }
     }

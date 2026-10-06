@@ -109,7 +109,7 @@ private fun DetourRoot(launch: Intent?, onLaunchHandled: () -> Unit) {
     val route = entry?.destination?.route
 
     // Fetch today's stops whenever the app opens; cached content shows meanwhile.
-    LaunchedEffect(Unit) { app.content.refresh() }
+    LaunchedEffect(Unit) { app.content.ensureToday() }
 
     // Back from a video? Offer to keep a note about it.
     var notePrompt by remember { mutableStateOf<NoteEntity?>(null) }

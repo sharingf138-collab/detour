@@ -109,7 +109,8 @@ private fun PodcastRow(p: Podcast, onClick: () -> Unit) {
         Spacer(Modifier.width(14.dp))
         Column(Modifier.weight(1f)) {
             Text(p.show, style = MaterialTheme.typography.labelMedium, color = Ink.Psych)
-            Text(p.title, style = MaterialTheme.typography.bodyMedium, maxLines = 2, overflow = TextOverflow.Ellipsis)
+            if (p.why.isNotBlank()) Text(p.why, style = MaterialTheme.typography.bodyMedium, color = Ink.Paper)
+            Text(p.title, style = MaterialTheme.typography.bodySmall, color = Ink.Fog, maxLines = 2, overflow = TextOverflow.Ellipsis)
             p.durationSec?.let { Text(formatMinutes(it / 60L), style = MaterialTheme.typography.bodySmall, color = Ink.Dim) }
         }
     }

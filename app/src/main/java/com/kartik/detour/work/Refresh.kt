@@ -38,7 +38,7 @@ class RefreshWorker(context: Context, params: WorkerParameters) : CoroutineWorke
         val c = applicationContext.container
         com.kartik.detour.guard.InstaUsage.recordRecent(applicationContext)
         val todayIso = today().toString()
-        val got = c.content.refresh().getOrElse { return if (runAttemptCount < 12) Result.retry() else Result.failure() }
+        val got = c.content.ensureToday().getOrElse { return if (runAttemptCount < 12) Result.retry() else Result.failure() }
         // GitHub's 6:00 cron often starts late; keep checking (every 15 min, ~3 h) until today's stops land.
         if (got.date != todayIso && runAttemptCount < 12) return Result.retry()
 

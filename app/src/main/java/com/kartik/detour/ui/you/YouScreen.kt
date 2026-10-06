@@ -237,7 +237,7 @@ fun YouScreen(onOpenRecap: () -> Unit) {
                         content?.date?.let { "Stops from ${LocalDate.parse(it).format(DateTimeFormatter.ofPattern("EEE d MMM"))}" } ?: "No stops loaded",
                         style = MaterialTheme.typography.bodyMedium, color = Ink.Fog, modifier = Modifier.weight(1f),
                     )
-                    TextButton(onClick = { scope.launch { app.content.refresh().onFailure { toastOffline(context) } } }, enabled = !refreshing) {
+                    TextButton(onClick = { scope.launch { app.content.ensureToday().onFailure { toastOffline(context) } } }, enabled = !refreshing) {
                         Text(if (refreshing) "Checking…" else "Check for update", color = Ink.Sign)
                     }
                 }
