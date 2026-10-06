@@ -165,8 +165,8 @@ def slug(s: str) -> str:
 # ---------------------------------------------------------------- gemini
 
 def gemini(prompt: str, key: str) -> dict | list | None:
-    # Aliases track Google's current models, so retired versions don't break the pipeline.
-    models = [os.environ.get("GEMINI_MODEL", "gemini-flash-latest"), "gemini-flash-lite-latest"]
+    # Aliases track current models. Flash-Lite first: on the free tier Flash is often overloaded or out of quota.
+    models = [os.environ.get("GEMINI_MODEL", "gemini-flash-lite-latest"), "gemini-flash-latest"]
     body = {
         "contents": [{"parts": [{"text": prompt}]}],
         "generationConfig": {"responseMimeType": "application/json", "temperature": 0.9},
