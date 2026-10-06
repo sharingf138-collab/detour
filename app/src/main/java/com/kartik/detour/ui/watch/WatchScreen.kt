@@ -36,11 +36,10 @@ import com.kartik.detour.ui.components.ScreenTitle
 import com.kartik.detour.ui.components.VideoCard
 import com.kartik.detour.ui.formatMinutes
 import com.kartik.detour.ui.openUrl
-import com.kartik.detour.ui.openVideo
 import com.kartik.detour.ui.theme.Ink
 
 @Composable
-fun WatchScreen(onOpenPlayer: () -> Unit) {
+fun WatchScreen(onOpenPlayer: () -> Unit, onOpenVideo: (String) -> Unit) {
     val context = LocalContext.current
     val app = context.container
     val content by app.content.content.collectAsStateWithLifecycle()
@@ -50,14 +49,14 @@ fun WatchScreen(onOpenPlayer: () -> Unit) {
         item { ScreenTitle("Watch instead", "One good video beats forty reels. Your note is waiting when you come back.") }
         videos?.hero?.let { hero ->
             item {
-                VideoCard(hero, large = true, onClick = { openVideo(context, hero) }, modifier = Modifier.padding(horizontal = 20.dp))
+                VideoCard(hero, large = true, onClick = { onOpenVideo(hero.id) }, modifier = Modifier.padding(horizontal = 20.dp))
                 Spacer(Modifier.height(28.dp))
             }
         }
         if (!videos?.more.isNullOrEmpty()) {
             item { Section("One from every topic") }
             items(videos.more, key = { it.id }) { v ->
-                VideoCard(v, large = false, onClick = { openVideo(context, v) }, modifier = Modifier.padding(horizontal = 20.dp))
+                VideoCard(v, large = false, onClick = { onOpenVideo(v.id) }, modifier = Modifier.padding(horizontal = 20.dp))
             }
         }
         val pods = content?.podcasts.orEmpty()

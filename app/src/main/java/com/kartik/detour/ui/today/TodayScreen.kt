@@ -75,7 +75,6 @@ import com.kartik.detour.ui.components.VideoCard
 import com.kartik.detour.ui.greeting
 import com.kartik.detour.ui.toastOffline
 import com.kartik.detour.ui.openUrl
-import com.kartik.detour.ui.openVideo
 import com.kartik.detour.ui.theme.Display
 import com.kartik.detour.ui.theme.Ink
 import kotlinx.coroutines.launch
@@ -84,7 +83,13 @@ import java.time.LocalTime
 import java.time.format.DateTimeFormatter
 
 @Composable
-fun TodayScreen(onOpenLoop: () -> Unit, onOpenQuiz: () -> Unit, onOpenWatch: () -> Unit, onOpenRecap: () -> Unit) {
+fun TodayScreen(
+    onOpenLoop: () -> Unit,
+    onOpenQuiz: () -> Unit,
+    onOpenWatch: () -> Unit,
+    onOpenRecap: () -> Unit,
+    onOpenVideo: (String) -> Unit,
+) {
     val context = LocalContext.current
     val app = context.container
     val content by app.content.content.collectAsStateWithLifecycle()
@@ -193,7 +198,7 @@ fun TodayScreen(onOpenLoop: () -> Unit, onOpenQuiz: () -> Unit, onOpenWatch: () 
                             "Watch instead", Ink.Psych, reached = furthest >= 6,
                             trailing = { TextButton(onClick = onOpenWatch) { Text("More", style = MaterialTheme.typography.labelLarge, color = Ink.Psych) } },
                         ) {
-                            VideoCard(hero, large = true, onClick = { openVideo(context, hero) })
+                            VideoCard(hero, large = true, onClick = { onOpenVideo(hero.id) })
                         }
                     }
                 }

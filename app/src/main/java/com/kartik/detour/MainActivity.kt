@@ -65,6 +65,7 @@ import com.kartik.detour.ui.recap.RecapScreen
 import com.kartik.detour.ui.theme.DetourTheme
 import com.kartik.detour.ui.theme.Ink
 import com.kartik.detour.ui.today.TodayScreen
+import com.kartik.detour.ui.watch.VideoScreen
 import com.kartik.detour.ui.watch.WatchScreen
 import com.kartik.detour.ui.you.YouScreen
 
@@ -155,10 +156,19 @@ private fun DetourRoot(launch: Intent?, onLaunchHandled: () -> Unit) {
                     onOpenQuiz = { nav.navigate("quiz") },
                     onOpenWatch = { go("watch") },
                     onOpenRecap = { nav.navigate("recap") },
+                    onOpenVideo = { id -> nav.navigate("video/$id") },
                 )
             }
             composable("loop") { LoopScreen(onOpenQuiz = { nav.navigate("quiz") }) }
-            composable("watch") { WatchScreen(onOpenPlayer = { nav.navigate("player") { launchSingleTop = true } }) }
+            composable("watch") {
+                WatchScreen(
+                    onOpenPlayer = { nav.navigate("player") { launchSingleTop = true } },
+                    onOpenVideo = { id -> nav.navigate("video/$id") },
+                )
+            }
+            composable("video/{id}") { entry ->
+                VideoScreen(videoId = entry.arguments?.getString("id").orEmpty(), onClose = { nav.popBackStack() })
+            }
             composable("player") { PlayerScreen(onClose = { nav.popBackStack() }) }
             composable("notes") { NotesScreen() }
             composable("you") { YouScreen(onOpenRecap = { nav.navigate("recap") }) }
@@ -167,7 +177,7 @@ private fun DetourRoot(launch: Intent?, onLaunchHandled: () -> Unit) {
         }
         // Opaque strip behind the status bar so scrolled content doesn't run under the clock.
         Box(Modifier.fillMaxWidth().windowInsetsTopHeight(WindowInsets.statusBars).background(Ink.Night))
-        if (route != "quiz" && route != "player" && route != "recap") {
+        if (route != "quiz" && route != "player" && route != "recap" && route != "video/{id}") {
             Column(Modifier.align(Alignment.BottomCenter)) {
                 MiniPlayer(onOpen = { nav.navigate("player") { launchSingleTop = true } })
                 BottomBar(current = route, onSelect = ::go)
