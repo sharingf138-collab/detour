@@ -44,7 +44,14 @@
   "benevolent",
   "inevitable",
   "anomaly",
-  "obsolete"
+  "obsolete",
+  "bootstrapped",
+  "proactive",
+  "holistic",
+  "bottleneck",
+  "imposter",
+  "synthesize",
+  "grassroots"
  ],
  "loop": [
   "glazing",
@@ -85,7 +92,12 @@
   "rent-free",
   "delulu",
   "main-character-syndrome",
-  "std-sti"
+  "std-sti",
+  "banger",
+  "hoovering",
+  "emid",
+  "sigma",
+  "cognitive-dissonance"
  ],
  "videos": [
   "meSctH_a7HM",
@@ -140,7 +152,15 @@
   "wjZofJX0v4M",
   "8SUiLkl42FQ",
   "EFkyxzJtiv4",
-  "vfe-eNq-Qyg"
+  "vfe-eNq-Qyg",
+  "ZkmR8QTs9OM",
+  "sY33CMZWfO8",
+  "DPeRd48YfqY",
+  "jC4v5AS4RIM",
+  "EjbL7zW-Wig",
+  "Jv79l1b-eoI",
+  "Lgs5R1jhiiM",
+  "JcPwIQ6GCj8"
  ],
  "podcasts": [
   "https://traffic.libsyn.com/secure/philosophizethis/han_part_2.mp3?dest-id=144660",
@@ -158,7 +178,9 @@
   "https://media.blubrry.com/takeituneasy/ins.blubrry.com/takeituneasy/lex_ai_ffmpeg.mp3",
   "https://dts.podtrac.com/redirect.mp3/traffic.libsyn.com/dancarlinhh/dchha74_Mania_for_Subjugation_IV.mp3",
   "https://pscrb.fm/rss/p/mgln.ai/e/14/prfx.byspotify.com/e/dts.podtrac.com/pts/redirect.mp3/waaa.wnyc.org/758af4c0-a2c3-47ec-a2d8-05f41bfbde51/episodes/15034057-b747-4c9d-81c0-0552ae0027d4/audio/128/default.mp3?aid=rss_feed&awCollectionId=758af4c0-a2c3-47ec-a2d8-05f41bfbde51&awEpisodeId=15034057-b747-4c9d-81c0-0552ae0027d4&feed=EmVW7VGp",
-  "https://chrt.fm/track/15E3G4/traffic.megaphone.fm/GLT4637234946.mp3"
+  "https://chrt.fm/track/15E3G4/traffic.megaphone.fm/GLT4637234946.mp3",
+  "https://www.podtrac.com/pts/redirect.mp3/dovetail.prxu.org/7057/141e0c43-f935-41de-be94-708448052c4d/darknet-diaries-ep180-conti.mp3",
+  "https://tracking.swap.fm/track/XvDEoI11TR00olTUO8US/prfx.byspotify.com/e/play.podtrac.com/npr-510333/npr.simplecastaudio.com/923a8c19-6266-45f0-88de-3997479f3ca3/episodes/3c68f8b5-4c86-44d4-836a-b47713a58d0a/audio/128/default.mp3?awCollectionId=923a8c19-6266-45f0-88de-3997479f3ca3&awEpisodeId=3c68f8b5-4c86-44d4-836a-b47713a58d0a&feed=gvAZ3nqF&t=podcast&e=nx-s1-5983667&p=510333&d=1278&size=20461278"
  ],
  "topics": [
   "How the UPI payment system works seamlessly under the hood",
@@ -168,6 +190,14 @@
   "The psychology of charisma and how to make people feel heard in conversation",
   "Stoic dichotomy of control: How to stop stressing about things you can't change",
   "The Silk Road: How ancient trade routes shaped global culture, empires, and cuisine",
-  "Why time moves slower near massive objects: Einstein's time dilation simply explained"
+  "Why time moves slower near massive objects: Einstein's time dilation simply explained",
+  "How the Indian Dabbawala tiffin delivery system achieves near-Six Sigma perfection without high-tech",
+  "Understanding credit scores: how CIBIL works, why it matters for loans, and how to build credit in college",
+  "Network effects: why platforms like WhatsApp and Uber become monopolies and how marketplaces win",
+  "Prompt engineering frameworks: how to write effective prompts to get the best results from AI tools",
+  "The Pygmalion effect: how expectations shape performance and social interactions in everyday life",
+  "Absurdism and Albert Camus: how to find personal meaning in a meaningless universe",
+  "The Battle of Thermopylae: the strategic gripping story of 300 Spartans and the Persian War turning point",
+  "How the placebo effect works: the neuroscience of how belief physically heals the human body"
  ]
 }
