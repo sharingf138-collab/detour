@@ -60,7 +60,16 @@
   "gregarious",
   "quintessential",
   "dichotomy",
-  "inherent"
+  "inherent",
+  "austere",
+  "alleviate",
+  "epiphany",
+  "exacerbate",
+  "contemplate",
+  "zeitgeist",
+  "discern",
+  "serendipity",
+  "profound"
  ],
  "loop": [
   "glazing",
@@ -114,7 +123,13 @@
   "understood-the-assignment",
   "ick",
   "gaslighting",
-  "ocd"
+  "ocd",
+  "mogging",
+  "stonewalling",
+  "hawk-tuah",
+  "looksmaxxing",
+  "dha",
+  "goodhart-s-law"
  ],
  "videos": [
   "meSctH_a7HM",
@@ -185,7 +200,15 @@
   "AdrDAik86rc",
   "-a739VjqdSI",
   "1UbVuTXg4CQ",
-  "csIry_3pbDU"
+  "csIry_3pbDU",
+  "Qsq-Sj_rojU",
+  "1CR3hS5Y-PI",
+  "zIbNJCSCEjk",
+  "iv-5mZ_9CPY",
+  "VO6XEQIsCoM",
+  "4LE5bel_GvU",
+  "s4ewZK0uIIA",
+  "lXfEK8G8CUI"
  ],
  "podcasts": [
   "https://traffic.libsyn.com/secure/philosophizethis/han_part_2.mp3?dest-id=144660",
@@ -207,7 +230,9 @@
   "https://www.podtrac.com/pts/redirect.mp3/dovetail.prxu.org/7057/141e0c43-f935-41de-be94-708448052c4d/darknet-diaries-ep180-conti.mp3",
   "https://tracking.swap.fm/track/XvDEoI11TR00olTUO8US/prfx.byspotify.com/e/play.podtrac.com/npr-510333/npr.simplecastaudio.com/923a8c19-6266-45f0-88de-3997479f3ca3/episodes/3c68f8b5-4c86-44d4-836a-b47713a58d0a/audio/128/default.mp3?awCollectionId=923a8c19-6266-45f0-88de-3997479f3ca3&awEpisodeId=3c68f8b5-4c86-44d4-836a-b47713a58d0a&feed=gvAZ3nqF&t=podcast&e=nx-s1-5983667&p=510333&d=1278&size=20461278",
   "https://tracking.swap.fm/track/XvDEoI11TR00olTUO8US/prfx.byspotify.com/e/play.podtrac.com/npr-510289/npr.simplecastaudio.com/43b5acee-463e-4612-95ad-d2596d9dd337/episodes/4e673c43-e87c-4ef1-9ba0-3350c61d0dc6/audio/128/default.mp3?awCollectionId=43b5acee-463e-4612-95ad-d2596d9dd337&awEpisodeId=4e673c43-e87c-4ef1-9ba0-3350c61d0dc6&feed=hvWWWzRv&t=podcast&e=nx-s1-5992800&p=510289&d=1530&size=24495839",
-  "https://pscrb.fm/rss/p/mgln.ai/e/14/prfx.byspotify.com/e/dts.podtrac.com/pts/redirect.mp3/waaa.wnyc.org/758af4c0-a2c3-47ec-a2d8-05f41bfbde51/episodes/5c8ba1ad-5368-427e-a138-f622ccd65fc2/audio/128/default.mp3?aid=rss_feed&awCollectionId=758af4c0-a2c3-47ec-a2d8-05f41bfbde51&awEpisodeId=5c8ba1ad-5368-427e-a138-f622ccd65fc2&feed=EmVW7VGp"
+  "https://pscrb.fm/rss/p/mgln.ai/e/14/prfx.byspotify.com/e/dts.podtrac.com/pts/redirect.mp3/waaa.wnyc.org/758af4c0-a2c3-47ec-a2d8-05f41bfbde51/episodes/5c8ba1ad-5368-427e-a138-f622ccd65fc2/audio/128/default.mp3?aid=rss_feed&awCollectionId=758af4c0-a2c3-47ec-a2d8-05f41bfbde51&awEpisodeId=5c8ba1ad-5368-427e-a138-f622ccd65fc2&feed=EmVW7VGp",
+  "https://prfx.byspotify.com/e/play.podtrac.com/npr-510351/npr.simplecastaudio.com/72da6803-9aa4-4e2e-a973-3bc436f0e9fa/episodes/cbafe760-90f2-4241-b445-85b1e18f4311/audio/128/default.mp3?awCollectionId=72da6803-9aa4-4e2e-a973-3bc436f0e9fa&awEpisodeId=cbafe760-90f2-4241-b445-85b1e18f4311&feed=F0qJcgXZ&t=podcast&e=nx-s1-5825878&p=510351&d=833&size=13330853",
+  "https://pscrb.fm/rss/p/mgln.ai/e/14/prfx.byspotify.com/e/dts.podtrac.com/pts/redirect.mp3/waaa.wnyc.org/758af4c0-a2c3-47ec-a2d8-05f41bfbde51/episodes/498d2ae1-d49f-4012-99b1-5535f7ecc8ae/audio/128/default.mp3?aid=rss_feed&awCollectionId=758af4c0-a2c3-47ec-a2d8-05f41bfbde51&awEpisodeId=498d2ae1-d49f-4012-99b1-5535f7ecc8ae&feed=EmVW7VGp"
  ],
  "topics": [
   "How the UPI payment system works seamlessly under the hood",
@@ -233,6 +258,14 @@
   "The fundamental attribution error: why we judge others by their character and ourselves by our circumstances",
   "The Trolley Problem and utilitarianism: how to think about ethical dilemmas",
   "The Cuban Missile Crisis: the intense 13 days the world came closest to nuclear war",
-  "How the James Webb Space Telescope uses infrared light to look back in time"
+  "How the James Webb Space Telescope uses infrared light to look back in time",
+  "How the Amul cooperative model transformed India's dairy industry and beat giant monopolies",
+  "Understanding inflation: how purchasing power decreases over time and why holding cash is losing money",
+  "Freemium business model: how apps like Spotify and Canva convert free users into paying customers",
+  "How AI image generators like Midjourney and DALL-E turn text into pictures using diffusion models",
+  "The paradox of choice: why having too many options makes us unhappy and how to make better decisions",
+  "Ikigai: the Japanese concept of finding your purpose and reason for being",
+  "The sinking of the RMS Titanic: the human errors and engineering flaws that caused the disaster",
+  "How the human immune system fights viruses and creates memory cells to protect you"
  ]
 }
