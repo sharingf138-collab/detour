@@ -69,7 +69,16 @@
   "zeitgeist",
   "discern",
   "serendipity",
-  "profound"
+  "profound",
+  "curate",
+  "overhaul",
+  "tangible",
+  "transparent",
+  "spearhead",
+  "friction",
+  "resonate",
+  "divergent",
+  "deconstruct"
  ],
  "loop": [
   "glazing",
@@ -129,7 +138,12 @@
   "hawk-tuah",
   "looksmaxxing",
   "dha",
-  "goodhart-s-law"
+  "goodhart-s-law",
+  "bbg",
+  "anxious-avoidant-trap",
+  "demure",
+  "scammin",
+  "adhd"
  ],
  "videos": [
   "meSctH_a7HM",
@@ -208,7 +222,15 @@
   "VO6XEQIsCoM",
   "4LE5bel_GvU",
   "s4ewZK0uIIA",
-  "lXfEK8G8CUI"
+  "lXfEK8G8CUI",
+  "nfczi2cI6Cs",
+  "ZJReQ8ao0SU",
+  "ZprzYoTK-UM",
+  "1kcxUhjuW_0",
+  "ZuometYfMTk",
+  "wHWbZmg2hzU",
+  "KoPEW1rULr8",
+  "e-P5IFTqB98"
  ],
  "podcasts": [
   "https://traffic.libsyn.com/secure/philosophizethis/han_part_2.mp3?dest-id=144660",
@@ -232,7 +254,9 @@
   "https://tracking.swap.fm/track/XvDEoI11TR00olTUO8US/prfx.byspotify.com/e/play.podtrac.com/npr-510289/npr.simplecastaudio.com/43b5acee-463e-4612-95ad-d2596d9dd337/episodes/4e673c43-e87c-4ef1-9ba0-3350c61d0dc6/audio/128/default.mp3?awCollectionId=43b5acee-463e-4612-95ad-d2596d9dd337&awEpisodeId=4e673c43-e87c-4ef1-9ba0-3350c61d0dc6&feed=hvWWWzRv&t=podcast&e=nx-s1-5992800&p=510289&d=1530&size=24495839",
   "https://pscrb.fm/rss/p/mgln.ai/e/14/prfx.byspotify.com/e/dts.podtrac.com/pts/redirect.mp3/waaa.wnyc.org/758af4c0-a2c3-47ec-a2d8-05f41bfbde51/episodes/5c8ba1ad-5368-427e-a138-f622ccd65fc2/audio/128/default.mp3?aid=rss_feed&awCollectionId=758af4c0-a2c3-47ec-a2d8-05f41bfbde51&awEpisodeId=5c8ba1ad-5368-427e-a138-f622ccd65fc2&feed=EmVW7VGp",
   "https://prfx.byspotify.com/e/play.podtrac.com/npr-510351/npr.simplecastaudio.com/72da6803-9aa4-4e2e-a973-3bc436f0e9fa/episodes/cbafe760-90f2-4241-b445-85b1e18f4311/audio/128/default.mp3?awCollectionId=72da6803-9aa4-4e2e-a973-3bc436f0e9fa&awEpisodeId=cbafe760-90f2-4241-b445-85b1e18f4311&feed=F0qJcgXZ&t=podcast&e=nx-s1-5825878&p=510351&d=833&size=13330853",
-  "https://pscrb.fm/rss/p/mgln.ai/e/14/prfx.byspotify.com/e/dts.podtrac.com/pts/redirect.mp3/waaa.wnyc.org/758af4c0-a2c3-47ec-a2d8-05f41bfbde51/episodes/498d2ae1-d49f-4012-99b1-5535f7ecc8ae/audio/128/default.mp3?aid=rss_feed&awCollectionId=758af4c0-a2c3-47ec-a2d8-05f41bfbde51&awEpisodeId=498d2ae1-d49f-4012-99b1-5535f7ecc8ae&feed=EmVW7VGp"
+  "https://pscrb.fm/rss/p/mgln.ai/e/14/prfx.byspotify.com/e/dts.podtrac.com/pts/redirect.mp3/waaa.wnyc.org/758af4c0-a2c3-47ec-a2d8-05f41bfbde51/episodes/498d2ae1-d49f-4012-99b1-5535f7ecc8ae/audio/128/default.mp3?aid=rss_feed&awCollectionId=758af4c0-a2c3-47ec-a2d8-05f41bfbde51&awEpisodeId=498d2ae1-d49f-4012-99b1-5535f7ecc8ae&feed=EmVW7VGp",
+  "https://tracking.swap.fm/track/XvDEoI11TR00olTUO8US/prfx.byspotify.com/e/play.podtrac.com/npr-510289/npr.simplecastaudio.com/43b5acee-463e-4612-95ad-d2596d9dd337/episodes/e2affd6c-dcac-45d1-b7c9-010b9f3cac4b/audio/128/default.mp3?awCollectionId=43b5acee-463e-4612-95ad-d2596d9dd337&awEpisodeId=e2affd6c-dcac-45d1-b7c9-010b9f3cac4b&feed=hvWWWzRv&t=podcast&e=nx-s1-5989651&p=510289&d=1780&size=28490275",
+  "https://pscrb.fm/rss/p/mgln.ai/e/14/prfx.byspotify.com/e/dts.podtrac.com/pts/redirect.mp3/waaa.wnyc.org/758af4c0-a2c3-47ec-a2d8-05f41bfbde51/episodes/d3fb7725-466a-4dc6-930a-49571fdf61ce/audio/128/default.mp3?aid=rss_feed&awCollectionId=758af4c0-a2c3-47ec-a2d8-05f41bfbde51&awEpisodeId=d3fb7725-466a-4dc6-930a-49571fdf61ce&feed=EmVW7VGp"
  ],
  "topics": [
   "How the UPI payment system works seamlessly under the hood",
@@ -266,6 +290,14 @@
   "The paradox of choice: why having too many options makes us unhappy and how to make better decisions",
   "Ikigai: the Japanese concept of finding your purpose and reason for being",
   "The sinking of the RMS Titanic: the human errors and engineering flaws that caused the disaster",
-  "How the human immune system fights viruses and creates memory cells to protect you"
+  "How the human immune system fights viruses and creates memory cells to protect you",
+  "How the Indian electoral voting machines (EVMs) work securely without internet connectivity",
+  "Understanding income tax brackets and old vs new tax regime in India for beginners",
+  "How lifestyle brands use pricing psychology and luxury positioning to sell basic products at massive margins",
+  "How AI recommendation algorithms on YouTube and Instagram Reels capture and keep your attention",
+  "The halo effect: why we assume attractive people are smarter and kinder, and how it shapes social dynamics",
+  "Nietzsche and Ubermensch: how to create your own values instead of following society",
+  "The Partition of India in 1947: the hasty Radcliffe Line and the biggest mass migration in human history",
+  "How black holes form and what happens if you actually fall into one"
  ]
 }
