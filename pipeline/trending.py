@@ -71,7 +71,7 @@ def build_trending(key: str | None, gemini: Callable, prompt: Callable) -> list[
             except Exception as e:  # noqa: BLE001
                 print(f"  ! reddit r/{sub} attempt {attempt + 1}: {e}", file=sys.stderr)
                 time.sleep(8)
-        time.sleep(3)  # Reddit rate-limits quick bursts
+        time.sleep(6)  # Reddit rate-limits quick bursts
     print(f"  trending: {len(trends)} google trends, {len(posts)} reddit posts")
 
     # One list of numbered signals, so Gemini can point back at a source link.

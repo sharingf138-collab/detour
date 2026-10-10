@@ -5,7 +5,7 @@ Below are today's signals: Google search spikes in India (with news headlines, a
 Pick the 5 or 6 stories that are genuinely blowing up: things people are sharing, arguing about or memeing, in India or worldwide. Merge signals that are about the same story. Prefer:
 - big moments people will mention in conversation (a viral incident, a shocking statement, a huge match result, a protest, a major launch, a scandal, a celebrity moment that's everywhere)
 - a mix of India and world
-Skip routine stuff: regional government notices, live-score pages, minor local crime, and anything you can't confirm from the signal text.
+Stay faithful to the signal: if it's a joke, sarcasm, a rumour or one person's claim, say so ("joked", "claimed", "reportedly"); never present a sarcastic post as fact. Skip routine stuff: regional government notices, live-score pages, minor local crime, and anything you can't confirm from the signal text.
 
 For each story write:
 - "text": what happened, one plain English sentence, at most 25 words, starting with the key subject
