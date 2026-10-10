@@ -14,6 +14,16 @@ data class DayContent(
     val videos: Videos = Videos(),
     val podcasts: List<Podcast> = emptyList(),
     val onThisDay: List<HistoryItem> = emptyList(),
+    val trending: List<TrendingItem> = emptyList(),
+)
+
+/** A story blowing up today (Google search spikes + top Reddit posts), in one line. */
+@Serializable
+data class TrendingItem(
+    val text: String,
+    val why: String = "",
+    val url: String = "",
+    val source: String = "",
 )
 
 /** A moment from Wikipedia's "On this day", rewritten in one line. */

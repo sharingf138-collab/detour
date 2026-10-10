@@ -61,6 +61,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.kartik.detour.container
 import com.kartik.detour.data.DayContent
 import com.kartik.detour.data.HistoryItem
+import com.kartik.detour.data.TrendingItem
 import com.kartik.detour.data.LoopType
 import com.kartik.detour.data.NewsItem
 import com.kartik.detour.data.Word
@@ -129,6 +130,8 @@ fun TodayScreen(
             modifier = Modifier.fillMaxSize(),
         ) {
             LazyColumn(state = list, contentPadding = PaddingValues(bottom = 120.dp), modifier = Modifier.fillMaxSize()) {
+                // Each stop lights up once the list has scrolled to its position; count positions as we add them.
+                var stop = 0
                 item(key = "head") {
                     Header(
                         content = c,
@@ -142,14 +145,16 @@ fun TodayScreen(
                         onOpenRecap = onOpenRecap,
                     )
                 }
+                val wordsAt = ++stop
                 item(key = "words") {
-                    RouteStop("Words to use today", Ink.Sign, reached = furthest >= 1) {
+                    RouteStop("Words to use today", Ink.Sign, reached = furthest >= wordsAt) {
                         WordPager(c.words)
                     }
                 }
+                val loopAt = ++stop
                 item(key = "loop") {
                     RouteStop(
-                        "Stay in the loop", Ink.Slang, reached = furthest >= 2,
+                        "Stay in the loop", Ink.Slang, reached = furthest >= loopAt,
                         trailing = { TextButton(onClick = onOpenLoop) { Text("Open deck", style = MaterialTheme.typography.labelLarge, color = Ink.Slang) } },
                     ) {
                         LazyRow(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
@@ -175,27 +180,39 @@ fun TodayScreen(
                         }
                     }
                 }
+                if (c.trending.isNotEmpty()) {
+                    val trendAt = ++stop
+                    item(key = "trending") {
+                        RouteStop("Trending right now", Ink.Slang, reached = furthest >= trendAt) {
+                            TrendingList(c.trending)
+                        }
+                    }
+                }
+                val indiaAt = ++stop
                 item(key = "india") {
-                    RouteStop("India today", Ink.Saffron, reached = furthest >= 3) {
+                    RouteStop("India today", Ink.Saffron, reached = furthest >= indiaAt) {
                         NewsList(c.news.india, Ink.Saffron)
                     }
                 }
+                val worldAt = ++stop
                 item(key = "world") {
-                    RouteStop("Around the world", Ink.Acronym, reached = furthest >= 4) {
+                    RouteStop("Around the world", Ink.Acronym, reached = furthest >= worldAt) {
                         NewsList(c.news.world, Ink.Acronym)
                     }
                 }
                 if (c.onThisDay.isNotEmpty()) {
+                    val historyAt = ++stop
                     item(key = "history") {
-                        RouteStop("On this day", Ink.Paradox, reached = furthest >= 5) {
+                        RouteStop("On this day", Ink.Paradox, reached = furthest >= historyAt) {
                             OnThisDay(c.onThisDay)
                         }
                     }
                 }
                 c.videos.hero?.let { hero ->
+                    val watchAt = ++stop
                     item(key = "watch") {
                         RouteStop(
-                            "Watch instead", Ink.Psych, reached = furthest >= 6,
+                            "Watch instead", Ink.Psych, reached = furthest >= watchAt,
                             trailing = { TextButton(onClick = onOpenWatch) { Text("More", style = MaterialTheme.typography.labelLarge, color = Ink.Psych) } },
                         ) {
                             VideoCard(hero, large = true, onClick = { onOpenVideo(hero.id) })
@@ -381,6 +398,36 @@ private fun NewsList(items: List<NewsItem>, marker: androidx.compose.ui.graphics
                     Text(n.text, style = MaterialTheme.typography.bodyLarge)
                     if (n.source.isNotBlank()) {
                         Text(n.source, style = MaterialTheme.typography.labelSmall, color = Ink.Dim)
+                    }
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun TrendingList(items: List<TrendingItem>) {
+    val context = LocalContext.current
+    Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
+        items.forEach { t ->
+            Row(
+                Modifier
+                    .fillMaxWidth()
+                    .clip(RoundedCornerShape(12.dp))
+                    .clickable { openUrl(context, t.url) }
+                    .padding(vertical = 8.dp),
+            ) {
+                Icon(
+                    Icons.Rounded.LocalFireDepartment, contentDescription = null, tint = Ink.Slang,
+                    modifier = Modifier.padding(top = 3.dp, end = 10.dp).size(16.dp),
+                )
+                Column(Modifier.weight(1f)) {
+                    Text(t.text, style = MaterialTheme.typography.bodyLarge)
+                    if (t.why.isNotBlank()) {
+                        Text(t.why, style = MaterialTheme.typography.bodySmall, color = Ink.Slang)
+                    }
+                    if (t.source.isNotBlank()) {
+                        Text(t.source, style = MaterialTheme.typography.labelSmall, color = Ink.Dim)
                     }
                 }
             }

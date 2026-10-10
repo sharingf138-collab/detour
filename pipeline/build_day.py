@@ -30,6 +30,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import learn  # noqa: E402
+import trending  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 PIPE = ROOT / "pipeline"
@@ -517,6 +518,7 @@ def main() -> int:
             "videos": learn.build_videos(key, gemini, prompt, hist, day.toordinal(), sources["categories"], pool),
             "podcasts": learn.build_podcasts(key, gemini, prompt, sources["podcasts"], hist, day.toordinal()),
             "onThisDay": build_on_this_day(key, day),
+            "trending": trending.build_trending(key, gemini, prompt),
         }
 
     problems = validate(content)

@@ -282,7 +282,7 @@ def build_podcasts(key: str | None, gemini: Callable, prompt: Callable, shows: l
     cands = []
     for s in shows:
         try:
-            for ep in podcast_feed(s["url"], 3):
+            for ep in podcast_feed(s["url"], 5):
                 if ep["audioUrl"] in seen:
                     continue
                 d = ep["durationSec"]
