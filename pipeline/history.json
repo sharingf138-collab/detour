@@ -78,7 +78,16 @@
   "friction",
   "resonate",
   "divergent",
-  "deconstruct"
+  "deconstruct",
+  "facade",
+  "ephemeral",
+  "propensity",
+  "sycophant",
+  "mundane",
+  "articulate",
+  "delineate",
+  "paradigm",
+  "superfluous"
  ],
  "loop": [
   "glazing",
@@ -143,7 +152,13 @@
   "anxious-avoidant-trap",
   "demure",
   "scammin",
-  "adhd"
+  "adhd",
+  "skibidi",
+  "hovering",
+  "dime",
+  "sigma-grindset",
+  "bussin",
+  "fermi-paradox"
  ],
  "videos": [
   "meSctH_a7HM",
@@ -238,7 +253,15 @@
   "NBXRzdzFnHk",
   "fUlGtrHCGzs",
   "8W0OTGQEY8E",
-  "rMHus-0wFSo"
+  "rMHus-0wFSo",
+  "LBNtChg4t4k",
+  "CeR-WcKfvNU",
+  "y0EcjtOB_uU",
+  "wOn87TT28Ok",
+  "wgfSDrqYMJ4",
+  "DLCUn6h7qRo",
+  "uE_UuHRtXCY",
+  "xZbcwi7SfZE"
  ],
  "podcasts": [
   "https://traffic.libsyn.com/secure/philosophizethis/han_part_2.mp3?dest-id=144660",
@@ -266,7 +289,9 @@
   "https://tracking.swap.fm/track/XvDEoI11TR00olTUO8US/prfx.byspotify.com/e/play.podtrac.com/npr-510289/npr.simplecastaudio.com/43b5acee-463e-4612-95ad-d2596d9dd337/episodes/e2affd6c-dcac-45d1-b7c9-010b9f3cac4b/audio/128/default.mp3?awCollectionId=43b5acee-463e-4612-95ad-d2596d9dd337&awEpisodeId=e2affd6c-dcac-45d1-b7c9-010b9f3cac4b&feed=hvWWWzRv&t=podcast&e=nx-s1-5989651&p=510289&d=1780&size=28490275",
   "https://pscrb.fm/rss/p/mgln.ai/e/14/prfx.byspotify.com/e/dts.podtrac.com/pts/redirect.mp3/waaa.wnyc.org/758af4c0-a2c3-47ec-a2d8-05f41bfbde51/episodes/d3fb7725-466a-4dc6-930a-49571fdf61ce/audio/128/default.mp3?aid=rss_feed&awCollectionId=758af4c0-a2c3-47ec-a2d8-05f41bfbde51&awEpisodeId=d3fb7725-466a-4dc6-930a-49571fdf61ce&feed=EmVW7VGp",
   "https://mgln.ai/e/2/pdst.fm/e/dts.podtrac.com/redirect.mp3/stitcher.simplecastaudio.com/2be48404-a43c-4fa8-a32c-760a3216272e/episodes/f563aed8-5f61-457a-9e78-8872917a83a1/audio/128/default.mp3?aid=rss_feed&awCollectionId=2be48404-a43c-4fa8-a32c-760a3216272e&awEpisodeId=f563aed8-5f61-457a-9e78-8872917a83a1&feed=Y8lFbOT4",
-  "https://dts.podtrac.com/redirect.mp3/stitcher.simplecastaudio.com/8b62332a-56b8-4d25-b175-1e588b078323/episodes/0b073402-73ed-444b-99d4-501d2f206826/audio/128/default.mp3?aid=rss_feed&awCollectionId=8b62332a-56b8-4d25-b175-1e588b078323&awEpisodeId=0b073402-73ed-444b-99d4-501d2f206826&feed=4T39_jAj"
+  "https://dts.podtrac.com/redirect.mp3/stitcher.simplecastaudio.com/8b62332a-56b8-4d25-b175-1e588b078323/episodes/0b073402-73ed-444b-99d4-501d2f206826/audio/128/default.mp3?aid=rss_feed&awCollectionId=8b62332a-56b8-4d25-b175-1e588b078323&awEpisodeId=0b073402-73ed-444b-99d4-501d2f206826&feed=4T39_jAj",
+  "https://traffic.megaphone.fm/DSLLC1116428270.mp3",
+  "https://dts.podtrac.com/redirect.mp3/stitcher.simplecastaudio.com/8b62332a-56b8-4d25-b175-1e588b078323/episodes/af18cf7c-b701-4ad9-97de-ef2adbaffcf7/audio/128/default.mp3?aid=rss_feed&awCollectionId=8b62332a-56b8-4d25-b175-1e588b078323&awEpisodeId=af18cf7c-b701-4ad9-97de-ef2adbaffcf7&feed=4T39_jAj"
  ],
  "topics": [
   "How the UPI payment system works seamlessly under the hood",
@@ -316,6 +341,14 @@
   "The Barnum Effect: why horoscopes and personality tests feel so personally accurate",
   "Machiavelligm and political realism: how power actually works in the real world",
   "The Fall of Constantinople in 1453 and how it sparked the Age of Discovery",
-  "How sleep works: circadian rhythms, REM cycles, and why we dream"
+  "How sleep works: circadian rhythms, REM cycles, and why we dream",
+  "How the Indian Railway network manages scheduling and freight logistics across the country",
+  "Understanding bonds and fixed income securities: how debt instruments work for investors",
+  "Two-sided marketplaces: how platforms like Airbnb balance supply and demand to grow",
+  "How vector embeddings and semantic search allow AI to understand meaning rather than just keywords",
+  "Cognitive biases in decision making: how loss aversion and confirmation bias trick our brains",
+  "Utilitarianism vs Deontology: ethics and moral frameworks for everyday choices",
+  "The construction of the Panama Canal: the engineering marvel and geopolitical struggle",
+  "How antibiotics work and the rising threat of antimicrobial resistance"
  ]
 }

@@ -4565,5 +4565,93 @@
   "published": "",
   "learn": "How circadian rhythms and distinct sleep stages regulate brain function and dreams.",
   "minutes": 10
+ },
+ "CeR-WcKfvNU": {
+  "id": "CeR-WcKfvNU",
+  "title": "The Great Indian Railways: World's Most Complex Rail System",
+  "channel": "Lastly",
+  "category": "india",
+  "url": "https://www.youtube.com/watch?v=CeR-WcKfvNU",
+  "thumbnail": "https://i.ytimg.com/vi/CeR-WcKfvNU/hqdefault.jpg",
+  "published": "",
+  "learn": "How complex scheduling and freight logistics keep India's massive railway system moving.",
+  "minutes": 26
+ },
+ "y0EcjtOB_uU": {
+  "id": "y0EcjtOB_uU",
+  "title": "If You Don't Understand Bonds, You Don't Understand Money",
+  "channel": "Lock Stock Finance",
+  "category": "money",
+  "url": "https://www.youtube.com/watch?v=y0EcjtOB_uU",
+  "thumbnail": "https://i.ytimg.com/vi/y0EcjtOB_uU/hqdefault.jpg",
+  "published": "",
+  "learn": "How fixed income securities and debt markets actually work for investors.",
+  "minutes": 9
+ },
+ "wOn87TT28Ok": {
+  "id": "wOn87TT28Ok",
+  "title": "Brian Rothenberg - How To Build & Scale a Marketplace from $0 to Billions",
+  "channel": "Traction",
+  "category": "business",
+  "url": "https://www.youtube.com/watch?v=wOn87TT28Ok",
+  "thumbnail": "https://i.ytimg.com/vi/wOn87TT28Ok/hqdefault.jpg",
+  "published": "",
+  "learn": "How platforms balance supply and demand to scale two-sided marketplaces.",
+  "minutes": 14
+ },
+ "wgfSDrqYMJ4": {
+  "id": "wgfSDrqYMJ4",
+  "title": "What are Word Embeddings?",
+  "channel": "IBM Technology",
+  "category": "ai",
+  "url": "https://www.youtube.com/watch?v=wgfSDrqYMJ4",
+  "thumbnail": "https://i.ytimg.com/vi/wgfSDrqYMJ4/hqdefault.jpg",
+  "published": "",
+  "learn": "How vector embeddings translate words into mathematical meanings for search.",
+  "minutes": 8
+ },
+ "LBNtChg4t4k": {
+  "id": "LBNtChg4t4k",
+  "title": "CRITICAL THINKING - Cognitive Biases: Reference Dependence and Loss Aversion [HD]",
+  "channel": "Wireless Philosophy",
+  "category": "mind",
+  "url": "https://www.youtube.com/watch?v=LBNtChg4t4k",
+  "thumbnail": "https://i.ytimg.com/vi/LBNtChg4t4k/hqdefault.jpg",
+  "published": "",
+  "learn": "How loss aversion and reference dependence secretly distort everyday decisions.",
+  "minutes": 5
+ },
+ "DLCUn6h7qRo": {
+  "id": "DLCUn6h7qRo",
+  "title": "Semester Ethics Course condensed into 22mins (Part 1 of 2)",
+  "channel": "Jeffrey Kaplan",
+  "category": "philosophy",
+  "url": "https://www.youtube.com/watch?v=DLCUn6h7qRo",
+  "thumbnail": "https://i.ytimg.com/vi/DLCUn6h7qRo/hqdefault.jpg",
+  "published": "",
+  "learn": "How foundational moral frameworks shape everyday ethical dilemmas and choices.",
+  "minutes": 22
+ },
+ "uE_UuHRtXCY": {
+  "id": "uE_UuHRtXCY",
+  "title": "Demolition, disease, and death: Building the Panama Canal - Alex Gendler",
+  "channel": "TED-Ed",
+  "category": "history",
+  "url": "https://www.youtube.com/watch?v=uE_UuHRtXCY",
+  "thumbnail": "https://i.ytimg.com/vi/uE_UuHRtXCY/hqdefault.jpg",
+  "published": "",
+  "learn": "How human grit, disease, and engineering conquered the continental divide.",
+  "minutes": 5
+ },
+ "xZbcwi7SfZE": {
+  "id": "xZbcwi7SfZE",
+  "title": "The Antibiotic Apocalypse Explained",
+  "channel": "Kurzgesagt – In a Nutshell",
+  "category": "science",
+  "url": "https://www.youtube.com/watch?v=xZbcwi7SfZE",
+  "thumbnail": "https://i.ytimg.com/vi/xZbcwi7SfZE/hqdefault.jpg",
+  "published": "",
+  "learn": "How bacteria outsmart medicines and trigger the growing antimicrobial resistance crisis.",
+  "minutes": 5
  }
 }
